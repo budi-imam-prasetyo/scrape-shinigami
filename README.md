@@ -73,7 +73,15 @@ python3 main.py --include-list --max-pages 5 --output manhwa.json
 
 # Opsi lain
 python3 main.py --min-delay 1.5 --max-delay 3 --output manhwa.json
+
+# Retry lebih agresif (dipakai workflow CI, IP runner rawan rate-limit)
+python3 main.py --max-retries 5 --backoff-base 3.0 --output manhwa.json
 ```
+
+Jika tidak ada section terdeteksi (IP diblokir situs, halaman
+block/challenge, atau struktur HTML berubah), scraper keluar dengan kode 2
+dan `manhwa.json` tidak diubah. Jika request gagal total, keluar dengan
+kode 1 beserta traceback.
 
 Statistik akhir dicetak ke stdout: jumlah section, item per section, total
 item, item unik, duplikat dihapus, dan request gagal.

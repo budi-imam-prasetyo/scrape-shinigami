@@ -15,14 +15,14 @@ concurrency:
 
 jobs:
   refresh:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
           cache: pip
@@ -36,7 +36,7 @@ jobs:
         run: python -m unittest discover -s tests -v
 
       - name: Run scraper
-        run: python main.py --output manhwa.json
+        run: python main.py --output manhwa.json --max-retries 5 --backoff-base 3.0
 
       - name: Validate JSON
         run: python -m json.tool manhwa.json > /dev/null

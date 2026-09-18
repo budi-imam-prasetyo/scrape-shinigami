@@ -124,8 +124,22 @@ def validate_items(items):
 
 def run(args):
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
-    client = HttpClient(delay_range=(args.min_delay, args.max_delay))
+    client = HttpClient(
+        max_retries=args.max_retries,
+        backoff_base=args.backoff_base,
+        delay_range=(args.min_delay, args.max_delay),
+    )
     sections, homepage_duplicates = scrape_homepage_sections(client)
+    if not sections:
+        LOGGER.error(
+            "Tidak ada section yang terdeteksi di %s. "
+            "Kemungkinan penyebab: IP runner diblokir situs (cek log retry 403), "
+            "halaman block/challenge, atau struktur HTML berubah. "
+            "File %s tidak diubah.",
+            BASE_URL,
+            args.output,
+        )
+        return 2
     list_items, list_failed = ([], 0)
     if args.include_list:
         list_items, list_failed = scrape_list_pages(client, args.max_pages)
@@ -136,6 +150,7 @@ def run(args):
         sections.append({"title": "Manhwa Terbaru", "items": list_items})
     for section in sections:
         validate_items(section["items"])
+        LOGGER.info("Section '%s': %d item", section["title"], len(section["items"]))
     document = build_document(sections, datetime.now(timezone.utc).isoformat(), BASE_URL)
     save_atomic(document, args.output)
     item_count = sum(len(s["items"]) for s in document["sections"])
@@ -159,6 +174,8 @@ def main(argv=None):
     parser.add_argument("--include-list", action="store_true", help="Tambah section pagination daftar manhwa")
     parser.add_argument("--min-delay", type=float, default=1.0)
     parser.add_argument("--max-delay", type=float, default=2.0)
+    parser.add_argument("--max-retries", type=int, default=3)
+    parser.add_argument("--backoff-base", type=float, default=2.0)
     args = parser.parse_args(argv)
     return run(args)
 
