@@ -1,0 +1,767 @@
+{
+  "schema_version": "0.2.0",
+  "generated_at": "2026-09-17T13:59:30.714424+00:00",
+  "source": "https://komiku.org/",
+  "sections": [
+    {
+      "id": "baca-komik-terbaru",
+      "title": "Baca Komik Terbaru",
+      "items": [
+        {
+          "judul": "The Chaebol Family's Genius Monster",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/07/03/20260703064131_d4819988adff4b11_84e117b0.webp?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/the-chaebol-familys-genius-monster/",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "A Weary Child Looks for His Father",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/03/13/20260313050014_6373de2aa7cbfd2b_1f94095b.webp?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/a-weary-child-looks-for-his-father/",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "Henkyou Gurashi no Maou, Tensei shite Saikyou no Majutsushi ni naru 〜Aisarenagara Nariagaru Moto Maō wa, Ningen o Shiritai〜",
+          "url_img": "https://thumbnail.komiku.to/img/upload/henkyou_gurashi_no_maou__tensei_shite_saikyou_no_majutsushi_ni_naru/img_696db5b373a9b8.68988923.jpg?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/henkyou-gurashi-no-maou-tensei-shite-saikyou-no-majutsushi-ni-naru-%e3%80%9caisarenagara-nariagaru-moto-mao-wa-ningen-o-shiritai%e3%80%9c/",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "Destiny Unchain Online",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/destiny-unchain-online/manga_img_horizontal-DestinyUnchainPanjang.png?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/destiny-unchain-online/",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "Sister-in-law of the Heroine in a Childcare Novel",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/06/03/20260603113232_e2fb007412a50ab9_6b726af5.png?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/sister-in-law-of-the-heroine-in-a-childcare-novel/",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "The Investor Who Sees The Future",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/the-investor-who-sees-the-future/manga_img_horizontal-A1-The-Investor-Who-Sees-The-Future.jpg?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/the-investor-who-sees-the-future/",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "Kaoru Hana wa Rin to Saku",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/kaoru-hana-wa-rin-to-saku/manga_img_horizontal-Komik-Kaoru-Hana-wa-Rin-to-Saku.jpg?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/kaoru-hana-wa-rin-to-saku/",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "Mankitsu Shitai Jouren-san",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/03/16/20260316213944_11821de43dd06238_f266240a.jpg?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/mankitsu-shitai-jouren-san/",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "The MAX leveled hero will return!",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/the-max-leveled-hero-will-return/manga_img_horizontal-Manhwa-The-MAX-leveled-hero-will-return.png?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/the-max-leveled-hero-will-return/",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "My Exclusive Tower Guide",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/my-exclusive-tower-guide/manga_img_horizontal-Back-My-Exclusive-Tower-Guide.jpg?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/my-exclusive-tower-guide/",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "The Heavenly Demon Cult’s Strongest Maid",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/07/13/20260713151818_a2b0922e7d6c8e15_46e0c2e0.jpg?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/the-heavenly-demon-cults-strongest-maid/",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "The Former Absolute Supreme",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/07/30/20260730021541_89c91d3ae0247c6d_e0d80a55.jpg?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/the-former-absolute-supreme/",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "Apex Future Martial Arts",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/apex-future-martial-arts/manga_img_horizontal-Apex-Future-Martial-Arts-2.png?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/apex-future-martial-arts/",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "Steel-Eating Player",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/steel-eating-player/manga_img_horizontal-Back-Steel-Eating-Player.jpg?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/steel-eating-player/",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "Shibou Endo wo Kaihi shita Gyaruge no Hirointachi ga Ore no [Nikkichou] wo Yonde Himitsu wo Shittarashii",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/17/20260917140059_f4d1ceb0629bce49_99f4af21.webp?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/shibou-endo-wo-kaihi-shita-gyaruge-no-hirointachi-ga-ore-no-nikkichou-wo-yonde-himitsu-wo-shittarashii/",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "Fukushuu o Koinegau Saikyou Yuusha wa, Yami no Chikara de Senmetsu Musou Suru",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/fukushuu-o-koinegau-saikyou-yuusha-wa-yami-no-chikara-de-senmetsu-musou-suru/manga_img_horizontal-Komik-Fukushuu-o-Koinegau-Saikyou-Yuusha-wa-Yami-no-Chikara-de-Senmetsu-Musou-Suru.png?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/fukushuu-o-koinegau-saikyou-yuusha-wa-yami-no-chikara-de-senmetsu-musou-suru/",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "Mairimashita! Iruma-kun",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/mairimashita-iruma-kun/manga_img_horizontal-Manga-Mairimashita-Iruma-kun.jpg?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/mairimashita-iruma-kun/",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "Hitoribocchi no Isekai Kouryaku",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/hitoribocchi-no-isekai-kouryaku/manga_img_horizontal-A1-Hitoribocchi-no-Isekai-Kouryaku.jpg?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/hitoribocchi-no-isekai-kouryaku/",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "My Disciples Cultivate, While I Slack Off!",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/my-disciples-cultivate-while-i-slack-off/manga_img_horizontal-A1-My-Disciples-Cultivate-While-I-Slack-Off.jpg?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/my-disciples-cultivate-while-i-slack-off/",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "The Ordinary Lawyer’s Subspace",
+          "url_img": "https://thumbnail.komiku.to/img/upload/the_ordinary_lawyer___s_subspace/img_684bd05e732ec1.71836823.jpg?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/the-ordinary-lawyers-subspace/",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "The Demon God",
+          "url_img": "https://thumbnail.komiku.to/img/upload/the_demon_god/img_698196a9e18358.55523562.jpg?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/the-demon-god/",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "Maid wa Koisuru Hachiya-kun",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/03/19/20260319233658_b6b3c8f523958f47_32bde5cc.jpg?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/maid-wa-koisuru-hachiya-kun/",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "Tsuihou-kei no Akuyaku Party no Leader ni Tensei shita node, Zamaa sareru mae ni Jibun wo Tsuihou shimashita. ~Skill wo Ubau 'Steal' tte Akuyaku-sugiru kedo Tsuyosugiru .",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/07/12/20260712155407_acde8eb564324198_c43a39fd.jpg?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/tsuihou-kei-no-akuyaku-party-no-leader-ni-tensei-shita-node-zamaa-sareru-mae-ni-jibun-wo-tsuihou-shimashita-skill-wo-ubau-steal-tte-akuyaku-sugiru-kedo-tsuyosugiru/",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "Lv. 99 Princess of Black Flame",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/08/26/20260826215320_5e76d0e695df1d34_ee7d91b6.jpg?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/lv-99-princess-of-black-flame/",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "Warrior Grandpa and Supreme Granddaughter",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/warrior-grandpa-and-supreme-granddaughter/manga_img_horizontal-Back-Warrior-Grandpa-and-Supreme-Granddaughter.jpg?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/warrior-grandpa-and-supreme-granddaughter/",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "Number One Star Instructor Master Baek",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/number-one-star-instructor-master-baek/manga_img_horizontal-Komik-Number-One-Star-Instructor-Master-Baek.jpg?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/number-one-star-instructor-master-baek/",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "A Disaster-Class Hero Has Returned",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/a-disaster-class-hero-has-returned/manga_img_horizontal-Komik-A-Disaster-Class-Hero-Has-Returned.png?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/a-disaster-class-hero-has-returned/",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "Reality Quest",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/reality-quest/manga_img_horizontal-Komik-Reality-Quest.png?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/reality-quest/",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "The Villainous Duke’s Daughter Hides Her Identity",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/12/20260912195118_9e7e2f957b26f173_27344d18.jpg?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/the-villainous-dukes-daughter-hides-her-identity/",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "Though I’m a Homebody, I Found Myself in a Dark Captive Genre",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/08/13/20260813002444_a6551ae23aa454db_dfbbdc9a.jpg?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/though-im-a-homebody-i-found-myself-in-a-dark-captive-genre/",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "I Married the Impotent Duke and Now I Want to Protect His Child",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/10/20260910193224_56b47209a5eddd3a_cbc6caa6.jpg?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/i-married-the-impotent-duke-and-now-i-want-to-protect-his-child/",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "Murim’s Debt King",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/06/11/20260611123245_134412484f3ce330_d3c8f5d9.webp?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/murims-debt-king/",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "The Heavenly Demon Wants A Quiet Life",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/the-heavenly-demon-wants-a-quiet-life/manga_img_horizontal-A1-The-Heavenly-Demon-Wants-A-Quiet-Life.jpg?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/the-heavenly-demon-wants-a-quiet-life/",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "Shadow Slave",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/07/19/20260719041733_954e261b54fe9d40_64543900.png?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/shadow-slave/",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "Daremo ga Urayamu Tonari no Cool Bishoujo, Jitsu wa Nounai Pink Sugiru",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/07/21/20260721215631_921b25f62bb84bb1_a07ad184.webp?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/daremo-ga-urayamu-tonari-no-cool-bishoujo-jitsu-wa-nounai-pink-sugiru/",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "Tenmaku no Jaadugar",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/07/07/20260707152145_37378383f59f4bf2_06278476.webp?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/tenmaku-no-jaadugar/",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "Mazoku no Musumetachi to Okuru Midareta Isekai Seikatsu",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/06/08/20260608120420_ba15206d9f830f84_34b74e37.jpg?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/mazoku-no-musumetachi-to-okuru-midareta-isekai-seikatsu/",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "Tensei Shita Kuukan Mahoutsukai wa Shoutai Kakushite Medachitai!",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/07/13/20260713231731_6590be6bd85c8cb3_92728d44.webp?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/tensei-shita-kuukan-mahoutsukai-wa-shoutai-kakushite-medachitai/",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "Giantess Buddy An Infinite Link With A World Destroying Beauty",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/12/20260912195138_426aa0fdcab29342_5e41f12a.jpg?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/giantess-buddy-an-infinite-link-with-a-world-destroying-beauty/",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "I Only Need the Duke’s Child",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/05/24/20260524180158_757bcd028682c688_a83cfa78.jpg?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/i-only-need-the-dukes-child/",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        }
+      ]
+    },
+    {
+      "id": "baru-ditambahkan",
+      "title": "Baru Ditambahkan",
+      "items": [
+        {
+          "judul": "Shibou Endo wo Kaihi shita Gyaruge no Hirointachi ga Ore no [Nikkichou] wo Yonde Himitsu wo Shittarashii",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/17/20260917140059_f4d1ceb0629bce49_99f4af21.webp?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/shibou-endo-wo-kaihi-shita-gyaruge-no-hirointachi-ga-ore-no-nikkichou-wo-yonde-himitsu-wo-shittarashii/",
+          "section": "baru-ditambahkan",
+          "section_title": "Baru Ditambahkan"
+        },
+        {
+          "judul": "Isshun wo Ikiru Kimi wo, Boku wa Eien ni Wasurenai",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/16/20260916180830_7654d7821aed5fe7_82efb29f.webp?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/isshun-wo-ikiru-kimi-wo-boku-wa-eien-ni-wasurenai/",
+          "section": "baru-ditambahkan",
+          "section_title": "Baru Ditambahkan"
+        },
+        {
+          "judul": "Sumisaka-san Mousouchu!",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/16/20260916180802_da3b6492abaedcde_744f9b72.webp?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/sumisaka-san-mousouchu/",
+          "section": "baru-ditambahkan",
+          "section_title": "Baru Ditambahkan"
+        },
+        {
+          "judul": "Boku dake ga Shitterun daze",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/14/20260914011038_f89ace9dbdf1e974_c285d87e.webp?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/boku-dake-ga-shitterun-daze/",
+          "section": "baru-ditambahkan",
+          "section_title": "Baru Ditambahkan"
+        },
+        {
+          "judul": "Kamatte Shinsotsu-chan ga Maikai Sasottekuru",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/14/20260914010404_a176f34908717ea8_1073ac8a.webp?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/kamatte-shinsotsu-chan-ga-maikai-sasottekuru/",
+          "section": "baru-ditambahkan",
+          "section_title": "Baru Ditambahkan"
+        },
+        {
+          "judul": "Chicchakute Dekakute Kawaii Nanase-san o Kanchigai Moto-kare Kara Ubatte Shiawase ni Suru",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/12/20260912195521_6f812132cab2d087_7c3dc4ac.png?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/chicchakute-dekakute-kawaii-nanase-san-o-kanchigai-moto-kare-kara-ubatte-shiawase-ni-suru/",
+          "section": "baru-ditambahkan",
+          "section_title": "Baru Ditambahkan"
+        },
+        {
+          "judul": "Koushiki Furin",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/11/20260911161446_99fd59fa37bb4d11_9bbccbe8.webp?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/koushiki-furin/",
+          "section": "baru-ditambahkan",
+          "section_title": "Baru Ditambahkan"
+        },
+        {
+          "judul": "Elf, Juukishi wo Hirou",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/10/20260910235129_25ae3a1a32882dc0_3679e8c5.webp?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/elf-juukishi-wo-hirou/",
+          "section": "baru-ditambahkan",
+          "section_title": "Baru Ditambahkan"
+        },
+        {
+          "judul": "Yahari Ore no Seishun Love Come wa Machigatteiru @comic",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/10/20260910063114_7c33268f7fcc1804_2d4fa021.jpg?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/yahari-ore-no-seishun-love-come-wa-machigatteiru-comic/",
+          "section": "baru-ditambahkan",
+          "section_title": "Baru Ditambahkan"
+        },
+        {
+          "judul": "Not Over",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/16/20260916143417_9580af2c8a181029_317bfff1.jpg?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/not-over/",
+          "section": "baru-ditambahkan",
+          "section_title": "Baru Ditambahkan"
+        },
+        {
+          "judul": "Mr. Kim Strikes It Rich with Auto-Hunting",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/16/20260916063010_2d1c58eb8a06bef2_b51b006f.webp?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/mr-kim-strikes-it-rich-with-auto-hunting/",
+          "section": "baru-ditambahkan",
+          "section_title": "Baru Ditambahkan"
+        },
+        {
+          "judul": "Asha of the Borderlands",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/14/20260914220144_e3f634e6d3600763_333afb05.png?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/asha-of-the-borderlands/",
+          "section": "baru-ditambahkan",
+          "section_title": "Baru Ditambahkan"
+        },
+        {
+          "judul": "Blue Ursus",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/14/20260914175345_4c95241bdf7e3d90_9eeca654.jpg?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/blue-ursus/",
+          "section": "baru-ditambahkan",
+          "section_title": "Baru Ditambahkan"
+        },
+        {
+          "judul": "Murim's Youngest Miracle Demon Doctor",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/13/20260913134402_ce9afd776a971a49_8542b6c9.jpg?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/murims-youngest-miracle-demon-doctor/",
+          "section": "baru-ditambahkan",
+          "section_title": "Baru Ditambahkan"
+        },
+        {
+          "judul": "To You Who Killed Me: The Villainess’s Final Dance",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/12/20260912195425_94bcf630867b7dd7_91118a47.webp?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/to-you-who-killed-me-the-villainesss-final-dance/",
+          "section": "baru-ditambahkan",
+          "section_title": "Baru Ditambahkan"
+        },
+        {
+          "judul": "The Villainous Duke’s Daughter Hides Her Identity",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/12/20260912195118_9e7e2f957b26f173_27344d18.jpg?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/the-villainous-dukes-daughter-hides-her-identity/",
+          "section": "baru-ditambahkan",
+          "section_title": "Baru Ditambahkan"
+        },
+        {
+          "judul": "The Genius Professor Wants an Easy Life",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/12/20260912130511_9ae9763163420597_21a0664f.webp?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/the-genius-professor-wants-an-easy-life/",
+          "section": "baru-ditambahkan",
+          "section_title": "Baru Ditambahkan"
+        },
+        {
+          "judul": "Can I Cry Now?",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/12/20260912130447_a971a6e37aec58d8_ef579f68.jpg?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/can-i-cry-now/",
+          "section": "baru-ditambahkan",
+          "section_title": "Baru Ditambahkan"
+        },
+        {
+          "judul": "World Extinction War",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/17/20260917013544_97382363ff4ed1e7_4ef64e24.webp?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/world-extinction-war/",
+          "section": "baru-ditambahkan",
+          "section_title": "Baru Ditambahkan"
+        },
+        {
+          "judul": "Giantess Buddy An Infinite Link With A World Destroying Beauty",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/12/20260912195138_426aa0fdcab29342_5e41f12a.jpg?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/giantess-buddy-an-infinite-link-with-a-world-destroying-beauty/",
+          "section": "baru-ditambahkan",
+          "section_title": "Baru Ditambahkan"
+        },
+        {
+          "judul": "Demon Life Starting From A Baby",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/12/20260912004237_0b9d93c0e3e96b58_52d1a1cf.jpg?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/demon-life-starting-from-a-baby/",
+          "section": "baru-ditambahkan",
+          "section_title": "Baru Ditambahkan"
+        },
+        {
+          "judul": "The Invincible Escort",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/08/20260908135551_86c1f7e8428b6618_31c4d1ca.webp?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/the-invincible-escort/",
+          "section": "baru-ditambahkan",
+          "section_title": "Baru Ditambahkan"
+        },
+        {
+          "judul": "37.5℃ Hidden Love",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/08/20260908032445_4d7bf310aa5daa70_1f11af5c.webp?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/37-5%e2%84%83-hidden-love/",
+          "section": "baru-ditambahkan",
+          "section_title": "Baru Ditambahkan"
+        },
+        {
+          "judul": "Game Invasion: I Awakened Two Talents at the Start!",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/06/20260906142943_ffee14ad3ec3c647_b315b705.png?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/game-invasion-i-awakened-two-talents-at-the-start/",
+          "section": "baru-ditambahkan",
+          "section_title": "Baru Ditambahkan"
+        },
+        {
+          "judul": "Reincarnated with Divine Titles",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/06/20260906035322_f124674e90f9368a_88751b20.webp?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/reincarnated-with-divine-titles/",
+          "section": "baru-ditambahkan",
+          "section_title": "Baru Ditambahkan"
+        },
+        {
+          "judul": "The Unrequited Love Obsession Club",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/03/20260903222545_1de144bf673fb01e_1065f0bf.webp?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/the-unrequited-love-obsession-club/",
+          "section": "baru-ditambahkan",
+          "section_title": "Baru Ditambahkan"
+        },
+        {
+          "judul": "The Crimson Dragon Martial Emperor",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/03/20260903163924_a76d986b2ea05b97_bb510e4a.jpg?resize=240%2C150",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/the-crimson-dragon-martial-emperor/",
+          "section": "baru-ditambahkan",
+          "section_title": "Baru Ditambahkan"
+        }
+      ]
+    },
+    {
+      "id": "peringkat-komiku-harian",
+      "title": "Peringkat Komiku (harian)",
+      "items": [
+        {
+          "judul": "From Goblin to Goblin God",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/from-goblin-to-goblin-god/manga_thumbnail-A2-From-Goblin-to-Goblin-God.jpg?resize=240%2C280",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/from-goblin-to-goblin-god/",
+          "rank": 1,
+          "sub_section": "harian",
+          "section": "peringkat-komiku-harian",
+          "section_title": "Peringkat Komiku (harian)"
+        },
+        {
+          "judul": "Return of the First Patriarch: The Strongest Reincarnates into His Descendant 1000 Years Later",
+          "url_img": "https://thumbnail.komiku.to/img/upload/return_of_the_first_patriarch/img_6992e33c4b2928.75017148.jpg?resize=240%2C280",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/return-of-the-first-patriarch-the-strongest-reincarnates-into-his-descendant-1000-years-later/",
+          "rank": 2,
+          "sub_section": "harian",
+          "section": "peringkat-komiku-harian",
+          "section_title": "Peringkat Komiku (harian)"
+        },
+        {
+          "judul": "Disastrous Necromancer",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/disastrous-necromancer/manga_thumbnail-Head-Disastrous-Necromancer.jpeg?resize=240%2C280",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/disastrous-necromancer/",
+          "rank": 3,
+          "sub_section": "harian",
+          "section": "peringkat-komiku-harian",
+          "section_title": "Peringkat Komiku (harian)"
+        },
+        {
+          "judul": "Full-Time Awakening",
+          "url_img": "https://thumbnail.komiku.to/img/upload/full-time_awakening/img_687dfc3d4330e4.42199864.png?resize=240%2C280",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/full-time-awakening/",
+          "rank": 4,
+          "sub_section": "harian",
+          "section": "peringkat-komiku-harian",
+          "section_title": "Peringkat Komiku (harian)"
+        },
+        {
+          "judul": "Magic Emperor",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/magic-emperor/manga_thumbnail-Komik-Magic-Emperor.jpg?resize=240%2C280",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/magic-emperor/",
+          "rank": 5,
+          "sub_section": "harian",
+          "section": "peringkat-komiku-harian",
+          "section_title": "Peringkat Komiku (harian)"
+        },
+        {
+          "judul": "Ao Ashi",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/ao-ashi/manga_thumbnail-Ao-Ashi-Cover.jpg?resize=240%2C280",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/ao-ashi/",
+          "rank": 6,
+          "sub_section": "harian",
+          "section": "peringkat-komiku-harian",
+          "section_title": "Peringkat Komiku (harian)"
+        },
+        {
+          "judul": "One Piece",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/komik-one-piece-indo/manga_thumbnail-Komik-One-Piece.jpg?resize=240%2C280",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/komik-one-piece-indo/",
+          "rank": 7,
+          "sub_section": "harian",
+          "section": "peringkat-komiku-harian",
+          "section_title": "Peringkat Komiku (harian)"
+        },
+        {
+          "judul": "Tsuihou Sareta Tenshou Juu Kishi wa Game Chishiki de Musou Suru",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/tsuihou-sareta-tenshou-juu-kishi-wa-game-chishiki-de-musou-suru/manga_thumbnail-tsuihoucover.png?resize=240%2C280",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/tsuihou-sareta-tenshou-juu-kishi-wa-game-chishiki-de-musou-suru/",
+          "rank": 8,
+          "sub_section": "harian",
+          "section": "peringkat-komiku-harian",
+          "section_title": "Peringkat Komiku (harian)"
+        },
+        {
+          "judul": "Rebirth: Monarch of the Dead",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/08/24/20260824180008_c890fc9b7e5b5a76_64de2534.jpg?resize=240%2C280",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/rebirth-monarch-of-the-dead/",
+          "rank": 9,
+          "sub_section": "harian",
+          "section": "peringkat-komiku-harian",
+          "section_title": "Peringkat Komiku (harian)"
+        },
+        {
+          "judul": "Tales of Demons and Gods",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/tales-demons-gods/manga_thumbnail-Komik-Tales-of-Demons-and-Gods.jpg?resize=240%2C280",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/tales-demons-gods/",
+          "rank": 10,
+          "sub_section": "harian",
+          "section": "peringkat-komiku-harian",
+          "section_title": "Peringkat Komiku (harian)"
+        }
+      ]
+    },
+    {
+      "id": "peringkat-komiku-mingguan",
+      "title": "Peringkat Komiku (mingguan)",
+      "items": [
+        {
+          "judul": "From Goblin to Goblin God",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/from-goblin-to-goblin-god/manga_thumbnail-A2-From-Goblin-to-Goblin-God.jpg?resize=240%2C280",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/from-goblin-to-goblin-god/",
+          "rank": 1,
+          "sub_section": "mingguan",
+          "section": "peringkat-komiku-mingguan",
+          "section_title": "Peringkat Komiku (mingguan)"
+        },
+        {
+          "judul": "One Piece",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/komik-one-piece-indo/manga_thumbnail-Komik-One-Piece.jpg?resize=240%2C280",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/komik-one-piece-indo/",
+          "rank": 2,
+          "sub_section": "mingguan",
+          "section": "peringkat-komiku-mingguan",
+          "section_title": "Peringkat Komiku (mingguan)"
+        },
+        {
+          "judul": "Full-Time Awakening",
+          "url_img": "https://thumbnail.komiku.to/img/upload/full-time_awakening/img_687dfc3d4330e4.42199864.png?resize=240%2C280",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/full-time-awakening/",
+          "rank": 3,
+          "sub_section": "mingguan",
+          "section": "peringkat-komiku-mingguan",
+          "section_title": "Peringkat Komiku (mingguan)"
+        },
+        {
+          "judul": "Disastrous Necromancer",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/disastrous-necromancer/manga_thumbnail-Head-Disastrous-Necromancer.jpeg?resize=240%2C280",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/disastrous-necromancer/",
+          "rank": 4,
+          "sub_section": "mingguan",
+          "section": "peringkat-komiku-mingguan",
+          "section_title": "Peringkat Komiku (mingguan)"
+        },
+        {
+          "judul": "Magic Emperor",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/magic-emperor/manga_thumbnail-Komik-Magic-Emperor.jpg?resize=240%2C280",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/magic-emperor/",
+          "rank": 5,
+          "sub_section": "mingguan",
+          "section": "peringkat-komiku-mingguan",
+          "section_title": "Peringkat Komiku (mingguan)"
+        },
+        {
+          "judul": "Tsuihou Sareta Tenshou Juu Kishi wa Game Chishiki de Musou Suru",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/tsuihou-sareta-tenshou-juu-kishi-wa-game-chishiki-de-musou-suru/manga_thumbnail-tsuihoucover.png?resize=240%2C280",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/tsuihou-sareta-tenshou-juu-kishi-wa-game-chishiki-de-musou-suru/",
+          "rank": 6,
+          "sub_section": "mingguan",
+          "section": "peringkat-komiku-mingguan",
+          "section_title": "Peringkat Komiku (mingguan)"
+        },
+        {
+          "judul": "Ao Ashi",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/ao-ashi/manga_thumbnail-Ao-Ashi-Cover.jpg?resize=240%2C280",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/ao-ashi/",
+          "rank": 7,
+          "sub_section": "mingguan",
+          "section": "peringkat-komiku-mingguan",
+          "section_title": "Peringkat Komiku (mingguan)"
+        },
+        {
+          "judul": "Return of the First Patriarch: The Strongest Reincarnates into His Descendant 1000 Years Later",
+          "url_img": "https://thumbnail.komiku.to/img/upload/return_of_the_first_patriarch/img_6992e33c4b2928.75017148.jpg?resize=240%2C280",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/return-of-the-first-patriarch-the-strongest-reincarnates-into-his-descendant-1000-years-later/",
+          "rank": 8,
+          "sub_section": "mingguan",
+          "section": "peringkat-komiku-mingguan",
+          "section_title": "Peringkat Komiku (mingguan)"
+        },
+        {
+          "judul": "Rebirth: Monarch of the Dead",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/08/24/20260824180008_c890fc9b7e5b5a76_64de2534.jpg?resize=240%2C280",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/rebirth-monarch-of-the-dead/",
+          "rank": 9,
+          "sub_section": "mingguan",
+          "section": "peringkat-komiku-mingguan",
+          "section_title": "Peringkat Komiku (mingguan)"
+        },
+        {
+          "judul": "The Ultimate of All Ages",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/the-ultimate-of-all-ages/manga_thumbnail-Manhua-The-Ultimate-of-All-Ages.jpg?resize=240%2C280",
+          "sinopsis": "",
+          "detail_url": "https://komiku.org/manga/the-ultimate-of-all-ages/",
+          "rank": 10,
+          "sub_section": "mingguan",
+          "section": "peringkat-komiku-mingguan",
+          "section_title": "Peringkat Komiku (mingguan)"
+        }
+      ]
+    }
+  ]
+}
