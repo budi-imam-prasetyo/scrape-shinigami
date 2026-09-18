@@ -50,5 +50,6 @@ jobs:
             echo "No changes to commit."
           else
             git commit -m "chore: daily refresh manhwa.json"
+            git pull --rebase
             git push
           fi
