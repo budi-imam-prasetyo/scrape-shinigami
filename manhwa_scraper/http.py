@@ -8,6 +8,9 @@ import random
 import time
 
 import requests
+import urllib3
+
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 LOGGER = logging.getLogger(__name__)
 
@@ -16,6 +19,7 @@ RETRYABLE_STATUS = {403, 408, 429, 500, 502, 503, 504}
 
 def create_session():
     session = requests.Session()
+    session.verify = False
     session.headers.update(
         {
             "User-Agent": "ManhwaSectionScraper/0.2.0 (personal use; Python requests)",
