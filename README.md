@@ -94,14 +94,27 @@ lewat tab Actions → "Refresh manhwa.json" → Run workflow (`workflow_dispatch
 
 Langkah workflow:
 
-1. Checkout repo, setup Python 3.12, install `requirements.txt`.
+1. Checkout repo (full history, `fetch-depth: 0`), setup Python 3.12, install `requirements.txt`.
 2. Jalankan test suite (`python -m unittest discover -s tests -v`).
-3. Jalankan scraper (`python main.py --output manhwa.json`).
+3. Jalankan scraper (`python main.py --output manhwa.json --max-retries 5 --backoff-base 3.0`).
 4. Validasi JSON (`python -m json.tool manhwa.json`).
 5. Commit + push `manhwa.json` **hanya jika ada perubahan**
    (`git diff --cached --quiet`), dengan pesan `chore: daily refresh manhwa.json`.
+   Push dilakukan via `git fetch` → `git rebase -X theirs` → `git push origin HEAD:main`
+   untuk menangani race condition jika ada commit baru di remote saat workflow berjalan.
 
 Concurrency group `refresh-manhwa` mencegah dua run refresh berjalan bersamaan.
+
+> **Catatan**: Jangan gunakan tombol "Re-run jobs" pada run lama di GitHub Actions.
+> Gunakan tombol **Run workflow** di halaman workflow agar runner mengambil
+> versi workflow terbaru dari branch `main`.
+
+## SSL
+
+Situs `komiku.org` menggunakan sertifikat SSL self-signed. HTTP client
+(`manhwa_scraper/http.py`) menonaktifkan verifikasi SSL (`verify=False`)
+dan menyembunyikan warning `InsecureRequestWarning` dari urllib3 agar
+scraper tetap berjalan di environment CI.
 
 ## Menjalankan test
 
@@ -126,17 +139,19 @@ tiruan, sehingga tidak ada network call saat test.
 
 ## Arsitektur
 
-| Modul                          | Tanggung jawab                                        |
-| ------------------------------ | ----------------------------------------------------- |
-| `main.py`                      | CLI, orkestrasi, statistik                            |
-| `manhwa_scraper/http.py`       | Session, User-Agent, retry+backoff, delay antar-request |
-| `manhwa_scraper/parser.py`     | Parsing HTML menjadi item/section                     |
-| `manhwa_scraper/scraper.py`    | Penggabungan section, stamping metadata, deduplication |
-| `manhwa_scraper/normalize.py`  | Normalisasi teks dan URL, slug id section             |
-| `manhwa_scraper/storage.py`    | Schema JSON, validasi, penulisan atomic               |
+| Modul                          | Tanggung jawab                                          |
+| ------------------------------ | ------------------------------------------------------- |
+| `main.py`                      | CLI, orkestrasi, statistik                              |
+| `manhwa_scraper/http.py`       | Session, SSL bypass, retry+backoff, delay antar-request |
+| `manhwa_scraper/parser.py`     | Parsing HTML menjadi item/section                       |
+| `manhwa_scraper/scraper.py`    | Penggabungan section, stamping metadata, deduplication  |
+| `manhwa_scraper/normalize.py`  | Normalisasi teks dan URL, slug id section               |
+| `manhwa_scraper/storage.py`    | Schema JSON, validasi, penulisan atomic                 |
 
 ## Perilaku penting
 
+- **SSL bypass**: `komiku.org` menggunakan self-signed certificate. Session
+  requests dikonfigurasi dengan `verify=False` agar tidak gagal SSL handshake.
 - **Atomic write**: `manhwa.json` ditulis lewat file temporer lalu `os.replace`,
   sehingga file lama tidak pernah corrupt walau proses mati di tengah jalan.
 - **Deduplication**: berdasarkan `detail_url`, per section. Item duplikat
@@ -150,6 +165,11 @@ tiruan, sehingga tidak ada network call saat test.
 
 ## Riwayat versi
 
+- **0.2.1** (2026-09-18): SSL bypass (`verify=False` + suppress
+  `InsecureRequestWarning`) untuk menangani self-signed certificate
+  `komiku.org`. CI workflow diperbaiki: `fetch-depth: 0`, explicit
+  `git fetch` + `git rebase -X theirs` + `git push origin HEAD:main`
+  untuk menangani detached HEAD dan race condition push di GitHub Actions.
 - **0.2.0** (2026-09-17): Output berubah dari array datar menjadi dokumen
   per-section (`schema_version: "0.2.0"`). Ditambahkan: deteksi section
   dinamis, pagination deduplication, validasi schema (jsonschema), atomic
