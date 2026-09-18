@@ -1,0 +1,54 @@
+name: Refresh manhwa.json
+
+on:
+  schedule:
+    # 18:00 UTC = 01:00 WIB setiap hari
+    - cron: "0 18 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-manhwa
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run tests
+        run: python -m unittest discover -s tests -v
+
+      - name: Run scraper
+        run: python main.py --output manhwa.json
+
+      - name: Validate JSON
+        run: python -m json.tool manhwa.json > /dev/null
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add manhwa.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore: daily refresh manhwa.json"
+            git push
+          fi

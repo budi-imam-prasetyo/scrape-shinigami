@@ -78,6 +78,23 @@ python3 main.py --min-delay 1.5 --max-delay 3 --output manhwa.json
 Statistik akhir dicetak ke stdout: jumlah section, item per section, total
 item, item unik, duplikat dihapus, dan request gagal.
 
+## Refresh otomatis harian (GitHub Actions)
+
+Workflow `.github/workflows/refresh.yml` berjalan otomatis setiap hari
+pukul 18:00 UTC (01:00 WIB) via `schedule.cron`, dan bisa dipicu manual
+lewat tab Actions → "Refresh manhwa.json" → Run workflow (`workflow_dispatch`).
+
+Langkah workflow:
+
+1. Checkout repo, setup Python 3.12, install `requirements.txt`.
+2. Jalankan test suite (`python -m unittest discover -s tests -v`).
+3. Jalankan scraper (`python main.py --output manhwa.json`).
+4. Validasi JSON (`python -m json.tool manhwa.json`).
+5. Commit + push `manhwa.json` **hanya jika ada perubahan**
+   (`git diff --cached --quiet`), dengan pesan `chore: daily refresh manhwa.json`.
+
+Concurrency group `refresh-manhwa` mencegah dua run refresh berjalan bersamaan.
+
 ## Menjalankan test
 
 ```bash
