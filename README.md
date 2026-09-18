@@ -105,10 +105,6 @@ Langkah workflow:
 
 Concurrency group `refresh-manhwa` mencegah dua run refresh berjalan bersamaan.
 
-> **Catatan**: Jangan gunakan tombol "Re-run jobs" pada run lama di GitHub Actions.
-> Gunakan tombol **Run workflow** di halaman workflow agar runner mengambil
-> versi workflow terbaru dari branch `main`.
-
 ## SSL
 
 Situs `komiku.org` menggunakan sertifikat SSL self-signed. HTTP client
