@@ -52,6 +52,7 @@ jobs:
             echo "No changes to commit."
           else
             git commit -m "chore: daily refresh manhwa.json"
-            git pull --rebase -X theirs origin main
-            git push origin main
+            git fetch origin main
+            git rebase -X theirs origin/main
+            git push origin HEAD:main
           fi
