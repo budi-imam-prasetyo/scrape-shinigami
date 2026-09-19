@@ -19,7 +19,9 @@ class FakeResponse:
 
     def raise_for_status(self):
         if self.status_code >= 400:
-            raise requests.HTTPError(f"Status {self.status_code}")
+            # HTTPError asli dari requests membawa .response; tirukan di sini
+            # agar logika non-retryable di HttpClient teruji.
+            raise requests.HTTPError(f"Status {self.status_code}", response=self)
 
 
 class FailingThenSuccessSession:
@@ -53,15 +55,28 @@ class SequentialSession:
         return FakeResponse(self.pages.pop(0))
 
 
+class NotFoundSession:
+    def __init__(self):
+        self.calls = 0
+        self.headers = {}
+
+    def get(self, url, timeout=None):
+        self.calls += 1
+        return FakeResponse("not found", status_code=404)
+
+
 LIST_PAGE_1 = """
-<div class="bge"><div class="bgei"><a href="/manga/a/"><img src="https://t/a.jpg"/></a></div>
+<div class="bge"><div class="bgei"><a href="/manga/a/"><img src="https://t/a.jpg"/>
+<div class="tpe1_inf"><b>Manhwa</b> Aksi</div></a></div>
 <div class="kan"><h3>Judul A</h3><p>Sinopsis A</p></div></div>
-<div class="bge"><div class="bgei"><a href="/manga/b/"><img data-src="https://t/b.webp"/></a></div>
+<div class="bge"><div class="bgei"><a href="/manga/b/"><img data-src="https://t/b.webp"/>
+<div class="tpe1_inf"><b>Manga</b> Komedi</div></a></div>
 <div class="kan"><h3>Judul B</h3><p>Sinopsis B</p></div></div>
 <span hx-get="https://api.komiku.org/manga/page/2/?tipe=manhwa"></span>
 """
 LIST_PAGE_2 = """
-<div class="bge"><div class="bgei"><a href="/manga/c/"><img src="https://t/c.jpg"/></a></div>
+<div class="bge"><div class="bgei"><a href="/manga/c/"><img src="https://t/c.jpg"/>
+<div class="tpe1_inf"><b>Manhua</b> Fantasi</div></a></div>
 <div class="kan"><h3>Judul C</h3><p></p></div></div>
 """
 
@@ -78,6 +93,12 @@ class TestErrorHandling(unittest.TestCase):
             client.get("https://x/")
         self.assertEqual(client.session.calls, 2)
 
+    def test_non_retryable_status_not_retried(self):
+        client = HttpClient(session=NotFoundSession(), max_retries=3, backoff_base=0.01)
+        with self.assertRaises(requests.HTTPError):
+            client.get("https://x/")
+        self.assertEqual(client.session.calls, 1, "404 tidak boleh di-retry")
+
 
 class TestListPagination(unittest.TestCase):
     def test_parse_list_page(self):
@@ -86,11 +107,19 @@ class TestListPagination(unittest.TestCase):
         self.assertEqual(items[0]["judul"], "Judul A")
         self.assertEqual(items[1]["url_img"], "https://t/b.webp")
         self.assertEqual(items[0]["detail_url"], "https://komiku.org/manga/a/")
+        # Kategori dari .tpe1_inf b (tipe asli situs, semua tipe terwakili)
+        self.assertEqual(items[0]["kategori"], "Manhwa")
+        self.assertEqual(items[1]["kategori"], "Manga")
 
     def test_discover_next_page(self):
         nxt = discover_next_page(LIST_PAGE_1, "https://api.komiku.org/manga/?tipe=manhwa")
         self.assertEqual(nxt, "https://api.komiku.org/manga/page/2/?tipe=manhwa")
         self.assertIsNone(discover_next_page(LIST_PAGE_2, "https://x/"))
+
+    def test_discover_next_page_relative(self):
+        html = '<span hx-get="/manga/page/2/"></span>'
+        nxt = discover_next_page(html, "https://api.komiku.org/manga/")
+        self.assertEqual(nxt, "https://api.komiku.org/manga/page/2/")
 
     def test_scrape_list_pages_follows_pagination(self):
         client = HttpClient(session=SequentialSession([LIST_PAGE_1, LIST_PAGE_2]), delay_range=(0, 0))

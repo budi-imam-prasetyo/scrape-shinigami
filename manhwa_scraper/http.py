@@ -1,6 +1,6 @@
 """Client HTTP dengan retry, backoff, dan polite delay.
 
-Version: 0.2.0
+Version: 0.2.2
 """
 
 import logging
@@ -22,7 +22,7 @@ def create_session():
     session.verify = False
     session.headers.update(
         {
-            "User-Agent": "ManhwaSectionScraper/0.2.0 (personal use; Python requests)",
+            "User-Agent": "ManhwaSectionScraper/0.2.2 (personal use; Python requests)",
             "Accept": "text/html,application/xhtml+xml",
             "Accept-Language": "id-ID,id;q=0.9",
         }
@@ -46,7 +46,11 @@ class HttpClient:
                 response.raise_for_status()
                 return response.text
             except requests.RequestException as error:
-                if attempt == self.max_retries:
+                # Status non-retryable (mis. 404) tidak perlu dicoba ulang.
+                status = getattr(getattr(error, "response", None), "status_code", None)
+                if attempt == self.max_retries or (
+                    status is not None and status not in RETRYABLE_STATUS
+                ):
                     LOGGER.warning("Gagal %s setelah %d percobaan: %s", url, attempt, error)
                     raise
                 sleep = self.backoff_base**attempt + random.uniform(0, 1)

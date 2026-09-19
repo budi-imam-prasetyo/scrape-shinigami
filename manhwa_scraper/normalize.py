@@ -1,9 +1,18 @@
 import re
 from urllib.parse import parse_qsl, urlencode, urljoin, urlsplit, urlunsplit
 
+# Teks yang dipakai situs Komiku sebagai pengganti sinopsis kosong.
+SINOPSIS_PLACEHOLDER = "belum ada isi."
+
 
 def clean_text(value):
     return " ".join(str(value or "").split())
+
+
+def is_real_sinopsis(value):
+    """True jika teks layak dipakai sebagai sinopsis (bukan kosong/placeholder)."""
+    text = clean_text(value)
+    return bool(text) and text.casefold() != SINOPSIS_PLACEHOLDER
 
 
 def normalize_url(value, base_url, detail=False):

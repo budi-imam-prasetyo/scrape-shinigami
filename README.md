@@ -56,9 +56,23 @@ bukan di-hardcode:
 
 Catatan:
 
-- Section homepage memang tidak menyertakan sinopsis per kartu, jadi field
-  `sinopsis` berisi string kosong. Sinopsis terisi ketika mode
-  `--include-list` dipakai (endpoint daftar menyertakan sinopsis singkat).
+- Kartu homepage tidak memuat sinopsis, jadi scraper mengisinya bertahap:
+  1. **Endpoint daftar** (`api.komiku.org/manga/`, **tanpa filter tipe**, 10
+     halaman default) — kartunya memuat sinopsis dan tipe asli untuk semua
+     kategori (Manga/Manhwa/Manhua). Berhenti lebih awal kalau semua yang
+     kosong sudah ketemu (`--enrich-pages N`, `--no-enrich-sinopsis` untuk
+     menonaktifkan). Mode `--include-list` memakai data daftar yang sama
+     tanpa request tambahan.
+  2. **Fallback halaman detail** — item yang tetap kosong (biasanya item
+     peringkat, yang diurutkan berdasarkan views sehingga tidak muncul di
+     halaman awal daftar) diambil langsung dari `#Sinopsis` di halaman
+     detailnya, plus kategori dari baris `Tipe:` tabel metadata. Jumlah
+     request = jumlah item yang masih kosong (biasanya 15-25).
+- Placeholder sinopsis dari situs ("Belum ada isi.") dibersihkan dan
+  dianggap kosong, lalu diisi lewat tahap di atas.
+- Field `kategori` (`Manga`/`Manhwa`/`Manhua`) diambil dari atribut
+  `data-tipe`, prefix alt gambar, `.tpe1_inf b` di endpoint daftar, atau
+  baris `Tipe:` di halaman detail.
 - Jika situs menambah/mengubah section, scraper otomatis mengikuti selama
   pola kartunya sama. Section tanpa kartu atau tanpa judul dilewati.
 
@@ -68,7 +82,7 @@ Catatan:
 # Default: section dari homepage
 python3 main.py --output manhwa.json
 
-# Tambah section paginated dari endpoint daftar manhwa (ada sinopsis)
+# Tambah section paginated dari endpoint daftar terbaru (semua tipe)
 python3 main.py --include-list --max-pages 5 --output manhwa.json
 
 # Opsi lain
@@ -84,7 +98,8 @@ dan `manhwa.json` tidak diubah. Jika request gagal total, keluar dengan
 kode 1 beserta traceback.
 
 Statistik akhir dicetak ke stdout: jumlah section, item per section, total
-item, item unik, duplikat dihapus, dan request gagal.
+item, item unik, duplikat dihapus, sinopsis terisi via daftar/fallback detail,
+kategori terisi, sinopsis kosong, dan request gagal.
 
 ## Refresh otomatis harian (GitHub Actions)
 
@@ -155,12 +170,23 @@ tiruan, sehingga tidak ada network call saat test.
 - **Request gagal**: retry 3x dengan exponential backoff + jitter; status
   retryable: 403, 408, 429, 500, 502, 503, 504. Kegagalan final tercatat di
   statistik.
-- **Delay**: 1-2 detik (bisa diatur) antar request halaman daftar.
-- **Tidak ada request detail per item** secara default; sinopsis diambil dari
-  endpoint daftar jika `--include-list` aktif.
+- **Delay**: 1-2 detik (bisa diatur) antar request (halaman daftar dan
+  fallback detail).
+- **Fallback halaman detail**: hanya dijalankan untuk item yang sinopsisnya
+  masih kosong setelah enrichment endpoint daftar (umumnya 15-25 request kecil).
+- **Status non-retryable** (mis. 404) tidak di-retry; hanya 403, 408, 429,
+  500, 502, 503, 504 yang dicoba ulang.
 
 ## Riwayat versi
 
+- **0.2.2** (2026-09-19): Perbaikan besar cakupan data. Enrichment sinopsis
+  pindah ke endpoint daftar **tanpa filter tipe** (sebelumnya `?tipe=manhwa`,
+  menyebabkan semua item Manga/Manhua kosong sinopsisnya). Ditambahkan:
+  fallback sinopsis + kategori dari halaman detail untuk item yang tetap
+  kosong, filter placeholder "Belum ada isi.", kategori dari `.tpe1_inf b`,
+  `urljoin` untuk pagination `hx-get` relatif, status non-retryable tidak
+  di-retry, statistik `detail_filled`/`detail_failed`/`kategori_filled`, dan
+  section `--include-list` diganti "Daftar Terbaru" (endpoint kini semua tipe).
 - **0.2.1** (2026-09-18): SSL bypass (`verify=False` + suppress
   `InsecureRequestWarning`) untuk menangani self-signed certificate
   `komiku.org`. CI workflow diperbaiki: `fetch-depth: 0`, explicit

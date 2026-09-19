@@ -1,6 +1,6 @@
 {
   "schema_version": "0.2.0",
-  "generated_at": "2026-09-20T20:13:45.175746+00:00",
+  "generated_at": "2026-09-19T09:52:22.700390+00:00",
   "source": "https://komiku.org/",
   "sections": [
     {
@@ -8,322 +8,362 @@
       "title": "Baca Komik Terbaru",
       "items": [
         {
-          "judul": "Got A Gallery In The Wild",
-          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/21/20260921013150_96a4f3caf4bf62d8_be6f3cd7.png?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/got-a-gallery-in-the-wild/",
+          "judul": "Superhuman Era",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/08/16/20260816173000_727b35104082b7ce_f0e2d0fd.jpg?resize=240%2C150",
+          "sinopsis": "Sebuah tim kecil terbentuk untuk menyeimbangkan aksi lapangan, pendidikan, dan etika penggunaan kekuatan.",
+          "detail_url": "https://komiku.org/manga/superhuman-era/",
+          "kategori": "Manhwa",
           "section": "baca-komik-terbaru",
           "section_title": "Baca Komik Terbaru"
         },
         {
-          "judul": "Maguro Meido ga Shikotama Ecchi",
-          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/21/20260921013124_d5707651641857d6_5dbcf7cd.jpg?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/maguro-meido-ga-shikotama-ecchi/",
-          "section": "baca-komik-terbaru",
-          "section_title": "Baca Komik Terbaru"
-        },
-        {
-          "judul": "Dungeons and Crayons",
-          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/03/14/20260314025825_f2c74959d644bac4_0175c08c.webp?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/dungeons-and-crayons/",
-          "section": "baca-komik-terbaru",
-          "section_title": "Baca Komik Terbaru"
-        },
-        {
-          "judul": "Revenge of the Iron-Blooded Sword Hound",
-          "url_img": "https://thumbnail.komiku.to/uploads/manga/revenge-of-the-iron-blooded-sword-hound/manga_img_horizontal-Back-Revenge-of-the-Iron-Blooded-Sword-Hound.jpg?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/revenge-of-the-iron-blooded-sword-hound/",
-          "section": "baca-komik-terbaru",
-          "section_title": "Baca Komik Terbaru"
-        },
-        {
-          "judul": "Mokushiroku no Yonkishi",
-          "url_img": "https://thumbnail.komiku.to/uploads/manga/mokushiroku-no-yonkishi/manga_img_horizontal-Komik-Mokushiroku-no-Yonkishi-scaled.jpg?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/mokushiroku-no-yonkishi/",
-          "section": "baca-komik-terbaru",
-          "section_title": "Baca Komik Terbaru"
-        },
-        {
-          "judul": "Childhood Friend Of The Zenith",
-          "url_img": "https://thumbnail.komiku.to/uploads/manga/childhood-friend-of-the-zenith/manga_img_horizontal-A1-Childhood-Friend-Of-The-Zenith.jpg?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/childhood-friend-of-the-zenith/",
-          "section": "baca-komik-terbaru",
-          "section_title": "Baca Komik Terbaru"
-        },
-        {
-          "judul": "Mr. Kim Strikes It Rich with Auto-Hunting",
-          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/16/20260916063010_2d1c58eb8a06bef2_b51b006f.webp?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/mr-kim-strikes-it-rich-with-auto-hunting/",
-          "section": "baca-komik-terbaru",
-          "section_title": "Baca Komik Terbaru"
-        },
-        {
-          "judul": "Rebirth Of The Urban Immortal Cultivator",
-          "url_img": "https://thumbnail.komiku.to/uploads/manga/rebirth-of-the-urban-immortal-cultivator/manga_img_horizontal-Rebirth-Of-The-Urban-Immortal-Cultivator.gif?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/rebirth-of-the-urban-immortal-cultivator/",
-          "section": "baca-komik-terbaru",
-          "section_title": "Baca Komik Terbaru"
-        },
-        {
-          "judul": "Mood Disorder",
-          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/04/15/20260415160240_3459febc1b058949_0898dba6.jpg?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/mood-disorder/",
-          "section": "baca-komik-terbaru",
-          "section_title": "Baca Komik Terbaru"
-        },
-        {
-          "judul": "The Returnee’s Hidden Strategy Stream",
-          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/03/15/20260315015303_56c0b8100bacda96_d058be60.webp?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/the-returnees-hidden-strategy-stream/",
-          "section": "baca-komik-terbaru",
-          "section_title": "Baca Komik Terbaru"
-        },
-        {
-          "judul": "Destiny Unchain Online",
-          "url_img": "https://thumbnail.komiku.to/uploads/manga/destiny-unchain-online/manga_img_horizontal-DestinyUnchainPanjang.png?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/destiny-unchain-online/",
-          "section": "baca-komik-terbaru",
-          "section_title": "Baca Komik Terbaru"
-        },
-        {
-          "judul": "Contract Killer Enrollment",
-          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/06/22/20260622011053_23e8e5ce38f77a5f_7c7771ec.jpg?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/contract-killer-enrollment/",
-          "section": "baca-komik-terbaru",
-          "section_title": "Baca Komik Terbaru"
-        },
-        {
-          "judul": "Disastrous Necromancer",
-          "url_img": "https://thumbnail.komiku.to/uploads/manga/disastrous-necromancer/manga_img_horizontal-Back-Disastrous-Necromancer.jpg?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/disastrous-necromancer/",
-          "section": "baca-komik-terbaru",
-          "section_title": "Baca Komik Terbaru"
-        },
-        {
-          "judul": "Godeokchun's Food Truck",
-          "url_img": "https://thumbnail.komiku.to/img/upload/godeokchun_s_food_truck/img_6927ff8a0f6957.18608759.jpg?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/godeokchuns-food-truck/",
-          "section": "baca-komik-terbaru",
-          "section_title": "Baca Komik Terbaru"
-        },
-        {
-          "judul": "Kareinaru Akujo ni Naritai wa!: Aisare Tensei Shoujo wa, Tanoshii Nidome no Jinsei o Okurimasu",
-          "url_img": "https://thumbnail.komiku.to/img/upload/kareinaru_akujo_ni_naritai_wa/img_698ed92ab39775.81576926.jpg?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/kareinaru-akujo-ni-naritai-wa-aisare-tensei-shoujo-wa-tanoshii-nidome-no-jinsei-o-okurimasu/",
-          "section": "baca-komik-terbaru",
-          "section_title": "Baca Komik Terbaru"
-        },
-        {
-          "judul": "Obshchaka",
-          "url_img": "https://thumbnail.komiku.to/img/upload/obshchaka/img_696df21a1b64e4.76594301.jpg?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/obshchaka/",
-          "section": "baca-komik-terbaru",
-          "section_title": "Baca Komik Terbaru"
-        },
-        {
-          "judul": "Isekai Saikyou, Nippon de JK to Konkatsu Suru",
-          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/06/21/20260621141253_0ebcfafc01ed06cc_95f2239b.jpg?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/isekai-saikyou-nippon-de-jk-to-konkatsu-suru/",
-          "section": "baca-komik-terbaru",
-          "section_title": "Baca Komik Terbaru"
-        },
-        {
-          "judul": "Tozaki-san wa Boku ni Dake Tsumetai",
-          "url_img": "https://thumbnail.komiku.to/uploads/manga/tozaki-san-wa-boku-ni-dake-tsumetai/manga_img_horizontal-A1-Tozaki-san-wa-Boku-ni-Dake-Tsumetai.jpg?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/tozaki-san-wa-boku-ni-dake-tsumetai/",
-          "section": "baca-komik-terbaru",
-          "section_title": "Baca Komik Terbaru"
-        },
-        {
-          "judul": "Reborn as the Enemy Prince",
-          "url_img": "https://thumbnail.komiku.to/uploads/manga/reborn-as-the-enemy-prince/manga_img_horizontal-Back-Reborn-as-the-Enemy-Prince.jpg?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/reborn-as-the-enemy-prince/",
-          "section": "baca-komik-terbaru",
-          "section_title": "Baca Komik Terbaru"
-        },
-        {
-          "judul": "Dao of the Bizarre Immortal",
-          "url_img": "https://thumbnail.komiku.to/img/upload/dao_of_the_bizarre_immortal/img_6834136d2014c6.95950673.png?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/dao-of-the-bizarre-immortal/",
-          "section": "baca-komik-terbaru",
-          "section_title": "Baca Komik Terbaru"
-        },
-        {
-          "judul": "Tonari No Kuuderera O Amayakashitara, Uchi No Aikagi O Watasu Koto Ni Natta",
-          "url_img": "https://thumbnail.komiku.to/img/upload/tonari_no_kuuderera_o_amayakashitara/img_6836b9d7a73171.52362932.png?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/tonari-no-kuuderera-o-amayakashitara-uchi-no-aikagi-o-watasu-koto-ni-natta/",
-          "section": "baca-komik-terbaru",
-          "section_title": "Baca Komik Terbaru"
-        },
-        {
-          "judul": "Black-Haired US Army General",
-          "url_img": "https://thumbnail.komiku.to/img/upload/black-haired_us_army_general/img_6992e27cc12651.60134467.png?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/black-haired-us-army-general/",
-          "section": "baca-komik-terbaru",
-          "section_title": "Baca Komik Terbaru"
-        },
-        {
-          "judul": "Hu Tao Becomes a Surgeon",
-          "url_img": "https://thumbnail.komiku.to/img/upload/hu_tao_becomes_a_surgeon/img_68c51d268cb310.53219009.jpg?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/hu-tao-becomes-a-surgeon/",
-          "section": "baca-komik-terbaru",
-          "section_title": "Baca Komik Terbaru"
-        },
-        {
-          "judul": "Resurrection Boy",
-          "url_img": "https://thumbnail.komiku.to/img/upload/resurrection_boy/img_699d1a8c6678b6.19256335.jpg?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/resurrection-boy/",
-          "section": "baca-komik-terbaru",
-          "section_title": "Baca Komik Terbaru"
-        },
-        {
-          "judul": "Older Women’s Club",
-          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/06/29/20260629193142_01b7054c6b3e0887_4aba4699.jpg?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/older-womens-club/",
-          "section": "baca-komik-terbaru",
-          "section_title": "Baca Komik Terbaru"
-        },
-        {
-          "judul": "A Dragonslayer’s Peerless Regression",
-          "url_img": "https://thumbnail.komiku.to/uploads/manga/a-dragonslayers-peerless-regression/manga_img_horizontal-A1-A-Dragonslayers-Peerless-Regression.jpg?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/a-dragonslayers-peerless-regression/",
-          "section": "baca-komik-terbaru",
-          "section_title": "Baca Komik Terbaru"
-        },
-        {
-          "judul": "Player Who Returned 10,000 Years Later",
-          "url_img": "https://thumbnail.komiku.to/uploads/manga/player-who-returned-10000-years-later/manga_img_horizontal-PWRPanjang.png?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/player-who-returned-10000-years-later/",
-          "section": "baca-komik-terbaru",
-          "section_title": "Baca Komik Terbaru"
-        },
-        {
-          "judul": "I’m Going to Become the Dark Duke’s Family",
-          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/06/29/20260629161914_5e93b629a6b910b5_cb139935.jpg?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/im-going-to-become-the-dark-dukes-family/",
+          "judul": "Black Killer Whale Baby",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/black-killer-whale-baby/manga_img_horizontal-A1-Black-Killer-Whale-Baby.jpg?resize=240%2C150",
+          "sinopsis": "Seorang bayi paus pembunuh hitam memulai petualangan seru di dasar laut.",
+          "detail_url": "https://komiku.org/manga/black-killer-whale-baby/",
+          "kategori": "Manhwa",
           "section": "baca-komik-terbaru",
           "section_title": "Baca Komik Terbaru"
         },
         {
           "judul": "The Female Lead Does It All",
           "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/18/20260918013112_c7c20e040612a931_ae5efc8e.jpg?resize=240%2C150",
-          "sinopsis": "",
+          "sinopsis": "Tokoh utama wanita berusaha mengendalikan takdirnya sendiri.",
           "detail_url": "https://komiku.org/manga/the-female-lead-does-it-all/",
+          "kategori": "Manhwa",
           "section": "baca-komik-terbaru",
           "section_title": "Baca Komik Terbaru"
         },
         {
-          "judul": "Lord Preston’s Secret Tutor",
-          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/04/15/20260415155813_8cdbecc241229f6a_9d7a2de3.webp?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/lord-prestons-secret-tutor/",
+          "judul": "Full-time Hunter: I Hunt the World!",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/06/30/20260630142302_c535a7977eaa3ca0_edcc396b.webp?resize=240%2C150",
+          "sinopsis": "Raka dihadapkan pada pilihan etis antara farming berkelanjutan atau menutup gerbang demi keselamatan publik.",
+          "detail_url": "https://komiku.org/manga/full-time-hunter-i-hunt-the-world/",
+          "kategori": "Manhua",
           "section": "baca-komik-terbaru",
           "section_title": "Baca Komik Terbaru"
         },
         {
-          "judul": "I Became the Terminally Ill Princess With No Tomorrow",
-          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/07/06/20260706142919_00c4de8ecc4357ef_26e561f5.webp?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/i-became-the-terminally-ill-princess-with-no-tomorrow/",
+          "judul": "Global Game: I Can Amplify Everything by a Hundred Times",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/08/24/20260824233228_af1bc291a7468449_3d6298a9.jpg?resize=240%2C150",
+          "sinopsis": "Konflik melibatkan guild elit, pemerintahan, dan pihak misterius yang memburu rahasia sistem inti.",
+          "detail_url": "https://komiku.org/manga/global-game-i-can-amplify-everything-by-a-hundred-times/",
+          "kategori": "Manhua",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "Starting with ×10: You Really Exploited the Bug!",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/08/31/20260831140238_5a7cf24ac16ff80d_6daa6883.png?resize=240%2C150",
+          "sinopsis": "Sang tokoh utama harus menghadapi konsekuensi dari kekuatan yang diperolehnya secara tidak wajar.",
+          "detail_url": "https://komiku.org/manga/starting-with-x10-you-really-exploited-the-bug/",
+          "kategori": "Manga",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "After Breaking off the Relationship, All my Summoned Beasts Were Dark Creatures",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/07/07/20260707150821_3d5c45a1b2b6f233_efe9b21e.webp?resize=240%2C150",
+          "sinopsis": "Terungkap intrik aristokrat dan kultus yang menunggangi dogma untuk menguasai kerajaan.",
+          "detail_url": "https://komiku.org/manga/after-breaking-off-the-relationship-all-my-summoned-beasts-were-dark-creatures/",
+          "kategori": "Manhua",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "Underworld Monarch: I Am the Abyss",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/08/31/20260831232212_bb5ffb2a32fdb60c_ee1b5c0c.jpg?resize=240%2C150",
+          "sinopsis": "Persaingan antar kerajaan iblis memicu konflik besar yang melibatkan dunia manusia.",
+          "detail_url": "https://komiku.org/manga/underworld-monarch-i-am-the-abyss/",
+          "kategori": "Manhwa",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "Records Of The Swordsman Scholar",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/records-of-the-swordsman-scholar/manga_img_horizontal-recordsoftheswordsmanpanjang.jpg.png?resize=240%2C150",
+          "sinopsis": "Seorang sarjana muda berjuang menguasai ilmu pedang di tengah konflik dunia pendekar.",
+          "detail_url": "https://komiku.org/manga/records-of-the-swordsman-scholar/",
+          "kategori": "Manhwa",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "The Ultimate Shut-In",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/the-ultimate-shut-in/manga_img_horizontal-A1-The-Ultimate-Shut-In.png?resize=240%2C150",
+          "sinopsis": "The Ultimate Shut-In menceritakan kisah seorang remaja yang memutuskan untuk mengisolasi diri dari dunia luar setelah mengalami trauma besar. Meskipun hidupnya penuh keterbatasan, ia menemukan cara unik untuk bertahan dan menghadapi berbagai tantangan yang muncul di dalam ruangannya. Cerita ini menggambarkan perjuangan mental dan emosional dalam menghadapi ketakutan serta trauma masa lalu. Seiring waktu, sang tokoh utama mulai membangun hubungan baru dengan orang-orang yang masuk ke dalam dunianya secara perlahan. Komik ini mengeksplorasi proses penyembuhan diri dan pentingnya dukungan sosial, sekaligus menyoroti sisi gelap dari isolasi dan dampaknya terhadap kesehatan jiwa. The Ultimate Shut-In menghadirkan narasi mendalam tentang kekuatan manusia dalam menghadapi keterbatasan hidup.",
+          "detail_url": "https://komiku.org/manga/the-ultimate-shut-in/",
+          "kategori": "Manhwa",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "Top Tier Providence: Secretly Cultivate for a Thousand Years",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/top-tier-providence-secretly-cultivate-for-a-thousand-years/manga_img_horizontal-Top-Tier-Providence-Panjang.png?resize=240%2C150",
+          "sinopsis": "Seorang pria menyembunyikan latihan bela diri selama ribuan tahun untuk melindungi orang terdekatnya.",
+          "detail_url": "https://komiku.org/manga/top-tier-providence-secretly-cultivate-for-a-thousand-years/",
+          "kategori": "Manhua",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "World Extinction War",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/17/20260917013544_97382363ff4ed1e7_4ef64e24.webp?resize=240%2C150",
+          "sinopsis": "Sekelompok penyintas bersatu untuk menemukan penyebab bencana.",
+          "detail_url": "https://komiku.org/manga/world-extinction-war/",
+          "kategori": "Manhua",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "Devious Son Of Heaven",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/devious-son-of-heaven/manga_img_horizontal-Back-Devious-Son-Of-Heaven.jpg?resize=240%2C150",
+          "sinopsis": "Penyatuan antara kecerdasan dan keberanian untuk masa depan yang lebih baik.",
+          "detail_url": "https://komiku.org/manga/devious-son-of-heaven/",
+          "kategori": "Manhua",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "God of Blackfield",
+          "url_img": "https://thumbnail.komiku.to/img/upload/god_of_blackfield/img_690c4bd7bdba47.28412917.jpg?resize=240%2C150",
+          "sinopsis": "Seorang pejuang legendaris bangkit kembali dan berjuang menaklukkan dunia modern.",
+          "detail_url": "https://komiku.org/manga/god-of-blackfield/",
+          "kategori": "Manhwa",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "Standard of Reincarnation",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/standard-of-reincarnation/manga_img_horizontal-Standard-Reincarnation-Panjang.png?resize=240%2C150",
+          "sinopsis": "Cerita yang menggabungkan magis serta pengembangan karakter secara mendalam.",
+          "detail_url": "https://komiku.org/manga/standard-of-reincarnation/",
+          "kategori": "Manhwa",
           "section": "baca-komik-terbaru",
           "section_title": "Baca Komik Terbaru"
         },
         {
           "judul": "I’m a Contract Stepmother, but the Tyrant Is Way Too Overprotective",
           "url_img": "https://thumbnail.komiku.to/new/img/images/2026/07/21/20260721173207_05fc405eaa746adb_d105c148.jpg?resize=240%2C150",
-          "sinopsis": "",
+          "sinopsis": "Tiran yang terkenal kejam justru menjadi perisai paling protektif, memotong ancaman sebelum menyentuh keluarga barunya.",
           "detail_url": "https://komiku.org/manga/im-a-contract-stepmother-but-the-tyrant-is-way-too-overprotective/",
+          "kategori": "Manhwa",
           "section": "baca-komik-terbaru",
           "section_title": "Baca Komik Terbaru"
         },
         {
-          "judul": "I Became a Human's Daughter",
-          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/07/27/20260727224644_a2fbe8bbba74a920_d43846ec.jpg?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/i-became-a-humans-daughter/",
+          "judul": "I’m Going To Destroy This Country",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/im-going-to-destroy-this-country/manga_img_horizontal-A1-Im-Going-To-Destroy-This-Country.jpg?resize=240%2C150",
+          "sinopsis": "Konflik politik dan intrik rumit menjadi latar utama cerita.",
+          "detail_url": "https://komiku.org/manga/im-going-to-destroy-this-country/",
+          "kategori": "Manhwa",
           "section": "baca-komik-terbaru",
           "section_title": "Baca Komik Terbaru"
         },
         {
-          "judul": "Forget That Night, Your Majesty",
-          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/08/26/20260826132820_d76ffdf2a06f123b_ba7848cb.jpg?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/forget-that-night-your-majesty/",
+          "judul": "The Abandoned Prince's Ghost Bride",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/06/19/20260619130010_7033a0d37f9f5e36_ff16e53a.jpg?resize=240%2C150",
+          "sinopsis": "Keputusan akhir menentukan apakah pangeran akan kembali hidup atau menghilang, dan apakah desa Lira akan terselamatkan dari kemarau.",
+          "detail_url": "https://komiku.org/manga/the-abandoned-princes-ghost-bride/",
+          "kategori": "Manhwa",
           "section": "baca-komik-terbaru",
           "section_title": "Baca Komik Terbaru"
         },
         {
-          "judul": "You’re the Only One I Can See",
-          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/04/15/20260415155202_4bc20d3b1d893f03_a22738a9.webp?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/youre-the-only-one-i-can-see/",
+          "judul": "The Search for the Duchess’s Husband",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/19/20260919141752_6a8c59a5e812f03a_223ba73c.png?resize=240%2C150",
+          "sinopsis": "Pencarian suami berubah menjadi perjalanan untuk menemukan kebenaran dan jati dirinya sendiri.",
+          "detail_url": "https://komiku.org/manga/the-search-for-the-duchesss-husband/",
+          "kategori": "Manhwa",
           "section": "baca-komik-terbaru",
           "section_title": "Baca Komik Terbaru"
         },
         {
-          "judul": "The Second Eunuch Regains His Manhood",
-          "url_img": "https://thumbnail.komiku.to/img/upload/the_second_eunuch_regains_his_manhood/img_68318e60932352.19600463.png?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/the-second-eunuch-regains-his-manhood/",
+          "judul": "Tensei shitara Ken deshita",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/tensei-shitara-ken-deshita/manga_img_horizontal-Manga-Tensei-shitara-Ken-deshita.jpg?resize=240%2C150",
+          "sinopsis": "Persahabatan serta konflik yang menguji kekuatan dan hati.",
+          "detail_url": "https://komiku.org/manga/tensei-shitara-ken-deshita/",
+          "kategori": "Manga",
           "section": "baca-komik-terbaru",
           "section_title": "Baca Komik Terbaru"
         },
         {
-          "judul": "Revenge of Reborn Villainess",
-          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/08/17/20260817155056_19426caed1ae1a9d_90e3ee64.jpg?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/revenge-of-reborn-villainess/",
+          "judul": "Skills have no cooldown, I turned into a natural disaster of undead",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/08/19/20260819145714_95f5051b19f14e9c_67bc4de7.webp?resize=240%2C150",
+          "sinopsis": "Misteri “sistem” global mengungkap konspirasi yang lebih besar dari sekadar level dan loot.",
+          "detail_url": "https://komiku.org/manga/skills-have-no-cooldown-i-turned-into-a-natural-disaster-of-undead/",
+          "kategori": "Manhua",
           "section": "baca-komik-terbaru",
           "section_title": "Baca Komik Terbaru"
         },
         {
-          "judul": "Lv. 99 Princess of Black Flame",
-          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/08/26/20260826215320_5e76d0e695df1d34_ee7d91b6.jpg?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/lv-99-princess-of-black-flame/",
+          "judul": "Isekai Walking",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/isekai-walking/manga_img_horizontal-Back-isekai-walking.jpg?resize=240%2C150",
+          "sinopsis": "Kisah magis yang memadukan petualangan dan pencarian jati diri.",
+          "detail_url": "https://komiku.org/manga/isekai-walking/",
+          "kategori": "Manga",
           "section": "baca-komik-terbaru",
           "section_title": "Baca Komik Terbaru"
         },
         {
-          "judul": "King Account At The Start",
-          "url_img": "https://thumbnail.komiku.to/uploads/manga/king-account-at-the-start/manga_img_horizontal-Komik-King-Account-At-The-Start.jpg?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/king-account-at-the-start/",
+          "judul": "Overgeared New",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/overgeared-new/manga_img_horizontal-Komik-Overgeared-1.jpg?resize=240%2C150",
+          "sinopsis": "Pertarungan epik dan aliansi kuat membentuk kisah inspiratif dalam Overgeared New.",
+          "detail_url": "https://komiku.org/manga/overgeared-new/",
+          "kategori": "Manhwa",
           "section": "baca-komik-terbaru",
           "section_title": "Baca Komik Terbaru"
         },
         {
-          "judul": "Tonari no Seki no Yatsu ga Souiu Me de Mitekuru",
-          "url_img": "https://thumbnail.komiku.to/uploads/manga/tonari-no-seki-no-yatsu-ga-souiu-me-de-mitekuru/manga_img_horizontal-A1-Tonari-no-Seki-no-Yatsu-ga-Souiu-Me-de-Mitekuru..jpg?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/tonari-no-seki-no-yatsu-ga-souiu-me-de-mitekuru/",
+          "judul": "Magic Emperor",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/magic-emperor/manga_img_horizontal-Manhua-Magic-Emperor.png?resize=240%2C150",
+          "sinopsis": "Perjalanan sihir dan kekuasaan dalam menghadapi intrik politik fantasi.",
+          "detail_url": "https://komiku.org/manga/magic-emperor/",
+          "kategori": "Manhua",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "Full-Time Awakening",
+          "url_img": "https://thumbnail.komiku.to/img/upload/full-time_awakening/img_687dfc3d42b6e8.30164857.png?resize=240%2C150",
+          "sinopsis": "Dia bergabung dengan kelompok pelindung yang berjuang menjaga dunia dari ancaman gelap.",
+          "detail_url": "https://komiku.org/manga/full-time-awakening/",
+          "kategori": "Manhua",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "Male God, Your Persona Has Collapsed!",
+          "url_img": "https://thumbnail.komiku.to/img/upload/male_god__your_persona_has_collapsed_/img_6985995fb39b42.83336325.jpg?resize=240%2C150",
+          "sinopsis": "Kisah tentang perjuangan menemukan kekuatan sejati tanpa bergantung pada persona.",
+          "detail_url": "https://komiku.org/manga/male-god-your-persona-has-collapsed/",
+          "kategori": "Manhua",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "Voice Phishing Turns Your Life Around",
+          "url_img": "https://thumbnail.komiku.to/img/upload/voice_phishing_turns_your_life_around/img_683167ccc335d7.13997436.jpg?resize=240%2C150",
+          "sinopsis": "Mengajak pembaca lebih waspada terhadap ancaman kejahatan melalui panggilan telepon",
+          "detail_url": "https://komiku.org/manga/voice-phishing-turns-your-life-around/",
+          "kategori": "Manhwa",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "Sekai Saikyou no Shitsuji",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/sekai-saikyou-no-shitsuji/manga_img_horizontal-Komik-Sekai-Saikyou-no-Shitsuji.jpg?resize=240%2C150",
+          "sinopsis": "Perjalanan seorang pria menemukan arti sebenarnya dari kekuatan dan pelayanan.",
+          "detail_url": "https://komiku.org/manga/sekai-saikyou-no-shitsuji/",
+          "kategori": "Manga",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "Kudan no Ken ni Tsuite",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/05/20260905185115_4c62ff2027ccd143_add0ce60.webp?resize=240%2C150",
+          "sinopsis": "-",
+          "detail_url": "https://komiku.org/manga/kudan-no-ken-ni-tsuite/",
+          "kategori": "Manga",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "Shukuteki no Ie no Toushu wo Tsuma ni Moraimashita: Tsuma wa Karen de Hakanakute Yasashikute Kashikokute Kawaikute Saikou desu",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/08/11/20260811154652_00001f7a4d2f8a2a_1bb1eb8c.jpg?resize=240%2C150",
+          "sinopsis": "Pernikahan aliansi menyatukan dua rumah yang lama bermusuhan demi menutup konflik.",
+          "detail_url": "https://komiku.org/manga/shukuteki-no-ie-no-toushu-wo-tsuma-ni-moraimashita-tsuma-wa-karen-de-hakanakute-yasashikute-kashikokute-kawaikute-saikou-desu/",
+          "kategori": "Manga",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "Musume Ni Danzai Sareru Akuyaku Koushaku Ni Tensei Shitemashita ~Akuyaku Muubu o Yameta no ni Nazeka Musume ga Koori No Reijou Ka Suru Ken~",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/05/28/20260528180655_ac60e117d1e0b96a_5c96baae.jpg?resize=240%2C150",
+          "sinopsis": "Intrik istana dan masa lalu kelam keluarga memaksa ayah dan putri bekerja sama meski emosinya membeku.",
+          "detail_url": "https://komiku.org/manga/musume-ni-danzai-sareru-akuyaku-koushaku-ni-tensei-shitemashita-akuyaku-muubu-o-yameta-no-ni-nazeka-musume-ga-koori-no-reijou-ka-suru-ken/",
+          "kategori": "Manga",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "Chronicles of the Demon Faction",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/chronicles-of-the-demon-faction/manga_img_horizontal-Back-Chronicles-of-the-Demon-Faction.jpg?resize=240%2C150",
+          "sinopsis": "Perang antar manusia dan iblis membawa perubahan besar dalam hidup sang protagonis.",
+          "detail_url": "https://komiku.org/manga/chronicles-of-the-demon-faction/",
+          "kategori": "Manhwa",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "Ao Ashi",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/ao-ashi/manga_img_horizontal-Ao-Ashi-Panjang.png?resize=240%2C150",
+          "sinopsis": "Kisah ini menampilkan perjuangan Ashito menghadapi tekanan dan persaingan ketat.",
+          "detail_url": "https://komiku.org/manga/ao-ashi/",
+          "kategori": "Manga",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "The Villain Wants To Live",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/the-villain-wants-to-live/manga_img_horizontal-A1-The-Villain-Wants-To-Live.jpg?resize=240%2C150",
+          "sinopsis": "Seorang tokoh antagonis berusaha menghindari mati dengan mengubah jalannya cerita.",
+          "detail_url": "https://komiku.org/manga/the-villain-wants-to-live/",
+          "kategori": "Manhwa",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "Kyou Senshina Mob, Mujikaku ni Honpen wo Hakai Suru",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/kyou-senshina-mob-mujikaku-ni-honpen-wo-hakai-suru/manga_img_horizontal-A1-Kyou-Senshina-Mob-Mujikaku-ni-Honpen-wo-Hakai-Suru.jpg?resize=240%2C150",
+          "sinopsis": "Senshina Mob belajar arti sejati kekuatan lewat berbagai pertemuan dan pengalaman berat.",
+          "detail_url": "https://komiku.org/manga/kyou-senshina-mob-mujikaku-ni-honpen-wo-hakai-suru/",
+          "kategori": "Manga",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "Lazy Prince Becomes a Genius",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/lazy-prince-becomes-a-genius/manga_img_horizontal-Komik-Lazy-Prince-Becomes-a-Genius.jpg?resize=240%2C150",
+          "sinopsis": "Perjalanan seorang pangeran yang awalnya malas kini menjadi sosok jenius penuh inspirasi.",
+          "detail_url": "https://komiku.org/manga/lazy-prince-becomes-a-genius/",
+          "kategori": "Manhwa",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "Shichijou-ke no Ito Tsukai ~ Futsuu ni Ikitai Tensai Jutsusha, Oshikake Deshi to Youkai Taiji Hajimemasu ~",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/19/20260919103715_f6109c01ee0d414e_3bac00c4.jpg?resize=240%2C150",
+          "sinopsis": "Kemunculan yokai membuat kehidupan damai yang diimpikannya berubah menjadi rangkaian misi berbahaya.",
+          "detail_url": "https://komiku.org/manga/shichijou-ke-no-ito-tsukai-futsuu-ni-ikitai-tensai-jutsusha-oshikake-deshi-to-youkai-taiji-hajimemasu/",
+          "kategori": "Manga",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "Shuuden Sugitara Nani Shite Asobu?",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/19/20260919103735_e9c0c4e147ec8a66_85eb5f05.webp?resize=240%2C150",
+          "sinopsis": "Belum ada isi. Belum ada isi.",
+          "detail_url": "https://komiku.org/manga/shuuden-sugitara-nani-shite-asobu/",
+          "kategori": "Manga",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "Dragon no I de Oyasumi Days Off in the Dragon’s Stomach",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/19/20260919103846_6e1bff488f09804b_0252288d.webp?resize=240%2C150",
+          "sinopsis": "Kisah fantasi ringan tentang relaksasi, adaptasi, dan menemukan rumah di tempat tak terduga.",
+          "detail_url": "https://komiku.org/manga/dragon-no-i-de-oyasumi-days-off-in-the-dragons-stomach/",
+          "kategori": "Manga",
+          "section": "baca-komik-terbaru",
+          "section_title": "Baca Komik Terbaru"
+        },
+        {
+          "judul": "To Be The Castellan King",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/to-be-the-castellan-king/manga_img_horizontal-Manhua-To-Be-The-Castellan-King.jpg?resize=240%2C150",
+          "sinopsis": "Kisah tentang pertumbuhan, pengkhianatan, dan harapan dalam kerajaan yang penuh intrik.",
+          "detail_url": "https://komiku.org/manga/to-be-the-castellan-king/",
+          "kategori": "Manhua",
           "section": "baca-komik-terbaru",
           "section_title": "Baca Komik Terbaru"
         }
@@ -334,218 +374,245 @@
       "title": "Baru Ditambahkan",
       "items": [
         {
-          "judul": "Maguro Meido ga Shikotama Ecchi",
-          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/21/20260921013124_d5707651641857d6_5dbcf7cd.jpg?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/maguro-meido-ga-shikotama-ecchi/",
-          "section": "baru-ditambahkan",
-          "section_title": "Baru Ditambahkan"
-        },
-        {
-          "judul": "Yoimiya Nagi ga Mane ni Yashoku wo Tsukuru Wake",
-          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/19/20260919221502_f525246f39c9f9aa_4beb46ee.jpg?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/yoimiya-nagi-ga-mane-ni-yashoku-wo-tsukuru-wake/",
-          "section": "baru-ditambahkan",
-          "section_title": "Baru Ditambahkan"
-        },
-        {
           "judul": "Dragon no I de Oyasumi Days Off in the Dragon’s Stomach",
           "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/19/20260919103846_6e1bff488f09804b_0252288d.webp?resize=240%2C150",
-          "sinopsis": "",
+          "sinopsis": "Kisah fantasi ringan tentang relaksasi, adaptasi, dan menemukan rumah di tempat tak terduga.",
           "detail_url": "https://komiku.org/manga/dragon-no-i-de-oyasumi-days-off-in-the-dragons-stomach/",
+          "kategori": "Manga",
           "section": "baru-ditambahkan",
           "section_title": "Baru Ditambahkan"
         },
         {
           "judul": "Shuuden Sugitara Nani Shite Asobu?",
           "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/19/20260919103735_e9c0c4e147ec8a66_85eb5f05.webp?resize=240%2C150",
-          "sinopsis": "",
+          "sinopsis": "Belum ada isi. Belum ada isi.",
           "detail_url": "https://komiku.org/manga/shuuden-sugitara-nani-shite-asobu/",
+          "kategori": "Manga",
           "section": "baru-ditambahkan",
           "section_title": "Baru Ditambahkan"
         },
         {
           "judul": "Shichijou-ke no Ito Tsukai ~ Futsuu ni Ikitai Tensai Jutsusha, Oshikake Deshi to Youkai Taiji Hajimemasu ~",
           "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/19/20260919103715_f6109c01ee0d414e_3bac00c4.jpg?resize=240%2C150",
-          "sinopsis": "",
+          "sinopsis": "Kemunculan yokai membuat kehidupan damai yang diimpikannya berubah menjadi rangkaian misi berbahaya.",
           "detail_url": "https://komiku.org/manga/shichijou-ke-no-ito-tsukai-futsuu-ni-ikitai-tensai-jutsusha-oshikake-deshi-to-youkai-taiji-hajimemasu/",
+          "kategori": "Manga",
           "section": "baru-ditambahkan",
           "section_title": "Baru Ditambahkan"
         },
         {
           "judul": "Shibou Endo wo Kaihi shita Gyaruge no Hirointachi ga Ore no [Nikkichou] wo Yonde Himitsu wo Shittarashii",
           "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/17/20260917140059_f4d1ceb0629bce49_99f4af21.webp?resize=240%2C150",
-          "sinopsis": "",
+          "sinopsis": "Seorang pemuda menyadari bahwa dunia tempatnya tinggal ternyata mirip dengan gim galge yang pernah ia kenal. Para heroine dalam gim tersebut seharusnya menghadapi akhir tragis, tetapi mereka berhasil menghindari takdir buruk itu. Suatu hari, mereka menemukan dan membaca buku harian milik sang tokoh utama, lalu mengetahui rahasia besar yang selama ini ia sembunyikan. Sejak saat itu, hubungan mereka berubah menjadi semakin dekat sekaligus rumit. Para heroine mulai menaruh perhatian pada sang pemuda, sementara isi buku harian tersebut perlahan membuka berbagai kejadian, perasaan, dan kemungkinan masa depan yang tidak seharusnya mereka ketahui. Di tengah situasi romantis yang penuh kejutan, ia harus menghadapi konsekuensi karena rahasianya telah terbongkar.",
           "detail_url": "https://komiku.org/manga/shibou-endo-wo-kaihi-shita-gyaruge-no-hirointachi-ga-ore-no-nikkichou-wo-yonde-himitsu-wo-shittarashii/",
+          "kategori": "Manga",
           "section": "baru-ditambahkan",
           "section_title": "Baru Ditambahkan"
         },
         {
           "judul": "Isshun wo Ikiru Kimi wo, Boku wa Eien ni Wasurenai",
           "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/16/20260916180830_7654d7821aed5fe7_82efb29f.webp?resize=240%2C150",
-          "sinopsis": "",
+          "sinopsis": "Seorang siswa laki-laki menjalani hari-hari sekolahnya dengan biasa saja, sampai ia bertemu dengan seorang gadis yang memandang setiap momen seolah sangat berharga. Di balik sikap ceria dan caranya menikmati hal-hal kecil, gadis itu menyimpan rahasia yang perlahan mengubah cara sang tokoh utama melihat waktu, pertemuan, dan arti kebersamaan. Keduanya kemudian menghabiskan waktu bersama dan membangun hubungan yang hangat, meski sejak awal ada batas yang tidak dapat mereka hindari. Ketika kenyataan mulai terungkap, sang tokoh utama harus menghadapi perpisahan yang menyakitkan serta berusaha menjaga kenangan mereka agar tetap hidup. Kisah ini menghadirkan romansa remaja yang emosional tentang waktu singkat, janji, dan seseorang yang meninggalkan jejak untuk selamanya.",
           "detail_url": "https://komiku.org/manga/isshun-wo-ikiru-kimi-wo-boku-wa-eien-ni-wasurenai/",
+          "kategori": "Manga",
           "section": "baru-ditambahkan",
           "section_title": "Baru Ditambahkan"
         },
         {
           "judul": "Sumisaka-san Mousouchu!",
           "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/16/20260916180802_da3b6492abaedcde_744f9b72.webp?resize=240%2C150",
-          "sinopsis": "",
+          "sinopsis": "Sumisaka adalah seorang gadis yang memiliki imajinasi sangat aktif. Dalam kesehariannya, hal-hal sederhana dapat berkembang menjadi berbagai skenario kocak dan dramatis di dalam pikirannya. Ia kerap membayangkan situasi romantis, percakapan ideal, hingga kemungkinan-kemungkinan absurd yang sebenarnya jauh dari kenyataan. Masalahnya, batas antara khayalan dan realitas sering kali terasa tipis bagi Sumisaka. Interaksinya dengan orang-orang di sekitar pun menjadi semakin canggung ketika imajinasi berlebihan itu memengaruhi cara ia bersikap. Dengan humor ringan dan situasi penuh salah paham, komik ini mengikuti keseharian Sumisaka yang unik saat ia berusaha menghadapi dunia nyata.",
           "detail_url": "https://komiku.org/manga/sumisaka-san-mousouchu/",
+          "kategori": "Manga",
           "section": "baru-ditambahkan",
           "section_title": "Baru Ditambahkan"
         },
         {
           "judul": "Boku dake ga Shitterun daze",
           "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/14/20260914011038_f89ace9dbdf1e974_c285d87e.webp?resize=240%2C150",
-          "sinopsis": "",
+          "sinopsis": "Belum ada informasi mengenai konflik cerita.",
           "detail_url": "https://komiku.org/manga/boku-dake-ga-shitterun-daze/",
+          "kategori": "Manga",
           "section": "baru-ditambahkan",
           "section_title": "Baru Ditambahkan"
         },
         {
-          "judul": "Got A Gallery In The Wild",
-          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/21/20260921013150_96a4f3caf4bf62d8_be6f3cd7.png?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/got-a-gallery-in-the-wild/",
+          "judul": "Kamatte Shinsotsu-chan ga Maikai Sasottekuru",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/14/20260914010404_a176f34908717ea8_1073ac8a.webp?resize=240%2C150",
+          "sinopsis": "Seorang pegawai baru yang ceria mulai menarik perhatian tokoh utama sejak hari pertamanya bekerja. Dengan sikap yang ramah dan keberanian yang cukup mengejutkan, ia berkali-kali mengajak tokoh utama menghabiskan waktu bersama setelah jam kantor. Awalnya, ajakan tersebut dianggap hanya sebagai bentuk keramahan kepada rekan kerja senior. Namun, intensitas perhatian sang pegawai baru membuat hubungan mereka terasa semakin personal. Di tengah rutinitas kantor, muncul momen canggung, manis, dan penuh kode yang perlahan mengubah cara tokoh utama memandangnya. Kisah ini mengikuti perkembangan kedekatan mereka saat batas antara hubungan profesional dan perasaan pribadi mulai menjadi semakin tipis.",
+          "detail_url": "https://komiku.org/manga/kamatte-shinsotsu-chan-ga-maikai-sasottekuru/",
+          "kategori": "Manga",
           "section": "baru-ditambahkan",
           "section_title": "Baru Ditambahkan"
         },
         {
-          "judul": "The Princess Imprints A Traitor",
-          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/20/20260920153304_7efc8ecbda1e70f0_72e49e2e.png?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/the-princess-imprints-a-traitor/",
-          "section": "baru-ditambahkan",
-          "section_title": "Baru Ditambahkan"
-        },
-        {
-          "judul": "The Youngest Daughter of the Snake Family",
-          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/20/20260920153257_0809aa41ecb9e834_e8e8ddc2.webp?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/the-youngest-daughter-of-the-snake-family/",
-          "section": "baru-ditambahkan",
-          "section_title": "Baru Ditambahkan"
-        },
-        {
-          "judul": "The Delinquent’s First Love",
-          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/20/20260920153253_f8803d5de974ce76_25c16e50.png?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/the-delinquents-first-love/",
-          "section": "baru-ditambahkan",
-          "section_title": "Baru Ditambahkan"
-        },
-        {
-          "judul": "The Knight of Balance",
-          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/20/20260920011636_989f8dd29d420fbf_e2724a2e.webp?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/the-knight-of-balance/",
-          "section": "baru-ditambahkan",
-          "section_title": "Baru Ditambahkan"
-        },
-        {
-          "judul": "How to Survive in the Horror Novel I Wrote",
-          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/20/20260920011622_b790a4efd3ee9e86_2619755d.webp?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/how-to-survive-in-the-horror-novel-i-wrote/",
-          "section": "baru-ditambahkan",
-          "section_title": "Baru Ditambahkan"
-        },
-        {
-          "judul": "Ode Of The Brave",
-          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/19/20260919221449_95ea686fbfa9d294_ee5d1bc1.jpg?resize=240%2C150",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/ode-of-the-brave/",
+          "judul": "Chicchakute Dekakute Kawaii Nanase-san o Kanchigai Moto-kare Kara Ubatte Shiawase ni Suru",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/12/20260912195521_6f812132cab2d087_7c3dc4ac.png?resize=240%2C150",
+          "sinopsis": "Nanase adalah gadis mungil yang memiliki pesona manis dan penampilan yang menarik. Sayangnya, hubungannya dengan sang mantan pacar berakhir karena berbagai kesalahpahaman. Meski masih menyimpan luka, Nanase berusaha menjalani hidup seperti biasa sambil menutupi perasaannya yang sebenarnya. Ketika sang tokoh utama mengetahui perlakuan mantan pacar Nanase dan alasan di balik perpisahan mereka, ia bertekad untuk mendekatinya dengan tulus. Di antara momen romantis, kecemburuan, dan kesalahpahaman baru, ia berusaha merebut kembali senyum Nanase serta memberinya hubungan yang lebih sehat dan membahagiakan.",
+          "detail_url": "https://komiku.org/manga/chicchakute-dekakute-kawaii-nanase-san-o-kanchigai-moto-kare-kara-ubatte-shiawase-ni-suru/",
+          "kategori": "Manga",
           "section": "baru-ditambahkan",
           "section_title": "Baru Ditambahkan"
         },
         {
           "judul": "The Search for the Duchess’s Husband",
           "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/19/20260919141752_6a8c59a5e812f03a_223ba73c.png?resize=240%2C150",
-          "sinopsis": "",
+          "sinopsis": "Pencarian suami berubah menjadi perjalanan untuk menemukan kebenaran dan jati dirinya sendiri.",
           "detail_url": "https://komiku.org/manga/the-search-for-the-duchesss-husband/",
+          "kategori": "Manhwa",
           "section": "baru-ditambahkan",
           "section_title": "Baru Ditambahkan"
         },
         {
           "judul": "The Female Lead Does It All",
           "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/18/20260918013112_c7c20e040612a931_ae5efc8e.jpg?resize=240%2C150",
-          "sinopsis": "",
+          "sinopsis": "Tokoh utama wanita berusaha mengendalikan takdirnya sendiri.",
           "detail_url": "https://komiku.org/manga/the-female-lead-does-it-all/",
+          "kategori": "Manhwa",
+          "section": "baru-ditambahkan",
+          "section_title": "Baru Ditambahkan"
+        },
+        {
+          "judul": "Not Over",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/16/20260916143417_9580af2c8a181029_317bfff1.jpg?resize=240%2C150",
+          "sinopsis": "Belum ada isi. Belum tersedia informasi yang cukup mengenai jalan cerita komik Not Over untuk menyusun sinopsis yang akurat.",
+          "detail_url": "https://komiku.org/manga/not-over/",
+          "kategori": "Manhwa",
+          "section": "baru-ditambahkan",
+          "section_title": "Baru Ditambahkan"
+        },
+        {
+          "judul": "Mr. Kim Strikes It Rich with Auto-Hunting",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/16/20260916063010_2d1c58eb8a06bef2_b51b006f.webp?resize=240%2C150",
+          "sinopsis": "Pak Kim hanyalah orang biasa yang hidupnya berjalan monoton dan penuh tekanan finansial. Semuanya berubah ketika ia mendapatkan kemampuan berburu otomatis, sebuah kekuatan misterius yang memungkinkannya melawan monster dan mengumpulkan hadiah tanpa harus mengendalikan setiap gerakan secara langsung. Dari sinilah perjalanan tidak biasa untuk mengubah nasibnya dimulai. Dengan memanfaatkan kemampuan tersebut, Pak Kim perlahan mengumpulkan kekayaan, meningkatkan kekuatan, dan menarik perhatian banyak pihak. Namun, dunia berburu monster tidak sesederhana mencari uang. Di balik keuntungan besar, terdapat ancaman berbahaya, rahasia tentang kemampuan otomatisnya, serta persaingan dengan para pemburu lain yang ingin merebut keunggulan miliknya.",
+          "detail_url": "https://komiku.org/manga/mr-kim-strikes-it-rich-with-auto-hunting/",
+          "kategori": "Manhwa",
+          "section": "baru-ditambahkan",
+          "section_title": "Baru Ditambahkan"
+        },
+        {
+          "judul": "Asha of the Borderlands",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/14/20260914220144_e3f634e6d3600763_333afb05.png?resize=240%2C150",
+          "sinopsis": "Belum ada isi. Belum ada isi.",
+          "detail_url": "https://komiku.org/manga/asha-of-the-borderlands/",
+          "kategori": "Manhwa",
+          "section": "baru-ditambahkan",
+          "section_title": "Baru Ditambahkan"
+        },
+        {
+          "judul": "Blue Ursus",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/14/20260914175345_4c95241bdf7e3d90_9eeca654.jpg?resize=240%2C150",
+          "sinopsis": "Belum ada isi. Belum ada isi.",
+          "detail_url": "https://komiku.org/manga/blue-ursus/",
+          "kategori": "Manhwa",
+          "section": "baru-ditambahkan",
+          "section_title": "Baru Ditambahkan"
+        },
+        {
+          "judul": "Murim's Youngest Miracle Demon Doctor",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/13/20260913134402_ce9afd776a971a49_8542b6c9.jpg?resize=240%2C150",
+          "sinopsis": "Setiap proses pengobatan membawanya semakin dekat pada rahasia besar.",
+          "detail_url": "https://komiku.org/manga/murims-youngest-miracle-demon-doctor/",
+          "kategori": "Manhwa",
+          "section": "baru-ditambahkan",
+          "section_title": "Baru Ditambahkan"
+        },
+        {
+          "judul": "To You Who Killed Me: The Villainess’s Final Dance",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/12/20260912195425_94bcf630867b7dd7_91118a47.webp?resize=240%2C150",
+          "sinopsis": "Setelah hidupnya berakhir akibat pengkhianatan orang yang paling ia percaya, seorang perempuan terbangun kembali pada masa lalu sebagai tokoh antagonis dalam kisahnya sendiri. Kali ini, ia menolak mengulangi takdir yang telah membawanya menuju kehancuran. Dengan ingatan tentang masa depan, ia mulai menyusun langkah untuk membongkar kebohongan, mengungkap dalang di balik kematiannya, dan merebut kembali kendali atas hidupnya. Namun, rencana balas dendam tidak pernah berjalan sesederhana yang ia bayangkan. Setiap keputusan menyeretnya lebih dalam ke intrik keluarga bangsawan, permainan politik, dan hubungan rumit dengan orang-orang yang dahulu menjadi bagian dari kehancurannya. Di antara keinginan untuk menghukum mereka yang telah membunuhnya dan kesempatan untuk menemukan kebenaran, sang villainess harus menentukan apakah tarian terakhirnya akan berakhir dengan pembalasan atau kebebasan.",
+          "detail_url": "https://komiku.org/manga/to-you-who-killed-me-the-villainesss-final-dance/",
+          "kategori": "Manhwa",
+          "section": "baru-ditambahkan",
+          "section_title": "Baru Ditambahkan"
+        },
+        {
+          "judul": "The Villainous Duke’s Daughter Hides Her Identity",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/12/20260912195118_9e7e2f957b26f173_27344d18.jpg?resize=240%2C150",
+          "sinopsis": "Seorang putri dari keluarga adipati yang dikenal kejam terbangun dalam kehidupan yang seharusnya sudah ia kenal dari sebuah cerita. Menyadari bahwa nama keluarganya membawa reputasi buruk dan masa depan tragis, ia memilih menyembunyikan identitas asli serta menjauh dari pusat konflik. Dengan kecerdikan dan sikap hati-hati, ia berusaha membangun kehidupan baru tanpa menarik perhatian siapa pun. Namun, rencananya mulai berantakan ketika orang-orang penting dari masa lalunya perlahan mendekat. Di tengah intrik bangsawan, rahasia keluarga, dan ancaman yang semakin besar, sang putri harus menjaga penyamarannya sambil mencari cara untuk mengubah takdir. Semakin lama ia menyembunyikan jati dirinya, semakin sulit pula membedakan siapa yang benar-benar bisa dipercaya.",
+          "detail_url": "https://komiku.org/manga/the-villainous-dukes-daughter-hides-her-identity/",
+          "kategori": "Manhwa",
           "section": "baru-ditambahkan",
           "section_title": "Baru Ditambahkan"
         },
         {
           "judul": "World Extinction War",
           "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/17/20260917013544_97382363ff4ed1e7_4ef64e24.webp?resize=240%2C150",
-          "sinopsis": "",
+          "sinopsis": "Sekelompok penyintas bersatu untuk menemukan penyebab bencana.",
           "detail_url": "https://komiku.org/manga/world-extinction-war/",
+          "kategori": "Manhua",
           "section": "baru-ditambahkan",
           "section_title": "Baru Ditambahkan"
         },
         {
           "judul": "Giantess Buddy An Infinite Link With A World Destroying Beauty",
           "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/12/20260912195138_426aa0fdcab29342_5e41f12a.jpg?resize=240%2C150",
-          "sinopsis": "",
+          "sinopsis": "Kekuatan besar sang gadis menarik perhatian pihak-pihak yang ingin menguasainya.",
           "detail_url": "https://komiku.org/manga/giantess-buddy-an-infinite-link-with-a-world-destroying-beauty/",
+          "kategori": "Manhua",
           "section": "baru-ditambahkan",
           "section_title": "Baru Ditambahkan"
         },
         {
           "judul": "Demon Life Starting From A Baby",
           "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/12/20260912004237_0b9d93c0e3e96b58_52d1a1cf.jpg?resize=240%2C150",
-          "sinopsis": "",
+          "sinopsis": "Ancaman dari pemburu iblis membuat masa kecilnya jauh dari kata aman.",
           "detail_url": "https://komiku.org/manga/demon-life-starting-from-a-baby/",
+          "kategori": "Manhua",
           "section": "baru-ditambahkan",
           "section_title": "Baru Ditambahkan"
         },
         {
           "judul": "The Invincible Escort",
           "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/08/20260908135551_86c1f7e8428b6618_31c4d1ca.webp?resize=240%2C150",
-          "sinopsis": "",
+          "sinopsis": "Seorang pengawal tangguh menerima tugas untuk melindungi sosok penting yang terus menjadi sasaran berbagai pihak. Di tengah perjalanan, ia harus menghadapi pembunuh bayaran, kelompok kriminal, dan musuh dari masa lalu yang menyimpan dendam lama. Keahliannya dalam bertarung membuatnya dijuluki sebagai pengawal yang tak terkalahkan, tetapi setiap misi selalu membawa risiko yang lebih besar. Saat ancaman mulai mengarah kepada orang-orang yang ingin ia lindungi, sang pengawal dipaksa mengungkap konspirasi di balik tugasnya. Ia harus memilih antara menyelesaikan kontrak seperti biasa atau mempertaruhkan nyawa demi kebenaran. Dengan perpaduan aksi, strategi, dan konflik emosional, kisah ini mengikuti perjuangannya menghadapi dunia yang penuh pengkhianatan.",
           "detail_url": "https://komiku.org/manga/the-invincible-escort/",
+          "kategori": "Manhua",
           "section": "baru-ditambahkan",
           "section_title": "Baru Ditambahkan"
         },
         {
           "judul": "37.5℃ Hidden Love",
           "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/08/20260908032445_4d7bf310aa5daa70_1f11af5c.webp?resize=240%2C150",
-          "sinopsis": "",
+          "sinopsis": "Di tengah rutinitas yang terlihat biasa, sebuah perasaan diam-diam tumbuh di antara dua orang yang sama-sama menyimpan banyak hal. Kedekatan mereka terasa hangat seperti suhu 37,5°C, tidak cukup tinggi untuk disebut demam, tetapi cukup untuk membuat hati sulit bersikap tenang. Perhatian kecil, percakapan singkat, dan momen kebersamaan perlahan membuka perasaan yang selama ini disembunyikan. Namun, cinta yang tidak pernah diungkapkan membuat hubungan mereka dipenuhi salah paham dan keraguan. Keduanya harus menghadapi luka masa lalu, ketakutan akan penolakan, serta pilihan antara tetap menjaga jarak atau memperjuangkan hubungan yang mulai berarti. Kisah ini mengikuti perjalanan emosional mereka dalam memahami bahwa perasaan tulus terkadang hadir secara perlahan, tetapi meninggalkan dampak yang begitu dalam.",
           "detail_url": "https://komiku.org/manga/37-5%e2%84%83-hidden-love/",
+          "kategori": "Manhua",
           "section": "baru-ditambahkan",
           "section_title": "Baru Ditambahkan"
         },
         {
           "judul": "Game Invasion: I Awakened Two Talents at the Start!",
           "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/06/20260906142943_ffee14ad3ec3c647_b315b705.png?resize=240%2C150",
-          "sinopsis": "",
+          "sinopsis": "Dunia tiba tiba berubah menjadi arena permainan mematikan ketika aturan dari sebuah game misterius mulai memengaruhi kehidupan manusia. Setiap orang memperoleh kesempatan untuk membangkitkan bakat khusus, tetapi kebanyakan hanya mendapatkan satu kemampuan dengan potensi terbatas. Di tengah kekacauan itu, sang tokoh utama justru membangkitkan dua bakat sekaligus, sebuah anomali yang membuatnya memiliki keunggulan besar sejak awal.",
           "detail_url": "https://komiku.org/manga/game-invasion-i-awakened-two-talents-at-the-start/",
+          "kategori": "Manhua",
           "section": "baru-ditambahkan",
           "section_title": "Baru Ditambahkan"
         },
         {
           "judul": "Reincarnated with Divine Titles",
           "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/06/20260906035322_f124674e90f9368a_88751b20.webp?resize=240%2C150",
-          "sinopsis": "",
+          "sinopsis": "Setelah mengalami kematian yang tidak terduga, seorang tokoh utama terlahir kembali di dunia fantasi dengan kemampuan langka. Ia tidak hanya memperoleh kesempatan kedua dalam hidup, tetapi juga menerima berbagai gelar ilahi yang memberinya kekuatan, pengaruh, dan potensi jauh melampaui manusia biasa. Namun, kekuatan tersebut datang bersama misteri besar tentang asal-usulnya dan alasan para dewa memilihnya.",
           "detail_url": "https://komiku.org/manga/reincarnated-with-divine-titles/",
+          "kategori": "Manhua",
           "section": "baru-ditambahkan",
           "section_title": "Baru Ditambahkan"
         },
         {
           "judul": "The Unrequited Love Obsession Club",
           "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/03/20260903222545_1de144bf673fb01e_1065f0bf.webp?resize=240%2C150",
-          "sinopsis": "",
+          "sinopsis": "Sekelompok anak muda yang sama-sama terjebak dalam cinta sepihak membentuk sebuah klub untuk saling berbagi cerita, mencari dukungan, dan memahami perasaan mereka. Namun, pertemuan rutin itu perlahan membuka rahasia, kecemburuan, serta obsesi yang selama ini disembunyikan di balik sikap biasa saja. Ketika hubungan antaranggota mulai semakin rumit, batas antara perhatian tulus dan keterikatan berlebihan pun menjadi kabur. Klub yang awalnya dimaksudkan sebagai tempat pelarian berubah menjadi ruang penuh konflik, memaksa setiap anggotanya menghadapi perasaan sendiri dan menentukan apakah mereka akan terus mengejar cinta yang belum tentu terbalas.",
           "detail_url": "https://komiku.org/manga/the-unrequited-love-obsession-club/",
+          "kategori": "Manhua",
           "section": "baru-ditambahkan",
           "section_title": "Baru Ditambahkan"
         },
         {
           "judul": "The Crimson Dragon Martial Emperor",
           "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/03/20260903163924_a76d986b2ea05b97_bb510e4a.jpg?resize=240%2C150",
-          "sinopsis": "",
+          "sinopsis": "Seorang pemuda yang diremehkan karena dianggap tidak memiliki masa depan tiba-tiba membangkitkan kekuatan naga merah dalam tubuhnya. Kekuatan tersebut membawanya ke dunia bela diri yang dipenuhi sekte, klan bangsawan, perebutan artefak, dan pertarungan antarkultivator. Dengan tekad untuk mengubah nasib, ia mulai menapaki jalan sebagai pendekar yang disegani. Namun, kekuatan naga merah ternyata menyimpan rahasia besar yang berkaitan dengan kehancuran masa lalu dan ancaman bagi seluruh dunia. Dalam perjalanannya, ia harus menghadapi musuh yang jauh lebih kuat, mengungkap identitas sejatinya, serta membuktikan bahwa seorang petarung yang pernah dipandang rendah mampu mencapai puncak kekuasaan. Setiap pertarungan menjadi langkah baru menuju gelar Kaisar Bela Diri.",
           "detail_url": "https://komiku.org/manga/the-crimson-dragon-martial-emperor/",
+          "kategori": "Manhua",
           "section": "baru-ditambahkan",
           "section_title": "Baru Ditambahkan"
         }
@@ -558,102 +625,101 @@
         {
           "judul": "From Goblin to Goblin God",
           "url_img": "https://thumbnail.komiku.to/uploads/manga/from-goblin-to-goblin-god/manga_thumbnail-A2-From-Goblin-to-Goblin-God.jpg?resize=240%2C280",
-          "sinopsis": "",
+          "sinopsis": "Cerita ini mengikuti perjalanan seorang Goblin yang sederhana namun gigih, yang terlahir dalam dunia yang keras dan penuh bahaya. Dengan tekad kuat dan keinginan untuk bertahan hidup, dia berusaha melewati berbagai tantangan yang menguji keberanian dan kecerdasannya. Sepanjang perjalanan, Goblin ini bertemu berbagai makhluk dan individu yang memperluas pandangannya tentang dunia serta kekuatan yang tersembunyi dalam dirinya. Dalam prosesnya, sang Goblin tidak hanya memperkuat dirinya secara fisik, tetapi juga spiritual dan mental. Dengan setiap pertempuran dan rintangan yang dihadapi, ia semakin mendekati tujuan tertingginya yaitu menjadi Dewa Goblin, sosok legendaris yang memiliki kekuatan luar biasa dan pengaruh besar dalam dunia mereka. Kisah ini menyuguhkan perpaduan antara petualangan, perjuangan, dan pertumbuhan diri yang inspiratif bagi para pembaca.",
           "detail_url": "https://komiku.org/manga/from-goblin-to-goblin-god/",
           "rank": 1,
           "sub_section": "harian",
           "section": "peringkat-komiku-harian",
-          "section_title": "Peringkat Komiku (harian)"
-        },
-        {
-          "judul": "Return of the Devourer",
-          "url_img": "https://thumbnail.komiku.to/img/upload/return_of_the_devourer/img_695b39b6f0d8f9.73172883.webp?resize=240%2C280",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/return-of-the-devourer/",
-          "rank": 2,
-          "sub_section": "harian",
-          "section": "peringkat-komiku-harian",
-          "section_title": "Peringkat Komiku (harian)"
+          "section_title": "Peringkat Komiku (harian)",
+          "kategori": "Manhua"
         },
         {
           "judul": "One Piece",
           "url_img": "https://thumbnail.komiku.to/uploads/manga/komik-one-piece-indo/manga_thumbnail-Komik-One-Piece.jpg?resize=240%2C280",
-          "sinopsis": "",
+          "sinopsis": "One Piece mengikuti petualangan Monkey D. Luffy, seorang pemuda yang bermimpi menjadi Raja Bajak Laut dengan menemukan harta karun legendaris bernama One Piece. Dalam perjalanannya, Luffy membentuk kru yang terdiri dari berbagai karakter unik dan kuat, masing-masing memiliki tujuan dan impian mereka sendiri. Bersama-sama, mereka menghadapi berbagai rintangan, musuh tangguh, dan misteri dunia yang luas. Cerita ini memberikan gambaran tentang persahabatan, keberanian, dan semangat pantang menyerah saat para karakter tidak hanya berjuang untuk kekayaan atau kekuasaan, tetapi juga untuk melindungi nilai-nilai yang mereka percayai. One Piece juga mengeksplorasi dunia yang penuh dengan kerajaan, bajak laut, dan Pemerintah Dunia yang berusaha mengendalikan lautan.",
           "detail_url": "https://komiku.org/manga/komik-one-piece-indo/",
-          "rank": 3,
+          "rank": 2,
           "sub_section": "harian",
           "section": "peringkat-komiku-harian",
-          "section_title": "Peringkat Komiku (harian)"
-        },
-        {
-          "judul": "Full-Time Awakening",
-          "url_img": "https://thumbnail.komiku.to/img/upload/full-time_awakening/img_687dfc3d4330e4.42199864.png?resize=240%2C280",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/full-time-awakening/",
-          "rank": 4,
-          "sub_section": "harian",
-          "section": "peringkat-komiku-harian",
-          "section_title": "Peringkat Komiku (harian)"
-        },
-        {
-          "judul": "Magic Emperor",
-          "url_img": "https://thumbnail.komiku.to/uploads/manga/magic-emperor/manga_thumbnail-Komik-Magic-Emperor.jpg?resize=240%2C280",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/magic-emperor/",
-          "rank": 5,
-          "sub_section": "harian",
-          "section": "peringkat-komiku-harian",
-          "section_title": "Peringkat Komiku (harian)"
-        },
-        {
-          "judul": "Disastrous Necromancer",
-          "url_img": "https://thumbnail.komiku.to/uploads/manga/disastrous-necromancer/manga_thumbnail-Head-Disastrous-Necromancer.jpeg?resize=240%2C280",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/disastrous-necromancer/",
-          "rank": 6,
-          "sub_section": "harian",
-          "section": "peringkat-komiku-harian",
-          "section_title": "Peringkat Komiku (harian)"
+          "section_title": "Peringkat Komiku (harian)",
+          "kategori": "Manga"
         },
         {
           "judul": "Return of the First Patriarch: The Strongest Reincarnates into His Descendant 1000 Years Later",
           "url_img": "https://thumbnail.komiku.to/img/upload/return_of_the_first_patriarch/img_6992e33c4b2928.75017148.jpg?resize=240%2C280",
-          "sinopsis": "",
+          "sinopsis": "Sang Leluhur Pertama, seorang pendekar terkuat di zamannya, mengalami kematian dan bereinkarnasi seribu tahun kemudian ke dalam tubuh keturunannya yang lemah dan tidak berdaya. Dengan ingatan dan kemampuan luar biasa yang dimilikinya, ia mulai membangun kembali kekuatannya dan mengungkap misteri di balik kehancuran klan keluarganya. Dalam perjalanan tersebut, ia menghadapi berbagai musuh dan tantangan demi melindungi keturunannya dan mengubah takdir yang seolah telah dituliskan bagi dirinya. Kisah ini menyuguhkan perpaduan antara aksi seru dan perkembangan karakter yang memukau dari seorang pahlawan yang kembali untuk merebut kembali kejayaannya.",
           "detail_url": "https://komiku.org/manga/return-of-the-first-patriarch-the-strongest-reincarnates-into-his-descendant-1000-years-later/",
-          "rank": 7,
+          "rank": 3,
           "sub_section": "harian",
           "section": "peringkat-komiku-harian",
-          "section_title": "Peringkat Komiku (harian)"
+          "section_title": "Peringkat Komiku (harian)",
+          "kategori": "Manga"
+        },
+        {
+          "judul": "Magic Emperor",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/magic-emperor/manga_thumbnail-Komik-Magic-Emperor.jpg?resize=240%2C280",
+          "sinopsis": "Perjalanan sihir dan kekuasaan dalam menghadapi intrik politik fantasi.",
+          "detail_url": "https://komiku.org/manga/magic-emperor/",
+          "rank": 4,
+          "sub_section": "harian",
+          "section": "peringkat-komiku-harian",
+          "section_title": "Peringkat Komiku (harian)",
+          "kategori": "Manhua"
+        },
+        {
+          "judul": "Return of the Devourer",
+          "url_img": "https://thumbnail.komiku.to/img/upload/return_of_the_devourer/img_695b39b6f0d8f9.73172883.webp?resize=240%2C280",
+          "sinopsis": "Di dunia yang penuh dengan makhluk luar biasa dan ancaman yang terus bermunculan, seorang pria bernama Kael kembali setelah sekian lama hilang. Ia dikenal sebagai Pemakan, makhluk yang memiliki kemampuan luar biasa untuk mengalahkan musuh melalui kekuatan memakan energi lawan. Kembalinya Kael membawa harapan baru bagi dunia yang mulai dilanda kekacauan dan serangan bertubi tubi dari makhluk kegelapan. Namun, tidak semua orang menyambut baik kepulangan Kael. Berbagai konflik muncul baik dari musuh lama maupun pihak yang tidak ingin kekuatan Kael bangkit kembali. Dalam perjuangannya, Kael harus menghadapi dilema antara menggunakan kekuatannya untuk menyelamatkan dunia atau mempertahankan kemanusiaannya yang sudah lama hampir hilang. Perjalanan ini tidak hanya menguji kekuatan fisiknya, tetapi juga ketangguhan mental dan nilai nilai kemanusiaan yang ia pegang teguh.",
+          "detail_url": "https://komiku.org/manga/return-of-the-devourer/",
+          "rank": 5,
+          "sub_section": "harian",
+          "section": "peringkat-komiku-harian",
+          "section_title": "Peringkat Komiku (harian)",
+          "kategori": "Manhua"
+        },
+        {
+          "judul": "World Extinction War",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/17/20260917014515_5a02cd4c24702240_1e24258f.webp?resize=240%2C280",
+          "sinopsis": "Sekelompok penyintas bersatu untuk menemukan penyebab bencana.",
+          "detail_url": "https://komiku.org/manga/world-extinction-war/",
+          "rank": 6,
+          "sub_section": "harian",
+          "section": "peringkat-komiku-harian",
+          "section_title": "Peringkat Komiku (harian)",
+          "kategori": "Manhua"
         },
         {
           "judul": "Tsuihou Sareta Tenshou Juu Kishi wa Game Chishiki de Musou Suru",
           "url_img": "https://thumbnail.komiku.to/uploads/manga/tsuihou-sareta-tenshou-juu-kishi-wa-game-chishiki-de-musou-suru/manga_thumbnail-tsuihoucover.png?resize=240%2C280",
-          "sinopsis": "",
+          "sinopsis": "Seorang ksatria langit yang diasingkan dari dunianya karena dianggap tidak berguna menemukan dirinya dalam situasi yang penuh tantangan. Dengan hanya mengandalkan pengetahuan mendalam tentang mekanisme permainan dan strategi, ia mampu menghadapi musuh-musuh yang jauh lebih kuat dan situasi yang tidak terduga, menunjukkan bahwa kecerdikan dan pengalaman bisa mengalahkan kekuatan semata. Narasi ini menyoroti perjuangannya untuk membuktikan nilai dirinya kembali dan membalikkan stigma pengasingan yang melekat padanya, sambil menjelajahi dunia baru yang penuh dengan misteri dan pertempuran sengit. Lewat kecerdasan dan wawasan uniknya tentang game, ia mengukir jalan menuju kejayaan dan keadilan dalam dunianya yang kejam.",
           "detail_url": "https://komiku.org/manga/tsuihou-sareta-tenshou-juu-kishi-wa-game-chishiki-de-musou-suru/",
+          "rank": 7,
+          "sub_section": "harian",
+          "section": "peringkat-komiku-harian",
+          "section_title": "Peringkat Komiku (harian)",
+          "kategori": "Manga"
+        },
+        {
+          "judul": "Full-Time Awakening",
+          "url_img": "https://thumbnail.komiku.to/img/upload/full-time_awakening/img_687dfc3d4330e4.42199864.png?resize=240%2C280",
+          "sinopsis": "Dia bergabung dengan kelompok pelindung yang berjuang menjaga dunia dari ancaman gelap.",
+          "detail_url": "https://komiku.org/manga/full-time-awakening/",
           "rank": 8,
           "sub_section": "harian",
           "section": "peringkat-komiku-harian",
-          "section_title": "Peringkat Komiku (harian)"
+          "section_title": "Peringkat Komiku (harian)",
+          "kategori": "Manhua"
         },
         {
-          "judul": "Ode Of The Brave",
-          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/19/20260919221512_55364493a1e21257_c3f97e16.jpg?resize=240%2C280",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/ode-of-the-brave/",
+          "judul": "Disastrous Necromancer",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/disastrous-necromancer/manga_thumbnail-Head-Disastrous-Necromancer.jpeg?resize=240%2C280",
+          "sinopsis": "Disastrous Necromancer mengikuti kisah seorang nekromancer muda yang tanpa sengaja membangkitkan kekuatan gelap yang melebihi kendalinya. Berjuang untuk mengendalikan kemampuan barunya, ia harus menghadapi konsekuensi dari kekacauan yang ditimbulkannya pada dunia sekitar. Dalam prosesnya, ia menemukan bahwa kekuatan necromansi yang dikutuk ini juga membawa rahasia dan harapan yang tidak terduga. Sementara itu, ancaman dari musuh-musuh yang ingin memanfaatkan kekuatannya semakin nyata. Dengan bantuan teman-teman baru dan tekad yang kuat, sang nekromancer berusaha untuk memperbaiki kesalahannya sekaligus melindungi dunia dari kehancuran yang lebih besar. Cerita ini menyoroti perjalanan pertumbuhan, pengorbanan, dan pencarian jati diri di tengah kekuatan luar biasa yang tersembunyi di dalam diri seseorang.",
+          "detail_url": "https://komiku.org/manga/disastrous-necromancer/",
           "rank": 9,
           "sub_section": "harian",
           "section": "peringkat-komiku-harian",
-          "section_title": "Peringkat Komiku (harian)"
-        },
-        {
-          "judul": "Childhood Friend Of The Zenith",
-          "url_img": "https://thumbnail.komiku.to/uploads/manga/childhood-friend-of-the-zenith/manga_thumbnail-A2-Childhood-Friend-Of-The-Zenith.jpeg?resize=240%2C280",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/childhood-friend-of-the-zenith/",
-          "rank": 10,
-          "sub_section": "harian",
-          "section": "peringkat-komiku-harian",
-          "section_title": "Peringkat Komiku (harian)"
+          "section_title": "Peringkat Komiku (harian)",
+          "kategori": "Manhua"
         }
       ]
     },
@@ -664,102 +730,112 @@
         {
           "judul": "From Goblin to Goblin God",
           "url_img": "https://thumbnail.komiku.to/uploads/manga/from-goblin-to-goblin-god/manga_thumbnail-A2-From-Goblin-to-Goblin-God.jpg?resize=240%2C280",
-          "sinopsis": "",
+          "sinopsis": "Cerita ini mengikuti perjalanan seorang Goblin yang sederhana namun gigih, yang terlahir dalam dunia yang keras dan penuh bahaya. Dengan tekad kuat dan keinginan untuk bertahan hidup, dia berusaha melewati berbagai tantangan yang menguji keberanian dan kecerdasannya. Sepanjang perjalanan, Goblin ini bertemu berbagai makhluk dan individu yang memperluas pandangannya tentang dunia serta kekuatan yang tersembunyi dalam dirinya. Dalam prosesnya, sang Goblin tidak hanya memperkuat dirinya secara fisik, tetapi juga spiritual dan mental. Dengan setiap pertempuran dan rintangan yang dihadapi, ia semakin mendekati tujuan tertingginya yaitu menjadi Dewa Goblin, sosok legendaris yang memiliki kekuatan luar biasa dan pengaruh besar dalam dunia mereka. Kisah ini menyuguhkan perpaduan antara petualangan, perjuangan, dan pertumbuhan diri yang inspiratif bagi para pembaca.",
           "detail_url": "https://komiku.org/manga/from-goblin-to-goblin-god/",
           "rank": 1,
           "sub_section": "mingguan",
           "section": "peringkat-komiku-mingguan",
-          "section_title": "Peringkat Komiku (mingguan)"
-        },
-        {
-          "judul": "Return of the Devourer",
-          "url_img": "https://thumbnail.komiku.to/img/upload/return_of_the_devourer/img_695b39b6f0d8f9.73172883.webp?resize=240%2C280",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/return-of-the-devourer/",
-          "rank": 2,
-          "sub_section": "mingguan",
-          "section": "peringkat-komiku-mingguan",
-          "section_title": "Peringkat Komiku (mingguan)"
+          "section_title": "Peringkat Komiku (mingguan)",
+          "kategori": "Manhua"
         },
         {
           "judul": "One Piece",
           "url_img": "https://thumbnail.komiku.to/uploads/manga/komik-one-piece-indo/manga_thumbnail-Komik-One-Piece.jpg?resize=240%2C280",
-          "sinopsis": "",
+          "sinopsis": "One Piece mengikuti petualangan Monkey D. Luffy, seorang pemuda yang bermimpi menjadi Raja Bajak Laut dengan menemukan harta karun legendaris bernama One Piece. Dalam perjalanannya, Luffy membentuk kru yang terdiri dari berbagai karakter unik dan kuat, masing-masing memiliki tujuan dan impian mereka sendiri. Bersama-sama, mereka menghadapi berbagai rintangan, musuh tangguh, dan misteri dunia yang luas. Cerita ini memberikan gambaran tentang persahabatan, keberanian, dan semangat pantang menyerah saat para karakter tidak hanya berjuang untuk kekayaan atau kekuasaan, tetapi juga untuk melindungi nilai-nilai yang mereka percayai. One Piece juga mengeksplorasi dunia yang penuh dengan kerajaan, bajak laut, dan Pemerintah Dunia yang berusaha mengendalikan lautan.",
           "detail_url": "https://komiku.org/manga/komik-one-piece-indo/",
-          "rank": 3,
+          "rank": 2,
           "sub_section": "mingguan",
           "section": "peringkat-komiku-mingguan",
-          "section_title": "Peringkat Komiku (mingguan)"
-        },
-        {
-          "judul": "Full-Time Awakening",
-          "url_img": "https://thumbnail.komiku.to/img/upload/full-time_awakening/img_687dfc3d4330e4.42199864.png?resize=240%2C280",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/full-time-awakening/",
-          "rank": 4,
-          "sub_section": "mingguan",
-          "section": "peringkat-komiku-mingguan",
-          "section_title": "Peringkat Komiku (mingguan)"
-        },
-        {
-          "judul": "Magic Emperor",
-          "url_img": "https://thumbnail.komiku.to/uploads/manga/magic-emperor/manga_thumbnail-Komik-Magic-Emperor.jpg?resize=240%2C280",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/magic-emperor/",
-          "rank": 5,
-          "sub_section": "mingguan",
-          "section": "peringkat-komiku-mingguan",
-          "section_title": "Peringkat Komiku (mingguan)"
-        },
-        {
-          "judul": "Disastrous Necromancer",
-          "url_img": "https://thumbnail.komiku.to/uploads/manga/disastrous-necromancer/manga_thumbnail-Head-Disastrous-Necromancer.jpeg?resize=240%2C280",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/disastrous-necromancer/",
-          "rank": 6,
-          "sub_section": "mingguan",
-          "section": "peringkat-komiku-mingguan",
-          "section_title": "Peringkat Komiku (mingguan)"
-        },
-        {
-          "judul": "Return of the First Patriarch: The Strongest Reincarnates into His Descendant 1000 Years Later",
-          "url_img": "https://thumbnail.komiku.to/img/upload/return_of_the_first_patriarch/img_6992e33c4b2928.75017148.jpg?resize=240%2C280",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/return-of-the-first-patriarch-the-strongest-reincarnates-into-his-descendant-1000-years-later/",
-          "rank": 7,
-          "sub_section": "mingguan",
-          "section": "peringkat-komiku-mingguan",
-          "section_title": "Peringkat Komiku (mingguan)"
+          "section_title": "Peringkat Komiku (mingguan)",
+          "kategori": "Manga"
         },
         {
           "judul": "Tsuihou Sareta Tenshou Juu Kishi wa Game Chishiki de Musou Suru",
           "url_img": "https://thumbnail.komiku.to/uploads/manga/tsuihou-sareta-tenshou-juu-kishi-wa-game-chishiki-de-musou-suru/manga_thumbnail-tsuihoucover.png?resize=240%2C280",
-          "sinopsis": "",
+          "sinopsis": "Seorang ksatria langit yang diasingkan dari dunianya karena dianggap tidak berguna menemukan dirinya dalam situasi yang penuh tantangan. Dengan hanya mengandalkan pengetahuan mendalam tentang mekanisme permainan dan strategi, ia mampu menghadapi musuh-musuh yang jauh lebih kuat dan situasi yang tidak terduga, menunjukkan bahwa kecerdikan dan pengalaman bisa mengalahkan kekuatan semata. Narasi ini menyoroti perjuangannya untuk membuktikan nilai dirinya kembali dan membalikkan stigma pengasingan yang melekat padanya, sambil menjelajahi dunia baru yang penuh dengan misteri dan pertempuran sengit. Lewat kecerdasan dan wawasan uniknya tentang game, ia mengukir jalan menuju kejayaan dan keadilan dalam dunianya yang kejam.",
           "detail_url": "https://komiku.org/manga/tsuihou-sareta-tenshou-juu-kishi-wa-game-chishiki-de-musou-suru/",
+          "rank": 3,
+          "sub_section": "mingguan",
+          "section": "peringkat-komiku-mingguan",
+          "section_title": "Peringkat Komiku (mingguan)",
+          "kategori": "Manga"
+        },
+        {
+          "judul": "Full-Time Awakening",
+          "url_img": "https://thumbnail.komiku.to/img/upload/full-time_awakening/img_687dfc3d4330e4.42199864.png?resize=240%2C280",
+          "sinopsis": "Dia bergabung dengan kelompok pelindung yang berjuang menjaga dunia dari ancaman gelap.",
+          "detail_url": "https://komiku.org/manga/full-time-awakening/",
+          "rank": 4,
+          "sub_section": "mingguan",
+          "section": "peringkat-komiku-mingguan",
+          "section_title": "Peringkat Komiku (mingguan)",
+          "kategori": "Manhua"
+        },
+        {
+          "judul": "Magic Emperor",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/magic-emperor/manga_thumbnail-Komik-Magic-Emperor.jpg?resize=240%2C280",
+          "sinopsis": "Perjalanan sihir dan kekuasaan dalam menghadapi intrik politik fantasi.",
+          "detail_url": "https://komiku.org/manga/magic-emperor/",
+          "rank": 5,
+          "sub_section": "mingguan",
+          "section": "peringkat-komiku-mingguan",
+          "section_title": "Peringkat Komiku (mingguan)",
+          "kategori": "Manhua"
+        },
+        {
+          "judul": "Return of the First Patriarch: The Strongest Reincarnates into His Descendant 1000 Years Later",
+          "url_img": "https://thumbnail.komiku.to/img/upload/return_of_the_first_patriarch/img_6992e33c4b2928.75017148.jpg?resize=240%2C280",
+          "sinopsis": "Sang Leluhur Pertama, seorang pendekar terkuat di zamannya, mengalami kematian dan bereinkarnasi seribu tahun kemudian ke dalam tubuh keturunannya yang lemah dan tidak berdaya. Dengan ingatan dan kemampuan luar biasa yang dimilikinya, ia mulai membangun kembali kekuatannya dan mengungkap misteri di balik kehancuran klan keluarganya. Dalam perjalanan tersebut, ia menghadapi berbagai musuh dan tantangan demi melindungi keturunannya dan mengubah takdir yang seolah telah dituliskan bagi dirinya. Kisah ini menyuguhkan perpaduan antara aksi seru dan perkembangan karakter yang memukau dari seorang pahlawan yang kembali untuk merebut kembali kejayaannya.",
+          "detail_url": "https://komiku.org/manga/return-of-the-first-patriarch-the-strongest-reincarnates-into-his-descendant-1000-years-later/",
+          "rank": 6,
+          "sub_section": "mingguan",
+          "section": "peringkat-komiku-mingguan",
+          "section_title": "Peringkat Komiku (mingguan)",
+          "kategori": "Manga"
+        },
+        {
+          "judul": "Disastrous Necromancer",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/disastrous-necromancer/manga_thumbnail-Head-Disastrous-Necromancer.jpeg?resize=240%2C280",
+          "sinopsis": "Disastrous Necromancer mengikuti kisah seorang nekromancer muda yang tanpa sengaja membangkitkan kekuatan gelap yang melebihi kendalinya. Berjuang untuk mengendalikan kemampuan barunya, ia harus menghadapi konsekuensi dari kekacauan yang ditimbulkannya pada dunia sekitar. Dalam prosesnya, ia menemukan bahwa kekuatan necromansi yang dikutuk ini juga membawa rahasia dan harapan yang tidak terduga. Sementara itu, ancaman dari musuh-musuh yang ingin memanfaatkan kekuatannya semakin nyata. Dengan bantuan teman-teman baru dan tekad yang kuat, sang nekromancer berusaha untuk memperbaiki kesalahannya sekaligus melindungi dunia dari kehancuran yang lebih besar. Cerita ini menyoroti perjalanan pertumbuhan, pengorbanan, dan pencarian jati diri di tengah kekuatan luar biasa yang tersembunyi di dalam diri seseorang.",
+          "detail_url": "https://komiku.org/manga/disastrous-necromancer/",
+          "rank": 7,
+          "sub_section": "mingguan",
+          "section": "peringkat-komiku-mingguan",
+          "section_title": "Peringkat Komiku (mingguan)",
+          "kategori": "Manhua"
+        },
+        {
+          "judul": "Ao Ashi",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/ao-ashi/manga_thumbnail-Ao-Ashi-Cover.jpg?resize=240%2C280",
+          "sinopsis": "Kisah ini menampilkan perjuangan Ashito menghadapi tekanan dan persaingan ketat.",
+          "detail_url": "https://komiku.org/manga/ao-ashi/",
           "rank": 8,
           "sub_section": "mingguan",
           "section": "peringkat-komiku-mingguan",
-          "section_title": "Peringkat Komiku (mingguan)"
+          "section_title": "Peringkat Komiku (mingguan)",
+          "kategori": "Manga"
         },
         {
-          "judul": "Ode Of The Brave",
-          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/09/19/20260919221512_55364493a1e21257_c3f97e16.jpg?resize=240%2C280",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/ode-of-the-brave/",
+          "judul": "Rebirth: Monarch of the Dead",
+          "url_img": "https://thumbnail.komiku.to/new/img/images/2026/08/24/20260824180008_c890fc9b7e5b5a76_64de2534.jpg?resize=240%2C280",
+          "sinopsis": "Setelah gugur di medan perang, Kaelan terbangun di ambang kematian dan menerima tawaran misterius untuk menjadi penguasa baru para arwah. Ia kembali ke dunia yang porak-poranda dengan ingatan utuh, membawa kendali atas tulang, bayangan, dan bisikan jiwa. Di tengah runtuhnya kerajaan lama dan bangkitnya kultus fanatik, Kaelan membangun fondasi kekuatan dari bawah tanah, merekrut roh para pahlawan, penjahat, dan rakyat biasa yang menuntut keadilan yang tak mereka dapat saat hidup. Saat pasukan hidup menuduhnya sebagai ancaman, Kaelan justru menata batas antara hidup dan mati agar tidak lagi dimonopoli penguasa korup. Bersama seorang pendeta idealis dan seorang pembunuh yang bereinkarnasi sebagai wraith, ia menantang dewa, necromancer saingan, serta politik istana. Di hadapan pilihan sulit antara kemanusiaan dan kekuasaan absolut, Kaelan harus menentukan makna sejati menjadi Monarch of the Dead tanpa berubah menjadi tiran yang ia benci.",
+          "detail_url": "https://komiku.org/manga/rebirth-monarch-of-the-dead/",
           "rank": 9,
           "sub_section": "mingguan",
           "section": "peringkat-komiku-mingguan",
-          "section_title": "Peringkat Komiku (mingguan)"
+          "section_title": "Peringkat Komiku (mingguan)",
+          "kategori": "Manhwa"
         },
         {
-          "judul": "Childhood Friend Of The Zenith",
-          "url_img": "https://thumbnail.komiku.to/uploads/manga/childhood-friend-of-the-zenith/manga_thumbnail-A2-Childhood-Friend-Of-The-Zenith.jpeg?resize=240%2C280",
-          "sinopsis": "",
-          "detail_url": "https://komiku.org/manga/childhood-friend-of-the-zenith/",
+          "judul": "The Ultimate of All Ages",
+          "url_img": "https://thumbnail.komiku.to/uploads/manga/the-ultimate-of-all-ages/manga_thumbnail-Manhua-The-Ultimate-of-All-Ages.jpg?resize=240%2C280",
+          "sinopsis": "The Ultimate of All Ages mengeksplorasi petualangan seorang protagonis muda yang secara tak sengaja menemukan kekuatan luar biasa yang mengubah hidupnya selamanya. Dalam perjalanannya, dia bertemu dengan berbagai karakter unik dan menghadapi tantangan yang menguji keberanian serta kebijaksanaannya dalam dunia yang penuh misteri dan bahaya. Cerita berfokus pada bagaimana sang tokoh utama berusaha memahami dan mengendalikan kekuatannya, sembari mengungkap rahasia masa lalu yang misterius serta ancaman masa depan yang mengintai. Selain itu, kisah ini juga memperlihatkan dinamika persahabatan dan konflik internal yang berkembang seiring dengan perjalanan waktu.",
+          "detail_url": "https://komiku.org/manga/the-ultimate-of-all-ages/",
           "rank": 10,
           "sub_section": "mingguan",
           "section": "peringkat-komiku-mingguan",
-          "section_title": "Peringkat Komiku (mingguan)"
+          "section_title": "Peringkat Komiku (mingguan)",
+          "kategori": "Manhua"
         }
       ]
     }

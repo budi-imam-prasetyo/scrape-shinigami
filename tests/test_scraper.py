@@ -8,7 +8,7 @@ from unittest import mock
 from bs4 import BeautifulSoup
 
 from manhwa_scraper.normalize import normalize_url, section_id
-from manhwa_scraper.parser import parse_card_sections, parse_rank_sections
+from manhwa_scraper.parser import parse_card_sections, parse_item, parse_rank_sections
 from manhwa_scraper.scraper import collect_sections, deduplicate_items, deduplicate_sections
 from manhwa_scraper.storage import build_document, save_atomic, validate_document
 
@@ -49,6 +49,37 @@ class TestParser(unittest.TestCase):
         html = "<main><section id='X'><h2>tanpa kartu</h2></section></main>"
         soup = BeautifulSoup(html, "html.parser")
         self.assertEqual(parse_card_sections(soup, "https://komiku.org/"), [])
+
+    def test_parse_kategori_from_alt_and_data_tipe(self):
+        soup, base = parse_fixture("komiku_home.html")
+        sections = parse_card_sections(soup, base)
+        by_id = {s["id"]: s for s in sections}
+        # Terbaru: hanya alt "Baca Manhwa ..." sebagai sumber tipe
+        self.assertEqual(by_id["Terbaru"]["items"][0]["kategori"], "Manhwa")
+        # Baru_Ditambahkan: data-tipe + alt, ketiganya terwakili
+        kategoris = {i["kategori"] for i in by_id["Baru_Ditambahkan"]["items"]}
+        self.assertEqual(kategoris, {"Manga", "Manhwa", "Manhua"})
+
+    def test_parse_kategori_missing_and_rank_missing(self):
+        no_tipe = BeautifulSoup(
+            "<article class='ls2'><div class='ls2v'><a href='/manga/x/'>"
+            "<img alt='Baca X' data-src='https://t/x.jpg'/></a></div>"
+            "<div class='ls2j'><h3><a href='/manga/x/'>X</a></h3></div></article>",
+            "html.parser",
+        ).select_one("article")
+        self.assertNotIn("kategori", parse_item(no_tipe, "https://komiku.org/", "h3 a"))
+        no_rank = BeautifulSoup(
+            "<div class='rank-panel' id='rank-harian'><article class='ls4'>"
+            "<div class='ls4v'><a href='/manga/x/'>"
+            "<img alt='Baca X' data-src='https://t/x.jpg'/></a></div>"
+            "<div class='ls4j'><h4><a href='/manga/x/'>X</a></h4></div>"
+            "</article></div>",
+            "html.parser",
+        )
+        items = parse_rank_sections(no_rank, "https://komiku.org/")["harian"]
+        self.assertEqual(len(items), 1)
+        self.assertNotIn("rank", items[0])
+        self.assertEqual(items[0]["sub_section"], "harian")
 
 
 class TestDedupe(unittest.TestCase):
