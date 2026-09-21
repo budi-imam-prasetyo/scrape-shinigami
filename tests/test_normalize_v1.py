@@ -77,6 +77,17 @@ class TestNormalizeMangaItem(unittest.TestCase):
         self.assertEqual(item["status"], "Ongoing")
         self.assertEqual(item["rating"], 8.6)
 
+    def test_country_id_empty_list_is_handled(self):
+        # Kasus nyata: beberapa judul mengirim country_id sebagai list kosong.
+        item = n.normalize_manga_item(
+            {"title": "Y", "manga_id": "abc", "country_id": []}
+        )
+        self.assertEqual(item["kategori"], "")
+        item2 = n.normalize_manga_item(
+            {"title": "Z", "manga_id": "def", "country_id": ["KR"]}
+        )
+        self.assertEqual(item2["kategori"], "Manhwa")
+
     def test_missing_fields_produce_empties(self):
         raw = {"title": "X"}  # nyaris kosong
         item = n.normalize_manga_item(raw)

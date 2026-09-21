@@ -91,7 +91,13 @@ def status_label(value: Any) -> str:
 
 
 def country_type(value: Any) -> str:
-    """Petakan kode negara ke tipe komik (Manhwa/Manhua/Manga)."""
+    """Petakan kode negara ke tipe komik (Manhwa/Manhua/Manga).
+
+    API kadang mengirim `country_id` sebagai list kosong untuk judul yang
+    negaranya tidak terisi; kembalikan '' supaya bisa di-fill fallback.
+    """
+    if isinstance(value, (list, tuple)):
+        value = value[0] if value else ""
     code = clean_text(value).upper()
     return COUNTRY_LABELS.get(code, "")
 

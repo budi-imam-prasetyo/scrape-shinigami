@@ -30,7 +30,6 @@ ITEM_SCHEMA = {
         "detail_url",
         "url_img",
         "sinopsis",
-        "kategori",
         "status",
     ],
     "properties": {
@@ -40,7 +39,10 @@ ITEM_SCHEMA = {
         "detail_url": {"type": "string", "format": "uri"},
         "url_img": {"type": "string", "format": "uri"},
         "url_img_portrait": {"type": "string", "format": "uri"},
-        "sinopsis": {"type": "string"},
+        "sinopsis": {
+            "type": "string",
+            "description": "Ringkasan cerita (boleh string kosong bila API tidak mengirim).",
+        },
         "kategori": {"type": "string", "minLength": 1},
         "status": {"type": "string"},
         "tahun": {"type": ["integer", "null"]},

@@ -82,7 +82,7 @@ perubahan DOM, dan sudah menyertakan rating/status/genre yang lengkap.
 | `cover_image_url` | `url_img` | via `safe_url` (hanya http/https) |
 | `cover_portrait_url` | `url_img_portrait` | opsional |
 | `description` | `sinopsis` | placeholder dibersihkan |
-| `country_id` (`KR`/`CN`/`JP`) | `kategori` | Manhwa/Manhua/Manga |
+| `country_id` (`KR`/`CN`/`JP`) | `kategori` | Manhwa/Manhua/Manga; bisa kosong bila API mengirim `country_id: []` (judul tanpa data negara) |
 | `status` (1-4) | `status` | Ongoing/Completed/Hiatus/Dropped |
 | `release_year` | `tahun` | int |
 | `user_rate` | `rating` | float |
@@ -110,8 +110,14 @@ Catatan skema:
 | `--kinds` | Title | Endpoint |
 | --- | --- | --- |
 | `top` | Peringkat Teratas | `manga/top` (10 item, di-enrich taxonomy via detail) |
-| `latest` (default) | Terbaru | `manga/list?sort=latest` (100 item) |
-| `rating` | Rating Tertinggi | `manga/list?sort=rating` (100 item) |
+| `latest` (default) | Terbaru | `manga/list?sort=latest` — 2 halaman × 500 = seluruh katalog |
+| `rating` | Rating Tertinggi | `manga/list?sort=rating` — 2 halaman × 500 = seluruh katalog |
+
+API memagari `manga/list` di **1000 record** (`meta.total_record`), dan
+`page_size` maksimum yang diterima adalah **500**. Jadi section `latest` dan
+`rating` masing-masing mengambil *seluruh* katalog Shinigami (±1000 judul per
+section; setelah dedup internal tetap ±1000). Konstanta terkait ada di
+`config.py`: `MAX_PAGE_SIZE = 500`, `LIST_PAGES = 2`.
 
 ## Cara menjalankan
 
@@ -206,7 +212,14 @@ field internal.
 - **Keamanan URL**: `safe_url` hanya mengizinkan `http/https`, membuang
   kredensial, menghindari URL berbahaya (`javascript:` dst).
 - **Missing data**: field kosong dianggap tidak ada (opsional tidak muncul),
-  bukan nilai palsu.
+  bukan nilai palsu. `kategori` sudah dilepas dari daftar *required* skema
+  karena API memang tidak selalu mengirimnya (`country_id: []`).
+- **Komentar di-cache per id** dalam satu run: item yang sama muncul di dua
+  section (mis. `latest` ∩ `rating`) hanya difetch komentarnya sekali.
+- **Durasi run**: katalog penuh tanpa komentar ±40 detik (6 request list/detail).
+  Dengan `--with-comments`, setiap judul unik = 1 request Waline → ±1100 request
+  serial; dengan delay default (1–2 dtk) habis ±30 menit. Percepat dengan
+  `--min-delay 0.3 --max-delay 0.8` bila perlu, tapi jaga kesopanan ke server.
 
 ## Migrasi Komiku → Shinigami (v0.2.x → v1.0.0)
 
@@ -233,4 +246,7 @@ parsing; semua data lewat JSON.
   komentar Waline opsional, modul di-refactor bersih (config/http/scraper/
   normalize/parser/storage), `beautifulsoup4` dihapus, suite test baru
   dengan fixture JSON. **Ini MAJOR** (API/schema/behavior berubah).
+  - Patch: cakupan scrape dinaikkan dari 100 → **seluruh katalog** (2 halaman
+    × 500 per section; `page_size` maksimum API = 500, total record = 1000);
+    toleransi `country_id: []`; cache komentar per id; flag `--version`.
 - 0.2.x (Komiku): versi sebelumnya berbasis HTML scraping; dihentikan.

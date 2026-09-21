@@ -27,8 +27,14 @@ VALID_SORTS = ("latest", "rating", "bookmark")
 
 DEFAULT_SORT = "latest"
 
-# Batas yang diterima API untuk page_size (diverifikasi: 100 diterima).
-MAX_PAGE_SIZE = 100
+# Batas page_size. Diverifikasi: API menerima 500 dan mengembalikan 500 item
+# unik; total katalog = 1000 record (meta.total_record).
+MAX_PAGE_SIZE = 500
+
+# Berapa halaman `manga/list` yang digabung per section. 2 x 500 = seluruh
+# katalog (1000 record). Naikkan untuk crawl lebih dalam (API memagari total
+# di 1000 record, jadi >2 tidak menambah data).
+LIST_PAGES = 2
 
 # Status manga: nilai integer dari API -> label.
 STATUS_LABELS = {

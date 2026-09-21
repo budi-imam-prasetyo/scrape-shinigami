@@ -27,6 +27,7 @@ from .config import (
     ENDPOINT_MANGA_DETAIL,
     ENDPOINT_MANGA_LIST,
     ENDPOINT_MANGA_TOP,
+    LIST_PAGES,
     MAX_PAGE_SIZE,
 )
 from .http import ApiClient
@@ -92,24 +93,32 @@ class ShinigamiScraper:
             it.update(detail.get(it["id"], {}))
         return items
 
-    def fetch_latest(self, page: int = 1, page_size: int = MAX_PAGE_SIZE) -> list[dict]:
-        params = {
-            "page": page,
-            "page_size": page_size,
-            "sort": "latest",
-            "sort_order": "desc",
-        }
-        raw = self._get_data(ENDPOINT_MANGA_LIST, params)
+    def _fetch_list_pages(
+        self, sort: str, pages: int = LIST_PAGES, page_size: int = MAX_PAGE_SIZE
+    ) -> list[dict]:
+        """Gabung beberapa halaman manga/list untuk satu sort."""
+        raw: list[dict] = []
+        for page in range(1, pages + 1):
+            items = self._get_data(
+                ENDPOINT_MANGA_LIST,
+                {
+                    "page": page,
+                    "page_size": page_size,
+                    "sort": sort,
+                    "sort_order": "desc",
+                },
+            )
+            raw.extend(items)
+            if len(items) < page_size:
+                break  # halaman terakhir
+        return raw
+
+    def fetch_latest(self, pages: int = 1, page_size: int = MAX_PAGE_SIZE) -> list[dict]:
+        raw = self._fetch_list_pages("latest", pages=pages, page_size=page_size)
         return [normalize_manga_item(r) for r in raw if isinstance(r, dict)]
 
-    def fetch_rating(self, page: int = 1, page_size: int = MAX_PAGE_SIZE) -> list[dict]:
-        params = {
-            "page": page,
-            "page_size": page_size,
-            "sort": "rating",
-            "sort_order": "desc",
-        }
-        raw = self._get_data(ENDPOINT_MANGA_LIST, params)
+    def fetch_rating(self, pages: int = 1, page_size: int = MAX_PAGE_SIZE) -> list[dict]:
+        raw = self._fetch_list_pages("rating", pages=pages, page_size=page_size)
         return [normalize_manga_item(r) for r in raw if isinstance(r, dict)]
 
     # ------------------------------------------------------------- komentar
@@ -134,20 +143,20 @@ class ShinigamiScraper:
 
     # ----------------------------------------------------------- fitur utama
     def scrape_section(
-        self, kind: str = "latest", limit: int = MAX_PAGE_SIZE
+        self, kind: str = "latest", pages: int = LIST_PAGES
     ) -> list[dict]:
         """Ambil satu section (latest/rating/top) dengan dedup + enrich.
 
         - kind = 'latest'  : manga/list sort=latest (section default).
         - kind = 'rating'  : manga/list sort=rating.
-        - kind = 'top'     : manga/top (enrich via detail).
+        - kind = 'top'     : manga/top (enrich via detail; selalu 10 item).
         """
         if kind == "top":
             return self.fetch_top()
         if kind == "rating":
-            items = self.fetch_rating(page=1, page_size=limit)
+            items = self.fetch_rating(pages=pages)
         else:
-            items = self.fetch_latest(page=1, page_size=limit)
+            items = self.fetch_latest(pages=pages)
         items, _dups = deduplicate_items(items)
         return items
 
