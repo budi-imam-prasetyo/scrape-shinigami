@@ -38,7 +38,7 @@ jobs:
         run: python -m unittest discover -s tests -v
 
       - name: Run scraper
-        run: python main.py --output manhwa.json --max-retries 5 --backoff-base 3.0 --min-delay 0.3 --max-delay 0.8
+        run: python main.py --output manhwa.json --max-retries 5 --backoff-base 3.0
 
       - name: Validate JSON
         run: python -m json.tool manhwa.json > /dev/null
