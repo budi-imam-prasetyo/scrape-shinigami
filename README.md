@@ -195,9 +195,10 @@ field internal.
   tidak pernah corrupt walau proses mati di tengah.
 - **Retry/backoff**: status retryable `{429, 500, 502, 503, 504}` di-retry
   dengan exponential backoff + jitter; **4xx permanen (404 dst) tidak di-retry**.
-- **Duplikat**: item dedup berdasarkan `id`. Item yang muncul di beberapa
-  section tetap utuh per section (hasil `--kinds`); field kosong diisi dari
-  pasangan yang sama.
+- **Duplikat**: dedup berdasarkan `id` **dalam satu section** (menghindari
+  item ganda bila API mengirim duplikat). Setiap section (`top`/`latest`/
+  `rating`) utuh dan independen di output; tidak ada konsolidasi antar-section
+  karena satu item bisa wajar muncul di beberapa section berbeda.
 - **Detail enrichment**: `manga/top` tidak menyertakan taxonomy, jadi genre/
   author/artist diisi lewat `manga/detail` (satu request per id top).
 - **Rate politeness**: semua request serial + `polite_delay`; tidak ada

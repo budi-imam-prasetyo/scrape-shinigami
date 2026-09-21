@@ -17,7 +17,9 @@ FIXTURES = Path(__file__).parent / "fixtures"
 
 class TestParseComments(unittest.TestCase):
     def test_real_fixture(self):
-        payload = json.loads((FIXTURES / "waline_comments.json").read_text(encoding="utf-8"))
+        payload = json.loads(
+            (FIXTURES / "waline_comments.json").read_text(encoding="utf-8")
+        )
         out = parse_comments_payload(payload, limit=10)
         self.assertGreater(len(out), 0)
         for c in out:
@@ -44,12 +46,22 @@ class TestParseComments(unittest.TestCase):
         self.assertEqual(out[0]["isi"], "Oke")
 
     def test_strips_html(self):
-        payload = {"data": [{"nick": "N", "comment": "<p>Halo <b>dunia</b><br>baris</p>", "objectId": 9}]}
+        payload = {
+            "data": [
+                {
+                    "nick": "N",
+                    "comment": "<p>Halo <b>dunia</b><br>baris</p>",
+                    "objectId": 9,
+                }
+            ]
+        }
         out = parse_comments_payload(payload)
         self.assertEqual(out[0]["isi"], "Halo dunia baris")
 
     def test_date_from_insertedAt(self):
-        payload = {"data": [{"nick": "N", "comment": "c", "insertedAt": "2026-09-21 05:03:58"}]}
+        payload = {
+            "data": [{"nick": "N", "comment": "c", "insertedAt": "2026-09-21 05:03:58"}]
+        }
         out = parse_comments_payload(payload)
         self.assertEqual(out[0]["tanggal"], "2026-09-21")
 

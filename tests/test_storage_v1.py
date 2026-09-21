@@ -39,7 +39,9 @@ def sample_item():
 class TestBuildDocument(unittest.TestCase):
     def test_valid_document(self):
         sections = [{"title": "Terbaru", "items": [sample_item()]}]
-        doc = build_document(sections, "2026-09-21T00:00:00+00:00", "https://11.shinigami.asia")
+        doc = build_document(
+            sections, "2026-09-21T00:00:00+00:00", "https://11.shinigami.asia"
+        )
         self.assertEqual(doc["schema_version"], SCHEMA_VERSION)
         self.assertEqual(doc["sections"][0]["id"], "terbaru")
         validate_document(doc)  # no raise
@@ -66,7 +68,9 @@ class TestSaveAtomic(unittest.TestCase):
             "schema_version": SCHEMA_VERSION,
             "generated_at": "2026-09-21T00:00:00+00:00",
             "source": "https://11.shinigami.asia",
-            "sections": [{"id": "terbaru", "title": "Terbaru", "items": [sample_item()]}],
+            "sections": [
+                {"id": "terbaru", "title": "Terbaru", "items": [sample_item()]}
+            ],
         }
         path = Path(self.id()).with_suffix(".json")
         try:

@@ -6,7 +6,7 @@ test_scraper_v1.py agar import yang berubah tidak memecahkan apa pun dan
 seluruh behavior scraper baru tetap teruji.
 """
 
-from test_scraper_v1 import (  # noqa: F401
+from test_scraper_v1 import (
     TestDeduplicate,
     TestScraper,
     TestStripInternal,

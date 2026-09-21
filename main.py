@@ -15,6 +15,7 @@ import logging
 import sys
 from datetime import datetime, timezone
 
+from manhwa_scraper import VERSION
 from manhwa_scraper.config import SITE_BASE
 from manhwa_scraper.http import ApiClient
 from manhwa_scraper.scraper import ShinigamiScraper, build_sections
@@ -76,7 +77,9 @@ def run(args) -> int:
     unique = len({i["id"] for s in document["sections"] for i in s["items"]})
     stats = {
         "sections": len(document["sections"]),
-        "items_per_section": {s["title"]: len(s["items"]) for s in document["sections"]},
+        "items_per_section": {
+            s["title"]: len(s["items"]) for s in document["sections"]
+        },
         "total_items": item_count,
         "unique_items": unique,
     }
@@ -87,6 +90,12 @@ def run(args) -> int:
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(
         description="Scraper metadata manga dari Shinigami (JSON API)."
+    )
+    parser.add_argument(
+        "--version",
+        action="version",
+        version=f"%(prog)s {VERSION}",
+        help="tampilkan versi lalu keluar",
     )
     parser.add_argument("--output", default="manhwa.json")
     parser.add_argument(

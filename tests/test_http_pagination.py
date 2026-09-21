@@ -80,7 +80,10 @@ class TestApiClient(unittest.TestCase):
 
     def test_retryable_503_retried(self):
         session = StubSession()
-        session.responses = [JsonResponse("{}", status_code=503), JsonResponse({"data": [1]})]
+        session.responses = [
+            JsonResponse("{}", status_code=503),
+            JsonResponse({"data": [1]}),
+        ]
         client = ApiClient(session=session, max_retries=3, backoff_base=0.01)
         data = client.get_json("https://x/api")
         self.assertEqual(data, {"data": [1]})

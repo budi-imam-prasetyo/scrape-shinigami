@@ -32,7 +32,9 @@ class SessionLike(Protocol):
 
     headers: dict
 
-    def get(self, url: str, params: dict[str, Any] | None = ..., timeout: Any = ...) -> Any: ...
+    def get(
+        self, url: str, params: dict[str, Any] | None = ..., timeout: Any = ...
+    ) -> Any: ...
 
 
 class ApiClientError(RuntimeError):
@@ -101,14 +103,18 @@ class ApiClient:
                 last_error = error
                 if attempt == self.max_retries:
                     raise ApiClientError(f"Gagal request {url}: {error}") from error
-                _backoff_sleep(attempt, last_error, url, self.max_retries, self.backoff_base)
+                _backoff_sleep(
+                    attempt, last_error, url, self.max_retries, self.backoff_base
+                )
             except _FatalStatus as error:
                 raise ApiClientError(f"Gagal request {url}: {error}") from error
             except (requests.RequestException, ValueError) as error:
                 last_error = error
                 if attempt == self.max_retries:
                     raise ApiClientError(f"Gagal request {url}: {error}") from error
-                _backoff_sleep(attempt, last_error, url, self.max_retries, self.backoff_base)
+                _backoff_sleep(
+                    attempt, last_error, url, self.max_retries, self.backoff_base
+                )
 
         raise ApiClientError(
             f"Gagal request {url} setelah {self.max_retries} percobaan: {last_error}"
@@ -129,14 +135,18 @@ class ApiClient:
                 last_error = error
                 if attempt == self.max_retries:
                     raise ApiClientError(f"Gagal request {url}: {error}") from error
-                _backoff_sleep(attempt, last_error, url, self.max_retries, self.backoff_base)
+                _backoff_sleep(
+                    attempt, last_error, url, self.max_retries, self.backoff_base
+                )
             except _FatalStatus as error:
                 raise ApiClientError(f"Gagal request {url}: {error}") from error
-            except (requests.RequestException) as error:
+            except requests.RequestException as error:
                 last_error = error
                 if attempt == self.max_retries:
                     raise ApiClientError(f"Gagal request {url}: {error}") from error
-                _backoff_sleep(attempt, last_error, url, self.max_retries, self.backoff_base)
+                _backoff_sleep(
+                    attempt, last_error, url, self.max_retries, self.backoff_base
+                )
 
         raise ApiClientError(
             f"Gagal request {url} setelah {self.max_retries} percobaan: {last_error}"

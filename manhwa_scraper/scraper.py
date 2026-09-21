@@ -43,6 +43,7 @@ class RequestClient(Protocol):
 
     def polite_delay(self) -> None: ...
 
+
 # URL tempat waline komentar user disimpan.
 WALINE_BASE = "https://commento.shngm.io/comment"
 
@@ -92,12 +93,22 @@ class ShinigamiScraper:
         return items
 
     def fetch_latest(self, page: int = 1, page_size: int = MAX_PAGE_SIZE) -> list[dict]:
-        params = {"page": page, "page_size": page_size, "sort": "latest", "sort_order": "desc"}
+        params = {
+            "page": page,
+            "page_size": page_size,
+            "sort": "latest",
+            "sort_order": "desc",
+        }
         raw = self._get_data(ENDPOINT_MANGA_LIST, params)
         return [normalize_manga_item(r) for r in raw if isinstance(r, dict)]
 
     def fetch_rating(self, page: int = 1, page_size: int = MAX_PAGE_SIZE) -> list[dict]:
-        params = {"page": page, "page_size": page_size, "sort": "rating", "sort_order": "desc"}
+        params = {
+            "page": page,
+            "page_size": page_size,
+            "sort": "rating",
+            "sort_order": "desc",
+        }
         raw = self._get_data(ENDPOINT_MANGA_LIST, params)
         return [normalize_manga_item(r) for r in raw if isinstance(r, dict)]
 
@@ -122,7 +133,9 @@ class ShinigamiScraper:
         return parse_comments_payload(payload, limit=limit)
 
     # ----------------------------------------------------------- fitur utama
-    def scrape_section(self, kind: str = "latest", limit: int = MAX_PAGE_SIZE) -> list[dict]:
+    def scrape_section(
+        self, kind: str = "latest", limit: int = MAX_PAGE_SIZE
+    ) -> list[dict]:
         """Ambil satu section (latest/rating/top) dengan dedup + enrich.
 
         - kind = 'latest'  : manga/list sort=latest (section default).
@@ -140,7 +153,9 @@ class ShinigamiScraper:
 
 
 # ------------------------------------------------------------------ utilitas
-def merge_detail_into_item(item: dict[str, Any], detail: dict[str, Any]) -> dict[str, Any]:
+def merge_detail_into_item(
+    item: dict[str, Any], detail: dict[str, Any]
+) -> dict[str, Any]:
     """Isi field yang kosong di item dari vocabulary detail (non-destructif)."""
     merged = dict(item)
     for key in ("genre", "author", "artist", "format", "tipe"):
@@ -150,9 +165,12 @@ def merge_detail_into_item(item: dict[str, Any], detail: dict[str, Any]) -> dict
 
 
 def deduplicate_items(items: list[dict]) -> tuple[list[dict], int]:
-    """Dedup berdasarkan `id`. Item pertama yang muncul menang; field kosong
-    diisi dari item berikutnya yang sama (dipakai saat item muncul di
-    beberapa section).
+    """Dedup berdasarkan `id` dalam satu kumpulan item.
+
+    Kalau API mengirim item yang sama dua kali dalam satu respons (jarang),
+    item pertama menang dan field kosong diisi dari item berikutnya yang
+    sama. Catatan: ini dedup *dalam* satu section — bukan antar-section;
+    setiap section tetap utuh dan independen di output.
     """
     result: dict[str, dict] = {}
     duplicates = 0
@@ -177,19 +195,34 @@ def strip_internal(item: dict[str, Any]) -> dict[str, Any]:
     return {k: v for k, v in item.items() if not k.startswith("_")}
 
 
-def attach_comments(scraper: ShinigamiScraper, sections: list[dict], limit: int = 10) -> int:
+def attach_comments(
+    scraper: ShinigamiScraper, sections: list[dict], limit: int = 10
+) -> int:
     """Isi `komentar` pada tiap item yang memilikinya. Opsional: hanya
     ambil saat request tidak berlebihan. Kembalikan jumlah item dengan
     komentar ter-attach.
+
+    Hasil komentar di-cache per `id` dalam satu run: bila item yang sama
+    muncul di beberapa section (`--kinds top,latest,rating`), komentarnya
+    hanya diambil sekali, lalu disalin ke kemunculan lain. Ini menghindari
+    duplicate request ke Waline.
     """
+    cache: dict[str, list[dict]] = {}
     touched = 0
     for section in sections:
         for item in section.get("items", []):
             if item.get("_waline_path") or item.get("_raw_manga_id"):
-                comments = scraper.fetch_comments(item, limit=limit)
-                if comments:
-                    item["komentar"] = comments
-                    touched += 1
+                item_id = item.get("id")
+                if item_id in cache:
+                    if cache[item_id]:
+                        item["komentar"] = cache[item_id]
+                        touched += 1
+                else:
+                    comments = scraper.fetch_comments(item, limit=limit)
+                    cache[item_id] = comments
+                    if comments:
+                        item["komentar"] = comments
+                        touched += 1
             scraper.client.polite_delay()
     return touched
 
@@ -207,7 +240,11 @@ def build_sections(
     """
     if not kinds:
         kinds = ["top", "latest", "rating"]
-    titles = {"top": "Peringkat Teratas", "latest": "Terbaru", "rating": "Rating Tertinggi"}
+    titles = {
+        "top": "Peringkat Teratas",
+        "latest": "Terbaru",
+        "rating": "Rating Tertinggi",
+    }
     sections: list[dict] = []
     for kind in kinds:
         items = scraper.scrape_section(kind)

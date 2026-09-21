@@ -14,13 +14,16 @@ transformasi di sini supaya:
 from __future__ import annotations
 
 import re
-from typing import Any, Mapping
+from collections.abc import Mapping
+from typing import Any
 from urllib.parse import urlsplit
 
 from .config import COUNTRY_LABELS, STATUS_LABELS, series_url
 
 # API kadang menaruh deskripsi kosong/placeholder.
-DESCRIPTION_PLACEHOLDER = re.compile(r"^(belum ada isi\.?|tidak ada deskripsi\.?)$", re.I)
+DESCRIPTION_PLACEHOLDER = re.compile(
+    r"^(belum ada isi\.?|tidak ada deskripsi\.?)$", re.IGNORECASE
+)
 
 
 def clean_text(value: Any) -> str:
@@ -139,7 +142,9 @@ def normalize_manga_item(raw: Mapping[str, Any]) -> dict:
         "artist": _taxonomy_names(taxonomy, "Artist"),
         "format": _taxonomy_names(taxonomy, "Format"),
         "tipe": _taxonomy_names(taxonomy, "Type"),
-        "updated_at": parse_iso_date(raw.get("latest_chapter_time") or raw.get("updated_at")),
+        "updated_at": parse_iso_date(
+            raw.get("latest_chapter_time") or raw.get("updated_at")
+        ),
         "chapter_terbaru": parse_int(raw.get("latest_chapter_number")),
         "mutakhir": raw.get("is_recommended") is True,
     }

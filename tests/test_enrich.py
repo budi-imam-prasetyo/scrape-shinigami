@@ -9,7 +9,7 @@ Suite ini didelegasikan ke test normalisasi & scraper v1 agar behavior
 enrichment terbaru (merge detail + strip internal) tetap teruji.
 """
 
-from test_scraper_v1 import (  # noqa: F401
+from test_scraper_v1 import (
     TestDeduplicate,
     TestScraper,
     TestStripInternal,

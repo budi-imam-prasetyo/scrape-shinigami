@@ -50,8 +50,7 @@ COUNTRY_LABELS = {
 # Header wajib: API memeriksa Origin/Referer dari situs.
 DEFAULT_HEADERS = {
     "User-Agent": (
-        "ShinigamiMetadataScraper/1.0.0 "
-        "(personal use; metadata only; Python requests)"
+        "ShinigamiMetadataScraper/1.0.0 (personal use; metadata only; Python requests)"
     ),
     "Accept": "application/json",
     "Accept-Language": "id-ID,id;q=0.9",

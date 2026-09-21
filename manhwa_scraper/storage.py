@@ -24,7 +24,15 @@ SCHEMA_VERSION = "1.0.0"
 ITEM_SCHEMA = {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "type": "object",
-    "required": ["id", "judul", "detail_url", "url_img", "sinopsis", "kategori", "status"],
+    "required": [
+        "id",
+        "judul",
+        "detail_url",
+        "url_img",
+        "sinopsis",
+        "kategori",
+        "status",
+    ],
     "properties": {
         "id": {"type": "string", "minLength": 1},
         "judul": {"type": "string", "minLength": 1},
@@ -112,25 +120,24 @@ def validate_document(document):
 def save_atomic(document, output_path):
     output_path = Path(output_path)
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    handle = tempfile.NamedTemporaryFile(
+    with tempfile.NamedTemporaryFile(
         "w",
         encoding="utf-8",
         dir=output_path.parent,
         prefix=f".{output_path.name}.",
         suffix=".tmp",
         delete=False,
-    )
-    temp_path = Path(handle.name)
-    try:
-        with handle:
+    ) as handle:
+        temp_path = Path(handle.name)
+        try:
             json.dump(document, handle, ensure_ascii=False, indent=2)
             handle.write("\n")
             handle.flush()
             os.fsync(handle.fileno())
-        os.replace(temp_path, output_path)
-    except BaseException:
-        temp_path.unlink(missing_ok=True)
-        raise
+            os.replace(temp_path, output_path)
+        except BaseException:
+            temp_path.unlink(missing_ok=True)
+            raise
 
 
 def build_document(sections, generated_at, source):

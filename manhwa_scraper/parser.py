@@ -50,7 +50,9 @@ def _comment_date(raw: dict) -> str:
     if isinstance(times, (int, float)) and times > 0:
         import datetime
 
-        return datetime.datetime.fromtimestamp(times / 1000, datetime.timezone.utc).strftime("%Y-%m-%d")
+        return datetime.datetime.fromtimestamp(
+            times / 1000, datetime.timezone.utc
+        ).strftime("%Y-%m-%d")
     return parse_iso_date(raw.get("createdAt"))
 
 
@@ -79,7 +81,9 @@ def parse_comments_payload(payload: Any, limit: int = MAX_COMMENTS) -> list[dict
             "username": nick,
             "isi": text,
             "tanggal": _comment_date(raw),
-            "suka": int(raw["like"]) if isinstance(raw.get("like"), (int, float)) else 0,
+            "suka": int(raw["like"])
+            if isinstance(raw.get("like"), (int, float))
+            else 0,
         }
         oid = raw.get("objectId")
         if oid not in (None, ""):

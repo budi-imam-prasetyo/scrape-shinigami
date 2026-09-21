@@ -88,6 +88,48 @@ class TestScraper(unittest.TestCase):
         )
         self.assertTrue(any_comment)
 
+    def test_comments_cached_across_sections(self):
+        """Item yang sama di beberapa section hanya memicu satu request komentar."""
+
+        class CountingScraper(ShinigamiScraper):
+            def __init__(self):
+                super().__init__(client=StubClient())
+                self.comment_calls = 0
+
+            def fetch_comments(self, manga, limit=10):
+                self.comment_calls += 1
+                return super().fetch_comments(manga, limit=limit)
+
+        scraper = CountingScraper()
+        # Dua section dalam SATU pemanggilan attach_comments (seperti build_sections):
+        # item 'x' yang punya _waline_path muncul di keduanya → fetch_comments
+        # hanya dipanggil sekali untuk x.
+        sections = [
+            {
+                "title": "Satu",
+                "items": [
+                    {"id": "x", "judul": "X", "_waline_path": "chapter/1"},
+                    {"id": "y", "judul": "Y", "_waline_path": "chapter/2"},
+                ],
+            },
+            {
+                "title": "Dua",
+                "items": [
+                    {"id": "x", "judul": "X", "_waline_path": "chapter/1"},
+                ],
+            },
+        ]
+        from manhwa_scraper.scraper import attach_comments
+
+        attach_comments(scraper, sections, limit=10)
+        # section1 => x, y = 2 panggilan. section2 => x sudah di-cache => 0 baru.
+        self.assertEqual(scraper.comment_calls, 2)
+        # Cache menyalin komentar x dari section1 ke kemunculannya di section2
+        # (bukti duplicate request dihindari, hasil reuse).
+        self.assertEqual(
+            sections[1]["items"][0]["komentar"], sections[0]["items"][0]["komentar"]
+        )
+
 
 class TestDeduplicate(unittest.TestCase):
     def test_merges_by_id(self):
