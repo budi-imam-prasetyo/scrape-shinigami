@@ -1,6 +1,10 @@
 """Penyimpanan hasil scraping: schema, validasi, dan penulisan atomic.
 
-Version: 0.2.0
+Version: 1.0.0
+
+Skema 1.0.0 memperluas field metadata per item (genre, rating, status,
+author, artist, dst) mengikuti sumber data JSON API Shinigami. Skema tetap
+ketat (additionalProperties=false) supaya output lintas versi konsisten.
 """
 
 import json
@@ -15,21 +19,51 @@ from .normalize import section_id
 
 LOGGER = logging.getLogger(__name__)
 
+SCHEMA_VERSION = "1.0.0"
+
 ITEM_SCHEMA = {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "type": "object",
+    "required": ["id", "judul", "detail_url", "url_img", "sinopsis", "kategori", "status"],
     "properties": {
+        "id": {"type": "string", "minLength": 1},
         "judul": {"type": "string", "minLength": 1},
-        "url_img": {"type": "string", "format": "uri"},
-        "sinopsis": {"type": "string"},
+        "judul_alternatif": {"type": "string"},
         "detail_url": {"type": "string", "format": "uri"},
-        "section": {"type": "string", "minLength": 1},
-        "section_title": {"type": "string", "minLength": 1},
-        "rank": {"type": "integer", "minimum": 1},
-        "sub_section": {"type": "string", "minLength": 1},
+        "url_img": {"type": "string", "format": "uri"},
+        "url_img_portrait": {"type": "string", "format": "uri"},
+        "sinopsis": {"type": "string"},
         "kategori": {"type": "string", "minLength": 1},
+        "status": {"type": "string"},
+        "tahun": {"type": ["integer", "null"]},
+        "rating": {"type": ["number", "null"]},
+        "views": {"type": ["integer", "null"]},
+        "bookmark_count": {"type": ["integer", "null"]},
+        "rank": {"type": ["integer", "null"]},
+        "genre": {"type": "array", "items": {"type": "string"}},
+        "author": {"type": "array", "items": {"type": "string"}},
+        "artist": {"type": "array", "items": {"type": "string"}},
+        "format": {"type": "array", "items": {"type": "string"}},
+        "tipe": {"type": "array", "items": {"type": "string"}},
+        "updated_at": {"type": "string"},
+        "chapter_terbaru": {"type": ["integer", "null"]},
+        "mutakhir": {"type": "boolean"},
+        "komentar": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": ["username", "isi"],
+                "properties": {
+                    "id": {"type": "string"},
+                    "username": {"type": "string", "minLength": 1},
+                    "isi": {"type": "string", "minLength": 1},
+                    "tanggal": {"type": "string"},
+                    "suka": {"type": "integer"},
+                },
+                "additionalProperties": False,
+            },
+        },
     },
-    "required": ["judul", "url_img", "sinopsis", "detail_url", "section"],
     "additionalProperties": False,
 }
 
@@ -38,7 +72,7 @@ DOCUMENT_SCHEMA = {
     "type": "object",
     "required": ["schema_version", "generated_at", "source", "sections"],
     "properties": {
-        "schema_version": {"const": "0.2.0"},
+        "schema_version": {"const": SCHEMA_VERSION},
         "generated_at": {"type": "string", "format": "date-time"},
         "source": {"type": "string", "format": "uri"},
         "sections": {
@@ -69,7 +103,7 @@ def validate_document(document):
     errors = sorted(validator.iter_errors(document), key=lambda error: list(error.path))
     if errors:
         details = "; ".join(
-            f"{list(error.path)}: {error.message}" for error in errors[:5]
+            f"{list(error.path)}: {error.message}" for error in errors[:8]
         )
         raise ValueError(f"Dokumen tidak valid ({len(errors)} error): {details}")
     return document
@@ -101,7 +135,7 @@ def save_atomic(document, output_path):
 
 def build_document(sections, generated_at, source):
     document = {
-        "schema_version": "0.2.0",
+        "schema_version": SCHEMA_VERSION,
         "generated_at": generated_at,
         "source": source,
         "sections": [

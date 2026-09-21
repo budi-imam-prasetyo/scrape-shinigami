@@ -1,218 +1,221 @@
-"""Penggabungan hasil parsing menjadi section final + deduplication.
+"""Orkestrasi pengambilan data dari JSON API Shinigami.
 
-Version: 0.2.2
+Version: 1.0.0
+
+Tugas utama modul ini:
+1. Mengambil halaman manga (list/top) dari API JSON Shinigami.
+2. Menormalisasi tiap item lewat `normalize.normalize_manga_item`.
+3. Me-merge item yang sama yang muncul di beberapa section (dedup):
+   karena `manga/top` mengabaikan taxonomy dan field tambahan, item yang
+   berdampingan diisi dari `manga/detail` bila diperlukan.
+4. Mengambil komentar (Waline) secara opsional untuk chapter terbaru.
+
+Catatan konfigurasi (hasil verifikasi struktur, lihat README bagian
+"Struktur API"):
+- `manga/top` mengabaikan parameter sort/type dan mengembalikan 10 item
+  teratas yang sama.
+- Hanya `sort` = latest / rating / bookmark yang valid.
 """
 
-import logging
+from __future__ import annotations
 
-from .normalize import is_real_sinopsis, normalize_url, section_id
-from .parser import parse_detail_kategori, parse_detail_sinopsis
+import logging
+from typing import Any, Protocol
+
+from .config import (
+    API_BASE,
+    ENDPOINT_MANGA_DETAIL,
+    ENDPOINT_MANGA_LIST,
+    ENDPOINT_MANGA_TOP,
+    MAX_PAGE_SIZE,
+)
+from .http import ApiClient
+from .normalize import normalize_detail, normalize_manga_item
+from .parser import parse_comments_payload
 
 LOGGER = logging.getLogger(__name__)
 
-RANK_SECTION_TITLE = "Peringkat Komiku"
+
+class RequestClient(Protocol):
+    """Kontrak minimal klien HTTP yang dipakai scraper (mendukung stub)."""
+
+    def get_json(self, url: str, params: dict[str, Any] | None = ...) -> Any: ...
+
+    def polite_delay(self) -> None: ...
+
+# URL tempat waline komentar user disimpan.
+WALINE_BASE = "https://commento.shngm.io/comment"
+
+# Section title default bila fungsi dipakai tanpa argumen section.
+SECTION_DEFAULT = "Manhwa Terbaru"
 
 
-def stamp_section(items, section_title):
-    result = []
-    for item in items:
-        item = dict(item)
-        item["section"] = section_id(section_title)
-        item["section_title"] = section_title
-        result.append(item)
-    return result
+class ShinigamiScraper:
+    def __init__(self, client: RequestClient | None = None) -> None:
+        self.client = client or ApiClient()
+
+    # ---------------------------------------------------------------- helper
+    def _get_data(self, path: str, params: dict[str, Any] | None = None) -> list[dict]:
+        """GET endpoint API, kembalikan `data` list (atan [] bila kosong)."""
+        payload = self.client.get_json(API_BASE + path, params=params)
+        if not isinstance(payload, dict):
+            return []
+        data = payload.get("data")
+        return data if isinstance(data, list) else []
+
+    def _detail_map(self, manga_ids: list[str]) -> dict[str, dict]:
+        """Ambil taxonomy dari manga/detail untuk id yang belum punya genre."""
+        need = [mid for mid in manga_ids if mid]
+        result: dict[str, dict] = {}
+        for mid in need:
+            try:
+                payload = self.client.get_json(
+                    API_BASE + ENDPOINT_MANGA_DETAIL.format(manga_id=mid)
+                )
+                detail = payload.get("data") if isinstance(payload, dict) else None
+                if isinstance(detail, dict):
+                    result[mid] = normalize_detail(detail, mid)
+            except Exception as error:  # noqa: BLE001
+                LOGGER.warning("Detail gagal untuk %s: %s", mid, error)
+            self.client.polite_delay()
+        return result
+
+    # --------------------------------------------------------------- fixtures
+    def fetch_top(self) -> list[dict]:
+        """Ranking teratas (manga/top). Item dari sini tidak membawa taxonomy."""
+        raw = self._get_data(ENDPOINT_MANGA_TOP, {"page": 1, "page_size": 10})
+        items = [normalize_manga_item(r) for r in raw if isinstance(r, dict)]
+        # Lenkapi genre/author via detail (top tidak punya taxonomy).
+        detail = self._detail_map([it["id"] for it in items])
+        for it in items:
+            it.update(detail.get(it["id"], {}))
+        return items
+
+    def fetch_latest(self, page: int = 1, page_size: int = MAX_PAGE_SIZE) -> list[dict]:
+        params = {"page": page, "page_size": page_size, "sort": "latest", "sort_order": "desc"}
+        raw = self._get_data(ENDPOINT_MANGA_LIST, params)
+        return [normalize_manga_item(r) for r in raw if isinstance(r, dict)]
+
+    def fetch_rating(self, page: int = 1, page_size: int = MAX_PAGE_SIZE) -> list[dict]:
+        params = {"page": page, "page_size": page_size, "sort": "rating", "sort_order": "desc"}
+        raw = self._get_data(ENDPOINT_MANGA_LIST, params)
+        return [normalize_manga_item(r) for r in raw if isinstance(r, dict)]
+
+    # ------------------------------------------------------------- komentar
+    def fetch_comments(self, manga: dict[str, Any], limit: int = 10) -> list[dict]:
+        """Komentar user untuk chapter terbaru manga.
+
+        Waline mengelompokkan komentar per chapter ('chapter/<id>'). Kita
+        ambil untuk chapter terbaru saja supaya request minimal; jika tidak
+        ada path atau gagal, kembalikan [].
+        """
+        path = manga.get("_waline_path") or manga.get("_raw_manga_id")
+        if not path:
+            return []
+        try:
+            payload = self.client.get_json(
+                WALINE_BASE, params={"path": path, "page": 1, "pageSize": limit}
+            )
+        except Exception as error:  # noqa: BLE001
+            LOGGER.warning("Komentar gagal untuk %s: %s", manga.get("id"), error)
+            return []
+        return parse_comments_payload(payload, limit=limit)
+
+    # ----------------------------------------------------------- fitur utama
+    def scrape_section(self, kind: str = "latest", limit: int = MAX_PAGE_SIZE) -> list[dict]:
+        """Ambil satu section (latest/rating/top) dengan dedup + enrich.
+
+        - kind = 'latest'  : manga/list sort=latest (section default).
+        - kind = 'rating'  : manga/list sort=rating.
+        - kind = 'top'     : manga/top (enrich via detail).
+        """
+        if kind == "top":
+            return self.fetch_top()
+        if kind == "rating":
+            items = self.fetch_rating(page=1, page_size=limit)
+        else:
+            items = self.fetch_latest(page=1, page_size=limit)
+        items, _dups = deduplicate_items(items)
+        return items
 
 
-def collect_sections(soup, base_url):
-    from .parser import parse_card_sections, parse_rank_sections
-
-    sections = []
-    for sec in parse_card_sections(soup, base_url):
-        if sec["id"] == "Rekomendasi_Komik":
-            continue
-        sections.append(
-            {"title": sec["title"], "items": stamp_section(sec["items"], sec["title"])}
-        )
-
-    for element in soup.select("main section#Rekomendasi_Komik"):
-        for panel_name, items in parse_rank_sections(element, base_url).items():
-            title = f"{RANK_SECTION_TITLE} ({panel_name})"
-            sections.append({"title": title, "items": stamp_section(items, title)})
-    return sections
+# ------------------------------------------------------------------ utilitas
+def merge_detail_into_item(item: dict[str, Any], detail: dict[str, Any]) -> dict[str, Any]:
+    """Isi field yang kosong di item dari vocabulary detail (non-destructif)."""
+    merged = dict(item)
+    for key in ("genre", "author", "artist", "format", "tipe"):
+        if not merged.get(key) and detail.get(key):
+            merged[key] = detail[key]
+    return merged
 
 
-def deduplicate_items(items):
-    result = {}
+def deduplicate_items(items: list[dict]) -> tuple[list[dict], int]:
+    """Dedup berdasarkan `id`. Item pertama yang muncul menang; field kosong
+    diisi dari item berikutnya yang sama (dipakai saat item muncul di
+    beberapa section).
+    """
+    result: dict[str, dict] = {}
     duplicates = 0
     for item in items:
-        detail_url = item["detail_url"]
-        if detail_url in result:
+        mid = item.get("id")
+        if not mid:
+            continue
+        if mid in result:
             duplicates += 1
             for key, value in item.items():
-                if key in {"section", "section_title", "rank", "sub_section"}:
+                if key == "id":
                     continue
-                if not result[detail_url].get(key) and value:
-                    result[detail_url][key] = value
+                if not result[mid].get(key) and value:
+                    result[mid][key] = value
         else:
-            result[detail_url] = dict(item)
+            result[mid] = dict(item)
     return list(result.values()), duplicates
 
 
-def canonical_detail_url(value, base_url):
-    return normalize_url(value, base_url, detail=True)
+def strip_internal(item: dict[str, Any]) -> dict[str, Any]:
+    """Buang field yang diawali `_` (internal, bukan skema output)."""
+    return {k: v for k, v in item.items() if not k.startswith("_")}
 
 
-def build_sinopsis_map(items, base_url):
-    """Petakan canonical detail_url -> sinopsis (hanya sinopsis riil)."""
-    result = {}
-    for item in items:
-        key = canonical_detail_url(item.get("detail_url", ""), base_url)
-        sinopsis = (item.get("sinopsis") or "").strip()
-        if key and is_real_sinopsis(sinopsis) and key not in result:
-            result[key] = sinopsis
-    return result
-
-
-def blank_sinopsis_urls(sections, base_url):
-    """Kumpulan canonical detail_url dari item yang sinopsisnya masih kosong."""
-    blanks = set()
-    for section in sections:
-        for item in section.get("items", []):
-            if not is_real_sinopsis(item.get("sinopsis")):
-                key = canonical_detail_url(item.get("detail_url", ""), base_url)
-                if key:
-                    blanks.add(key)
-    return blanks
-
-
-def enrich_sinopsis(sections, sinopsis_map, base_url):
-    """Isi sinopsis kosong/placeholder dari peta endpoint daftar."""
-    filled = 0
-    for section in sections:
-        for item in section.get("items", []):
-            if is_real_sinopsis(item.get("sinopsis")):
-                continue
-            key = canonical_detail_url(item.get("detail_url", ""), base_url)
-            if key and key in sinopsis_map:
-                item["sinopsis"] = sinopsis_map[key]
-                filled += 1
-    if filled:
-        LOGGER.info("Enrichment sinopsis: %d item terisi", filled)
-    return filled
-
-
-def clear_placeholder_sinopsis(sections):
-    """Kosongkan sinopsis placeholder situs (mis. "Belum ada isi.")."""
-    cleared = 0
-    for section in sections:
-        for item in section.get("items", []):
-            sinopsis = (item.get("sinopsis") or "").strip()
-            if sinopsis and not is_real_sinopsis(sinopsis):
-                item["sinopsis"] = ""
-                cleared += 1
-    if cleared:
-        LOGGER.info("%d sinopsis placeholder dikosongkan", cleared)
-    return cleared
-
-
-def blank_sinopsis_items(sections, base_url):
-    """Pasangan (detail_url, judul) dari item yang sinopsisnya masih kosong."""
-    pairs = []
-    seen = set()
-    for section in sections:
-        for item in section.get("items", []):
-            if is_real_sinopsis(item.get("sinopsis")):
-                continue
-            key = canonical_detail_url(item.get("detail_url", ""), base_url)
-            if key and key not in seen:
-                seen.add(key)
-                pairs.append((key, item.get("judul", "")))
-    return pairs
-
-
-def fill_from_detail_pages(sections, pairs, client, base_url):
-    """Fallback terakhir: ambil sinopsis dari halaman detail per item.
-
-    Dipakai untuk item peringkat/populer yang tidak muncul di halaman awal
-    endpoint daftar. Jumlah request dibatasi jumlah item yang masih kosong.
-    Sinopsis sekaligus kategori (dari tabel metadata) diambil dari halaman
-    yang sama agar tidak ada request kedua.
+def attach_comments(scraper: ShinigamiScraper, sections: list[dict], limit: int = 10) -> int:
+    """Isi `komentar` pada tiap item yang memilikinya. Opsional: hanya
+    ambil saat request tidak berlebihan. Kembalikan jumlah item dengan
+    komentar ter-attach.
     """
-    filled = 0
-    kategori_filled = 0
-    failed = 0
-    for detail_url, judul in pairs:
-        try:
-            html = client.get(detail_url)
-        except Exception as error:
-            LOGGER.warning("Halaman detail fallback gagal untuk %s: %s", detail_url, error)
-            failed += 1
-            continue
-        key = canonical_detail_url(detail_url, base_url)
-        targets = [
-            item
-            for section in sections
-            for item in section.get("items", [])
-            if canonical_detail_url(item.get("detail_url", ""), base_url) == key
-        ]
-        sinopsis = parse_detail_sinopsis(html)
-        if sinopsis:
-            for item in targets:
-                if not is_real_sinopsis(item.get("sinopsis")):
-                    item["sinopsis"] = sinopsis
-                    filled += 1
-            LOGGER.info("Sinopsis dari halaman detail: %s", judul or detail_url)
-        kategori = parse_detail_kategori(html)
-        if kategori:
-            for item in targets:
-                if not (item.get("kategori") or "").strip():
-                    item["kategori"] = kategori
-                    kategori_filled += 1
-        client.polite_delay()
-    if filled or kategori_filled or failed:
-        LOGGER.info(
-            "Fallback halaman detail: %d sinopsis terisi, %d kategori terisi, %d gagal",
-            filled,
-            kategori_filled,
-            failed,
-        )
-    return filled, failed
-
-
-def build_kategori_map(items, base_url):
-    """Petakan canonical detail_url -> kategori (hanya nilai valid)."""
-    result = {}
-    for item in items:
-        key = canonical_detail_url(item.get("detail_url", ""), base_url)
-        kategori = (item.get("kategori") or "").strip()
-        if key and kategori in {"Manga", "Manhwa", "Manhua"} and key not in result:
-            result[key] = kategori
-    return result
-
-
-def enrich_kategori(sections, kategori_map, base_url):
-    """Isi kategori yang belum ada dari peta endpoint daftar. Kembalikan jumlah."""
-    filled = 0
+    touched = 0
     for section in sections:
         for item in section.get("items", []):
-            if (item.get("kategori") or "").strip():
-                continue
-            key = canonical_detail_url(item.get("detail_url", ""), base_url)
-            if key and key in kategori_map:
-                item["kategori"] = kategori_map[key]
-                filled += 1
-    if filled:
-        LOGGER.info("Enrichment kategori: %d item terisi", filled)
-    return filled
+            if item.get("_waline_path") or item.get("_raw_manga_id"):
+                comments = scraper.fetch_comments(item, limit=limit)
+                if comments:
+                    item["komentar"] = comments
+                    touched += 1
+            scraper.client.polite_delay()
+    return touched
 
 
-def deduplicate_sections(sections):
-    result = []
-    total_duplicates = 0
+def build_sections(
+    scraper: ShinigamiScraper,
+    kinds: list[str] | None = None,
+    with_comments: bool = False,
+) -> list[dict]:
+    """Bangun daftar section final untuk dokumen output.
+
+    kinds: subset ['top', 'latest', 'rating']. Dengan `with_comments=True`,
+    setiap item di-enrich komentar dari chapter terbarunya (satu request
+    per item). Field internal (diawali `_`) dibuang sebelum output.
+    """
+    if not kinds:
+        kinds = ["top", "latest", "rating"]
+    titles = {"top": "Peringkat Teratas", "latest": "Terbaru", "rating": "Rating Tertinggi"}
+    sections: list[dict] = []
+    for kind in kinds:
+        items = scraper.scrape_section(kind)
+        sections.append({"title": titles[kind], "items": items})
+
+    if with_comments:
+        attach_comments(scraper, sections)
+
     for section in sections:
-        items, duplicates = deduplicate_items(section["items"])
-        if duplicates:
-            LOGGER.info("Section %s: %d duplikat dihapus", section["title"], duplicates)
-        result.append({**section, "items": items})
-        total_duplicates += duplicates
-    return result, total_duplicates
+        section["items"] = [strip_internal(i) for i in section["items"]]
+    return sections

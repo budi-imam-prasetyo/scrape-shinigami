@@ -1,27 +1,70 @@
-# Scraper Section Manhwa Komiku
+# Shinigami Manga Metadata Scraper
 
-Scraper Python untuk mengambil manhwa dari halaman depan Komiku, dikelompokkan
-berdasarkan section yang benar-benar ada di halaman (bukan dikarang).
+Scraper Python untuk mengambil **metadata manga** dari Shinigami
+(`https://11.shinigami.asia`) melalui **JSON API publik**, dikelompokkan
+dalam section yang dapat dikonfigurasi.
+
+> **Penting (etika & skop):** alat ini HANYA mengambil informasi/katalog
+> manga (judul, cover, sinopsis, rating, genre, author, artist, status,
+> update terbaru, komentar). **TIDAK** mengambil isi/chapter komik.
+
+> Grafik edisi sebelumnya memindai HTML `komiku.org`. Mulai **v1.0.0**
+> sumber berubah total ke Shinigami (JSON API) — lihat
+> [Riwayat versi](#riwayat-versi) dan [Migrasi Komiku → Shinigami](#migrasi-komiku--shinigami).
+
+## Sumber data
+
+Shinigami adalah SPA SvelteKit — halaman HTML-nya kosong (data dirender
+client-side). Alat ini memakai **JSON API publik** yang dipakai frontend-nya:
+
+| Endpoint | Fungsi |
+| --- | --- |
+| `GET https://api.shngm.io/v1/manga/list` | Daftar manga (sort: `latest`, `rating`, `bookmark`) |
+| `GET https://api.shngm.io/v1/manga/top` | Peringkat 10 teratas |
+| `GET https://api.shngm.io/v1/manga/detail/{id}` | Detail + taxonomy (genre, author, artist, dll) |
+| `GET https://commento.shngm.io/comment?path=...` | Komentar user (Waline) |
+
+Keunggulan vs HTML scraping: data terstruktur, stabil, tidak rentan terhadap
+perubahan DOM, dan sudah menyertakan rating/status/genre yang lengkap.
 
 ## Struktur output (`manhwa.json`)
 
 ```json
 {
-  "schema_version": "0.2.0",
-  "generated_at": "2026-09-17T13:59:30+00:00",
-  "source": "https://komiku.org/",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-09-21T00:00:00+00:00",
+  "source": "https://11.shinigami.asia",
   "sections": [
     {
-      "id": "baca-komik-terbaru",
-      "title": "Baca Komik Terbaru",
+      "id": "terbaru",
+      "title": "Terbaru",
       "items": [
         {
-          "judul": "...",
-          "url_img": "...",
-          "sinopsis": "...",
-          "detail_url": "...",
-          "section": "baca-komik-terbaru",
-          "section_title": "Baca Komik Terbaru"
+          "id": "90f99e6c-...",
+          "judul": "Goblin Inc",
+          "judul_alternatif": "고블린 주식회사",
+          "detail_url": "https://11.shinigami.asia/series/90f99e6c-...",
+          "url_img": "https://assets.shngm.id/thumbnail/...jpg",
+          "url_img_portrait": "https://assets.shngm.id/thumbnail/...jpg",
+          "sinopsis": "Seorang pekerja kantoran biasa...",
+          "kategori": "Manhwa",
+          "status": "Ongoing",
+          "tahun": 2026,
+          "rating": 8.5,
+          "views": 548422,
+          "bookmark_count": 9270,
+          "rank": 9999,
+          "updated_at": "2026-09-21",
+          "chapter_terbaru": 14,
+          "genre": ["Action", "Fantasy"],
+          "author": ["Mon"],
+          "artist": ["Beonin"],
+          "format": ["Manhwa"],
+          "tipe": ["Project"],
+          "mutakhir": true,
+          "komentar": [
+            {"username": "Ivan", "isi": "Pas seru^", "tanggal": "2026-09-20", "suka": 0, "id": "6333899"}
+          ]
         }
       ]
     }
@@ -29,103 +72,99 @@ berdasarkan section yang benar-benar ada di halaman (bukan dikarang).
 }
 ```
 
-### Struktur yang dipilih dan alasannya
+### Field mapping API → internal
 
-Struktur `{"sections": [{"id", "title", "items"}]}` dipilih di atas bentuk
-`{"rekomendasi": [...], "terbaru": [...]}` karena:
+| API Shinigami | Internal (output) | Keterangan |
+| --- | --- | --- |
+| `manga_id` / `id` | `id` | UUID unik |
+| `title` | `judul` | — |
+| `alternative_title` | `judul_alternatif` | opsional |
+| `cover_image_url` | `url_img` | via `safe_url` (hanya http/https) |
+| `cover_portrait_url` | `url_img_portrait` | opsional |
+| `description` | `sinopsis` | placeholder dibersihkan |
+| `country_id` (`KR`/`CN`/`JP`) | `kategori` | Manhwa/Manhua/Manga |
+| `status` (1-4) | `status` | Ongoing/Completed/Hiatus/Dropped |
+| `release_year` | `tahun` | int |
+| `user_rate` | `rating` | float |
+| `view_count` | `views` | int |
+| `bookmark_count` | `bookmark_count` | int |
+| `rank` | `rank` | int (top selalu `9999` dari API) |
+| `latest_chapter_time` | `updated_at` | `YYYY-MM-DD` |
+| `latest_chapter_number` | `chapter_terbaru` | int |
+| `is_recommended` | `mutakhir` | bool |
+| `taxonomy.Genre[]` | `genre` | list, dari `manga/detail` |
+| `taxonomy.Author[]` | `author` | list, dari `manga/detail` |
+| `taxonomy.Artist[]` | `artist` | list, dari `manga/detail` |
+| `taxonomy.Format[]` | `format` | list, dari `manga/detail` |
+| `taxonomy.Type[]` | `tipe` | list, dari `manga/detail` |
+| Waline `chapter/<id>` comments | `komentar` | opsional, `--with-comments` |
 
-1. Frontend bisa me-render daftar section secara generik tanpa tahu nama
-   section di muka (cukup map over `sections`).
-2. Section baru dari situs otomatis ikut terbaca tanpa perubahan konsumen.
-3. `id` stabil (slug dari judul) untuk key/pencarian; `title` tetap tersimpan
-   untuk tampilan.
-4. Metadata per item (`section`, `rank`, `sub_section`) tetap ada sehingga
-   relasi lintas section dan deduplication bisa dilakukan di sisi konsumen.
+Catatan skema:
+- Field opsional (`judul_alternatif`, `genre`, `rating`, dst) **hanya muncul**
+  jika nilainya ada. `additionalProperties: false` di jsonschema menjaga output
+  konsisten — item harus lolos `validate_document`.
+- Field internal (diawali `_`, mis. `_waline_path`) tidak ikut diexport ke JSON.
 
-### Section yang terdeteksi (hasil audit HTML aktual)
+### Section yang tersedia
 
-Section diambil dinamis dari `main section[id]` di `https://komiku.org/`,
-bukan di-hardcode:
-
-| Section (title asli)       | id                          | Sumber data             |
-| -------------------------- | --------------------------- | ----------------------- |
-| Baca Komik Terbaru         | `baca-komik-terbaru`        | kartu `article.ls2`     |
-| Baru Ditambahkan           | `baru-ditambahkan`          | kartu `article.ls2`     |
-| Peringkat Komiku (harian)  | `peringkat-komiku-harian`   | panel `#rank-harian`    |
-| Peringkat Komiku (mingguan)| `peringkat-komiku-mingguan` | panel `#rank-mingguan`  |
-
-Catatan:
-
-- Kartu homepage tidak memuat sinopsis, jadi scraper mengisinya bertahap:
-  1. **Endpoint daftar** (`api.komiku.org/manga/`, **tanpa filter tipe**, 10
-     halaman default) — kartunya memuat sinopsis dan tipe asli untuk semua
-     kategori (Manga/Manhwa/Manhua). Berhenti lebih awal kalau semua yang
-     kosong sudah ketemu (`--enrich-pages N`, `--no-enrich-sinopsis` untuk
-     menonaktifkan). Mode `--include-list` memakai data daftar yang sama
-     tanpa request tambahan.
-  2. **Fallback halaman detail** — item yang tetap kosong (biasanya item
-     peringkat, yang diurutkan berdasarkan views sehingga tidak muncul di
-     halaman awal daftar) diambil langsung dari `#Sinopsis` di halaman
-     detailnya, plus kategori dari baris `Tipe:` tabel metadata. Jumlah
-     request = jumlah item yang masih kosong (biasanya 15-25).
-- Placeholder sinopsis dari situs ("Belum ada isi.") dibersihkan dan
-  dianggap kosong, lalu diisi lewat tahap di atas.
-- Field `kategori` (`Manga`/`Manhwa`/`Manhua`) diambil dari atribut
-  `data-tipe`, prefix alt gambar, `.tpe1_inf b` di endpoint daftar, atau
-  baris `Tipe:` di halaman detail.
-- Jika situs menambah/mengubah section, scraper otomatis mengikuti selama
-  pola kartunya sama. Section tanpa kartu atau tanpa judul dilewati.
+| `--kinds` | Title | Endpoint |
+| --- | --- | --- |
+| `top` | Peringkat Teratas | `manga/top` (10 item, di-enrich taxonomy via detail) |
+| `latest` (default) | Terbaru | `manga/list?sort=latest` (100 item) |
+| `rating` | Rating Tertinggi | `manga/list?sort=rating` (100 item) |
 
 ## Cara menjalankan
 
 ```bash
-# Default: section dari homepage
+# Default: top + latest + rating
 python3 main.py --output manhwa.json
 
-# Tambah section paginated dari endpoint daftar terbaru (semua tipe)
-python3 main.py --include-list --max-pages 5 --output manhwa.json
+# Pilih section tertentu (dipisah koma)
+python3 main.py --output manhwa.json --kinds top,latest
 
-# Opsi lain
-python3 main.py --min-delay 1.5 --max-delay 3 --output manhwa.json
+# Tambah komentar user untuk chapter terbaru tiap item (request per item)
+python3 main.py --output manhwa.json --with-comments
 
-# Retry lebih agresif (dipakai workflow CI, IP runner rawan rate-limit)
-python3 main.py --max-retries 5 --backoff-base 3.0 --output manhwa.json
+# Tuning request (CI: agresif retry, delay kecil)
+python3 main.py --output manhwa.json --max-retries 5 --backoff-base 3.0 --min-delay 0.3 --max-delay 0.8
 ```
 
-Jika tidak ada section terdeteksi (IP diblokir situs, halaman
-block/challenge, atau struktur HTML berubah), scraper keluar dengan kode 2
-dan `manhwa.json` tidak diubah. Jika request gagal total, keluar dengan
-kode 1 beserta traceback.
+Argumen penuh:
 
-Statistik akhir dicetak ke stdout: jumlah section, item per section, total
-item, item unik, duplikat dihapus, sinopsis terisi via daftar/fallback detail,
-kategori terisi, sinopsis kosong, dan request gagal.
+| Argumen | Default | Keterangan |
+| --- | --- | --- |
+| `--output` | `manhwa.json` | Path output |
+| `--kinds` | `top,latest,rating` | Section, dipisah koma |
+| `--with-comments` | off | Ambil 10 komentar chapter terbaru (menambah request) |
+| `--min-delay`, `--max-delay` | `1.0`, `2.0` | Jeda acak antar request |
+| `--max-retries` | `3` | Retry per request |
+| `--backoff-base` | `2.0` | Basis exponential backoff |
+
+Jika tidak ada section terdeteksi (API berubah/berubah, IP diblokir), scraper
+keluar dengan kode **2** dan `manhwa.json` tidak diubah. Jika request gagal
+total, keluar dengan kode **1** beserta traceback. Statistik akhir dicetak ke
+stdout (jumlah section, item per section, total, unique).
+
+## Komentar (Waline)
+
+Komentar user tidak tersedia dari `api.shngm.io`. Ditemukan saat recon bahwa
+Shinigami memakai **Waline** (`https://commento.shngm.io`) dan mengelompokkan
+komentar per **chapter** (`path=chapter/<id>`). Scraper mengambil komentar
+untuk **chapter terbaru** saja (10 komentar) untuk menjaga request tetap
+minimal dan tidak menyentuh isi komik. Aktifkan dengan `--with-comments`.
 
 ## Refresh otomatis harian (GitHub Actions)
 
-Workflow `.github/workflows/refresh.yml` berjalan otomatis setiap hari
-pukul 18:00 UTC (01:00 WIB) via `schedule.cron`, dan bisa dipicu manual
-lewat tab Actions → "Refresh manhwa.json" → Run workflow (`workflow_dispatch`).
+Workflow `.github/workflows/refresh.yml` automatis setiap hari pukul 18:00
+UTC (01:00 WIB) via `schedule.cron`, dan bisa dipicu manual via tab Actions.
 
-Langkah workflow:
-
-1. Checkout repo (full history, `fetch-depth: 0`), setup Python 3.12, install `requirements.txt`.
-2. Jalankan test suite (`python -m unittest discover -s tests -v`).
-3. Jalankan scraper (`python main.py --output manhwa.json --max-retries 5 --backoff-base 3.0`).
+Step:
+1. Checkout (full history `fetch-depth: 0`), Python 3.12, install deps.
+2. Run tests (`python -m unittest discover -s tests -v`).
+3. Run scraper.
 4. Validasi JSON (`python -m json.tool manhwa.json`).
-5. Commit + push `manhwa.json` **hanya jika ada perubahan**
-   (`git diff --cached --quiet`), dengan pesan `chore: daily refresh manhwa.json`.
-   Push dilakukan via `git fetch` → `git rebase -X theirs` → `git push origin HEAD:main`
-   untuk menangani race condition jika ada commit baru di remote saat workflow berjalan.
-
-Concurrency group `refresh-manhwa` mencegah dua run refresh berjalan bersamaan.
-
-## SSL
-
-Situs `komiku.org` menggunakan sertifikat SSL self-signed. HTTP client
-(`manhwa_scraper/http.py`) menonaktifkan verifikasi SSL (`verify=False`)
-dan menyembunyikan warning `InsecureRequestWarning` dari urllib3 agar
-scraper tetap berjalan di environment CI.
+5. Commit + push **hanya jika berubah**, via
+   `fetch → rebase -X theirs → push HEAD:main` (tahan race condition).
 
 ## Menjalankan test
 
@@ -133,70 +172,64 @@ scraper tetap berjalan di environment CI.
 python3 -m unittest discover -s tests -v
 ```
 
-Test memakai HTML fixture (`tests/fixtures/komiku_home.html`) dan HTTP session
-tiruan, sehingga tidak ada network call saat test.
-
-## Menambah section baru
-
-1. Buka `https://komiku.org/`, inspect section yang diinginkan.
-2. Jika section memakai kartu `article.ls2` dengan judul di `h3 a`, tidak ada
-   perubahan kode: section otomatis terdeteksi karena scraper membaca semua
-   `main section[id]` yang punya heading dan kartu.
-3. Jika strukturnya berbeda (mis. seperti panel ranking), tambahkan parser di
-   `manhwa_scraper/parser.py` (fungsi `parse_*` baru) dan sambungkan di
-   `manhwa_scraper/scraper.py::collect_sections`.
-4. Tambahkan/ubah fixture di `tests/fixtures/` dan test di `tests/` agar
-   parser baru tercakup.
+Test memakai fixture JSON aktual (`tests/fixtures/*.json`) dari API Shinigami
++ HTTP session tiruan (tanpa jaringan). Suite mencakup: normalisasi field,
+parser komentar, retry/backoff HTTP, dedup, build/validasi document, strip
+field internal.
 
 ## Arsitektur
 
-| Modul                          | Tanggung jawab                                          |
-| ------------------------------ | ------------------------------------------------------- |
-| `main.py`                      | CLI, orkestrasi, statistik                              |
-| `manhwa_scraper/http.py`       | Session, SSL bypass, retry+backoff, delay antar-request |
-| `manhwa_scraper/parser.py`     | Parsing HTML menjadi item/section                       |
-| `manhwa_scraper/scraper.py`    | Penggabungan section, stamping metadata, deduplication  |
-| `manhwa_scraper/normalize.py`  | Normalisasi teks dan URL, slug id section               |
-| `manhwa_scraper/storage.py`    | Schema JSON, validasi, penulisan atomic                 |
+| Modul | Tanggung jawab |
+| --- | --- |
+| `main.py` | CLI, orkestrasi, statistik |
+| `manhwa_scraper/config.py` | Endpoint, sort valid, mapping status/negara, header |
+| `manhwa_scraper/http.py` | `ApiClient` (JSON) + retry/backoff/rate guard |
+| `manhwa_scraper/scraper.py` | Orkestrasi API, dedup, enrich detail, attach komentar |
+| `manhwa_scraper/normalize.py` | Transformasi field API → model internal |
+| `manhwa_scraper/parser.py` | Parser komentar Waline (fallback yang butuh parsing) |
+| `manhwa_scraper/storage.py` | Skema JSON (1.0.0), validasi, atomic write |
 
-## Perilaku penting
+## Perilaku penting & reliabilitas
 
-- **SSL bypass**: `komiku.org` menggunakan self-signed certificate. Session
-  requests dikonfigurasi dengan `verify=False` agar tidak gagal SSL handshake.
-- **Atomic write**: `manhwa.json` ditulis lewat file temporer lalu `os.replace`,
-  sehingga file lama tidak pernah corrupt walau proses mati di tengah jalan.
-- **Deduplication**: berdasarkan `detail_url`, per section. Item duplikat
-  menyatu dan field kosong diisi dari duplikatnya.
-- **Request gagal**: retry 3x dengan exponential backoff + jitter; status
-  retryable: 403, 408, 429, 500, 502, 503, 504. Kegagalan final tercatat di
-  statistik.
-- **Delay**: 1-2 detik (bisa diatur) antar request (halaman daftar dan
-  fallback detail).
-- **Fallback halaman detail**: hanya dijalankan untuk item yang sinopsisnya
-  masih kosong setelah enrichment endpoint daftar (umumnya 15-25 request kecil).
-- **Status non-retryable** (mis. 404) tidak di-retry; hanya 403, 408, 429,
-  500, 502, 503, 504 yang dicoba ulang.
+- **Atomic write**: `manhwa.json` via tempfile + `os.replace` — file lama
+  tidak pernah corrupt walau proses mati di tengah.
+- **Retry/backoff**: status retryable `{429, 500, 502, 503, 504}` di-retry
+  dengan exponential backoff + jitter; **4xx permanen (404 dst) tidak di-retry**.
+- **Duplikat**: item dedup berdasarkan `id`. Item yang muncul di beberapa
+  section tetap utuh per section (hasil `--kinds`); field kosong diisi dari
+  pasangan yang sama.
+- **Detail enrichment**: `manga/top` tidak menyertakan taxonomy, jadi genre/
+  author/artist diisi lewat `manga/detail` (satu request per id top).
+- **Rate politeness**: semua request serial + `polite_delay`; tidak ada
+  concurrency agresif. Gunakan `--min-delay`/`--max-delay` bijak.
+- **Keamanan URL**: `safe_url` hanya mengizinkan `http/https`, membuang
+  kredensial, menghindari URL berbahaya (`javascript:` dst).
+- **Missing data**: field kosong dianggap tidak ada (opsional tidak muncul),
+  bukan nilai palsu.
+
+## Migrasi Komiku → Shinigami (v0.2.x → v1.0.0)
+
+Perombakan total karena arsitektur target berbeda:
+
+| Aspek | v0.2.x (Komiku) | v1.0.0 (Shinigami) |
+| --- | --- | --- |
+| Sumber | HTML `komiku.org` + `api.komiku.org` (HTML/htx) | JSON API `api.shngm.io/v1` |
+| Parsing | BeautifulSoup selectors (`article.ls2`, `#Sinopsis`, dll) | JSON terstruktur, tanpa DOM |
+| Metadata | judul, url_img, sinopsis, kategori, rank | + rating, status, tahun, genre, author, artist, format, views |
+| Ranking | panel `#rank-harian`/`#rank-mingguan` (HTML) | `manga/top` (10 besar) |
+| Komentar | tidak ada | Waline `commento.shngm.io` (`--with-comments`) |
+| Skema output | `schema_version: 0.2.0` | `schema_version: 1.0.0` |
+| Linimasa | pastikan tidak backup item lama | build dari nol per run |
+
+**`beautifulsoup4` dihapus** dari `requirements.txt` — tidak ada lagi HTML
+parsing; semua data lewat JSON.
 
 ## Riwayat versi
 
-- **0.2.2** (2026-09-19): Perbaikan besar cakupan data. Enrichment sinopsis
-  pindah ke endpoint daftar **tanpa filter tipe** (sebelumnya `?tipe=manhwa`,
-  menyebabkan semua item Manga/Manhua kosong sinopsisnya). Ditambahkan:
-  fallback sinopsis + kategori dari halaman detail untuk item yang tetap
-  kosong, filter placeholder "Belum ada isi.", kategori dari `.tpe1_inf b`,
-  `urljoin` untuk pagination `hx-get` relatif, status non-retryable tidak
-  di-retry, statistik `detail_filled`/`detail_failed`/`kategori_filled`, dan
-  section `--include-list` diganti "Daftar Terbaru" (endpoint kini semua tipe).
-- **0.2.1** (2026-09-18): SSL bypass (`verify=False` + suppress
-  `InsecureRequestWarning`) untuk menangani self-signed certificate
-  `komiku.org`. CI workflow diperbaiki: `fetch-depth: 0`, explicit
-  `git fetch` + `git rebase -X theirs` + `git push origin HEAD:main`
-  untuk menangani detached HEAD dan race condition push di GitHub Actions.
-- **0.2.0** (2026-09-17): Output berubah dari array datar menjadi dokumen
-  per-section (`schema_version: "0.2.0"`). Ditambahkan: deteksi section
-  dinamis, pagination deduplication, validasi schema (jsonschema), atomic
-  write, retry+backoff, metadata `section`/`rank`/`sub_section`, test suite
-  dengan fixture, CLI baru. Ini perubahan **minor**: fitur baru yang backward
-  compatible secara fungsi (4 field lama tetap ada), meskipun bentuk output
-  berubah dari array menjadi objek.
-- **0.1.0**: Versi awal, satu array flat dari endpoint daftar.
+- **1.0.0** (2026-09-21): Migrasi sumber data total dari Komiku (HTML) ke
+  Shinigami (JSON API). Skema output dirombak (`schema_version: 1.0.0`),
+  field metadata diperluas (rating, status, genre, author, artist, dst),
+  komentar Waline opsional, modul di-refactor bersih (config/http/scraper/
+  normalize/parser/storage), `beautifulsoup4` dihapus, suite test baru
+  dengan fixture JSON. **Ini MAJOR** (API/schema/behavior berubah).
+- 0.2.x (Komiku): versi sebelumnya berbasis HTML scraping; dihentikan.

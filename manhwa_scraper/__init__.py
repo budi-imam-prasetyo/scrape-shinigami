@@ -1,6 +1,6 @@
-"""Komiku manhwa homepage scraper.
+"""Shinigami manga metadata scraper.
 
-Version: 0.2.2
+Version: 1.0.0
 """
 
-VERSION = "0.2.2"
+VERSION = "1.0.0"
