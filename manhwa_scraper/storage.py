@@ -43,7 +43,10 @@ ITEM_SCHEMA = {
             "type": "string",
             "description": "Ringkasan cerita (boleh string kosong bila API tidak mengirim).",
         },
-        "kategori": {"type": "string", "minLength": 1},
+        "kategori": {
+            "type": "string",
+            "description": "Tipe dari kode negara; string kosong bila API tidak mengirim country_id.",
+        },
         "status": {"type": "string"},
         "tahun": {"type": ["integer", "null"]},
         "rating": {"type": ["number", "null"]},

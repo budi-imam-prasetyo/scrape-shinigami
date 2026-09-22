@@ -79,10 +79,11 @@ class TestNormalizeMangaItem(unittest.TestCase):
 
     def test_country_id_empty_list_is_handled(self):
         # Kasus nyata: beberapa judul mengirim country_id sebagai list kosong.
+        # Kategori kosong dihapus dari item (field opsional, konsisten dgn genre).
         item = n.normalize_manga_item(
             {"title": "Y", "manga_id": "abc", "country_id": []}
         )
-        self.assertEqual(item["kategori"], "")
+        self.assertNotIn("kategori", item)
         item2 = n.normalize_manga_item(
             {"title": "Z", "manga_id": "def", "country_id": ["KR"]}
         )
@@ -93,7 +94,7 @@ class TestNormalizeMangaItem(unittest.TestCase):
         item = n.normalize_manga_item(raw)
         self.assertEqual(item["id"], "")
         self.assertEqual(item["sinopsis"], "")
-        self.assertEqual(item["kategori"], "")
+        self.assertNotIn("kategori", item)  # opsional tak muncul jika kosong
         self.assertEqual(item["status"], "")
         self.assertNotIn("genre", item)  # opsional tak muncul jika kosong
 

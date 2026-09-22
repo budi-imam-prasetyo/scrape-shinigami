@@ -168,6 +168,7 @@ def normalize_manga_item(raw: Mapping[str, Any]) -> dict:
     # Hapus field yang nilainya kosong default (supaya output bersih).
     for key in (
         "url_img_portrait",
+        "kategori",
         "judul_alternatif",
         "genre",
         "author",
