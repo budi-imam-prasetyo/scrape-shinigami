@@ -69,7 +69,7 @@ class TestNormalizeMangaItem(unittest.TestCase):
         self.assertTrue(item["judul"])
         self.assertTrue(item["url_img"].startswith("https://"))
         self.assertTrue(
-            item["detail_url"].startswith("https://11.shinigami.asia/series/")
+            item["detail_url"].startswith("https://s1.shinigami.mx/series/")
         )
         self.assertIn("genre", item)
         self.assertIn("author", item)

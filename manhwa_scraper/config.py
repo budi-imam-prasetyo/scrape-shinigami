@@ -1,23 +1,23 @@
 """Konfigurasi endpoint dan konstanta sumber data Shinigami.
 
-Version: 1.0.0
+Version: 1.1.0
 
 Sumber data: REST API publik Shinigami (dipakai oleh frontend
-https://11.shinigami.asia). Tidak ada HTML parsing sama sekali — seluruh data
+https://s1.shinigami.mx). Tidak ada HTML parsing sama sekali — seluruh data
 diambil dari endpoint JSON, sehingga tidak rentan terhadap perubahan DOM.
 
-Catatan hasil verifikasi struktur (lihat README bagian "Sumber data"):
-- `sort` yang valid: latest, rating, bookmark. Nilai lain mengembalikan 400.
-- `manga/top` mengabaikan parameter `sort`/`type`; selalu 10 item teratas.
-- Item dari `manga/top` TIDAK menyertakan `taxonomy`, sehingga genre/author/
-  artist harus dilengkapi dari `manga/detail/{id}`.
-- Endpoint `notice` (komentar) mengembalikan `data: null` untuk pengguna
-  anonim; komentar hanya tersedia jika ada kredensial.
+Diverifikasi pada 2026-11-19 dari frontend publik s1.shinigami.mx:
+- API katalog memakai offset/limit dan meta.has_next.
+- Batas request yang telah diuji: limit=100; limit=500 ditolak.
+- Ranking memakai limit/cursor; scraper mengambil 10 teratas.
+- Komentar memakai comment/api/v2/comments dengan page_key.
 """
 
-API_BASE = "https://api.shngm.io/v1"
+API_BASE = "https://api.shinigami.io/v1"
 
-SITE_BASE = "https://11.shinigami.asia"
+SITE_BASE = "https://s1.shinigami.mx"
+
+COMMENTS_URL = "https://api.shinigami.io/comment/api/v2/comments"
 
 # Detail manga di situs: /series/{manga_id}/{slug}
 SERIES_URL_TEMPLATE = SITE_BASE + "/series/{manga_id}"
@@ -27,14 +27,11 @@ VALID_SORTS = ("latest", "rating", "bookmark")
 
 DEFAULT_SORT = "latest"
 
-# Batas page_size. Diverifikasi: API menerima 500 dan mengembalikan 500 item
-# unik; total katalog = 1000 record (meta.total_record).
-MAX_PAGE_SIZE = 500
+# Ukuran halaman yang didukung API baru (500 ditolak).
+MAX_PAGE_SIZE = 100
 
-# Berapa halaman `manga/list` yang digabung per section. 2 x 500 = seluruh
-# katalog (1000 record). Naikkan untuk crawl lebih dalam (API memagari total
-# di 1000 record, jadi >2 tidak menambah data).
-LIST_PAGES = 2
+# None: ambil semua halaman sampai meta.has_next=False.
+LIST_PAGES = None
 
 # Status manga: nilai integer dari API -> label.
 STATUS_LABELS = {
@@ -56,7 +53,7 @@ COUNTRY_LABELS = {
 # Header wajib: API memeriksa Origin/Referer dari situs.
 DEFAULT_HEADERS = {
     "User-Agent": (
-        "ShinigamiMetadataScraper/1.0.0 (personal use; metadata only; Python requests)"
+        "ShinigamiMetadataScraper/1.1.0 (personal use; metadata only; Python requests)"
     ),
     "Accept": "application/json",
     "Accept-Language": "id-ID,id;q=0.9",

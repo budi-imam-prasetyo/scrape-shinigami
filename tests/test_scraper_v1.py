@@ -37,7 +37,7 @@ class StubClient:
             return json.loads(fixture_text("list_page1.json"))
         if "/manga/detail/" in url:
             return json.loads(fixture_text("detail_demonic.json"))
-        if "commento.shngm.io" in url:
+        if "/comment/api/v2/comments" in url:
             return json.loads(fixture_text("waline_comments.json"))
         return {}
 

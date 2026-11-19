@@ -90,6 +90,7 @@ class TestRealItemValidates(unittest.TestCase):
         item = normalize_manga_item(raw)
         item.pop("_waline_path", None)
         item.pop("_raw_manga_id", None)
+        item.pop("_comment_page_key", None)
         sections = [{"title": "Top", "items": [item]}]
         build_document(sections, "2026-09-21T00:00:00Z", "https://11.shinigami.asia")
 

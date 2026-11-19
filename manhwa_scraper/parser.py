@@ -1,20 +1,13 @@
-"""Parser untuk data yang tidak tersedia lewat JSON API Shinigami.
+"""Parser komentar Shinigami API v2 dan payload Waline lama.
 
-Version: 1.0.0
-
-Catatan arsitektur: mayoritas metadata diambil dari JSON API Shinigami
-(manga/list, manga/detail, manga/top) sehingga modul ini tidak menangani
-parsing DOM situs. Fungsinya hanya untuk data komentar pengguna yang
-diambil dari layanan komentar Waline Shinigami (`https://commento.shngm.io`),
-yang komentarnya dikelompokkan per chapter.
-
-Komentar waline disimpan di dalam payload JSON berisi field HTML mentah,
-jadi di sini ada pembersihan HTML -> teks polos.
+API baru mengembalikan comments dengan content/date/vote_up/id.
+Payload lama memakai data dengan comment/insertedAt/like/objectId.
 """
 
 from __future__ import annotations
 
 import re
+from html import unescape
 from typing import Any
 
 from .normalize import clean_text, parse_iso_date
@@ -31,7 +24,7 @@ def _strip_html(html: str) -> str:
     text = re.sub(r"<[^>]+>", "", text)
     text = text.replace("&amp;", "&").replace("&lt;", "<").replace("&gt;", ">")
     text = text.replace("&quot;", '"').replace("&#39;", "'")
-    return clean_text(text)
+    return clean_text(unescape(text))
 
 
 def _comment_date(raw: dict) -> str:
@@ -53,11 +46,11 @@ def _comment_date(raw: dict) -> str:
         return datetime.datetime.fromtimestamp(
             times / 1000, datetime.timezone.utc
         ).strftime("%Y-%m-%d")
-    return parse_iso_date(raw.get("createdAt"))
+    return parse_iso_date(raw.get("date") or raw.get("createdAt"))
 
 
 def parse_comments_payload(payload: Any, limit: int = MAX_COMMENTS) -> list[dict]:
-    """Ubah payload JSON Waline (/comment) menjadi daftar komentar bersih.
+    """Ubah payload komentar API baru atau Waline menjadi komentar bersih.
 
     Payload bentuk: {"page":N,"totalPages":N,"count":N,"data":[...]}.
     Setiap item punya field: comment (HTML), nick, createdAt, like,
@@ -65,7 +58,7 @@ def parse_comments_payload(payload: Any, limit: int = MAX_COMMENTS) -> list[dict
     """
     if not isinstance(payload, dict):
         return []
-    raw_items = payload.get("data")
+    raw_items = payload.get("comments", payload.get("data"))
     if not isinstance(raw_items, list):
         return []
 
@@ -73,19 +66,21 @@ def parse_comments_payload(payload: Any, limit: int = MAX_COMMENTS) -> list[dict
     for raw in raw_items[:limit]:
         if not isinstance(raw, dict):
             continue
-        nick = clean_text(raw.get("nick"))
-        text = _strip_html(clean_text(raw.get("comment")))
+        if raw.get("is_deleted") or raw.get("is_pending") or raw.get("visible") is False:
+            continue
+        nick = clean_text(raw.get("nick") or raw.get("username"))
+        text = _strip_html(clean_text(raw.get("content") or raw.get("comment")))
         if not nick or not text:
             continue
         entry: dict[str, Any] = {
             "username": nick,
             "isi": text,
             "tanggal": _comment_date(raw),
-            "suka": int(raw["like"])
-            if isinstance(raw.get("like"), (int, float))
+            "suka": int(raw.get("vote_up", raw.get("like")))
+            if isinstance(raw.get("vote_up", raw.get("like")), (int, float))
             else 0,
         }
-        oid = raw.get("objectId")
+        oid = raw.get("id", raw.get("objectId"))
         if oid not in (None, ""):
             entry["id"] = str(oid)
         out.append(entry)

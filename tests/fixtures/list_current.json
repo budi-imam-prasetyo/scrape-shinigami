@@ -1,0 +1,215 @@
+{
+  "retcode": 0,
+  "message": "success",
+  "meta": {
+    "has_next": true,
+    "limit": 2,
+    "offset": 0,
+    "process_time": "14ms",
+    "request_id": "d7f0a6ff-e68a-4d02-9f8c-567ad205fde5",
+    "timestamp": 1795092140731
+  },
+  "data": [
+    {
+      "_rankingScore": 1,
+      "alternative_title": "무제한의 세균술사 | Mujehanui Segyunsulsa | The Infinite Bacteria Necromancer | The Limitless Germ Necromancer | The Unlimited Bacteriomancer | Unlimited Bacterimancer | Unlimited Germ Mancer | Unlimited Bacteria Magician | Unlimited Bacteriomancer",
+      "badge_text": null,
+      "bookmark_count": 3966,
+      "country_id": "KR",
+      "cover_image_url": "https://cdn.shinigami.gg/assets/cover/banner_1788598065801_h2bmu9.jpg",
+      "cover_portrait_url": "",
+      "created_at": "2026-09-05T08:47:48Z",
+      "deleted_at": null,
+      "description": "Di dunia tempat proses “kebangkitan” mengubah siapa saja menjadi pahlawan, seorang Necromancer “kelas sampah” memimpin pasukan \\*undead\\* mikroskopis yang akan membuat dunia bertekuk lutut.",
+      "is_recommended": false,
+      "latest_chapter_id": "e95ae10f-6ef6-484e-ba8f-ac83aa605e07",
+      "latest_chapter_number": 21,
+      "latest_chapter_time": "2026-11-19T12:15:30Z",
+      "manga_id": "7259a06d-fe9d-4be5-8936-9ebb3cbe24d8",
+      "rank": 718,
+      "release_year": "2026",
+      "status": 1,
+      "taxonomy": {
+        "Artist": [
+          {
+            "name": "Park Gwi",
+            "slug": "park-gwi-artist"
+          }
+        ],
+        "Author": [
+          {
+            "name": "Cheon Yong YJ",
+            "slug": "cheon-yong-yj-author"
+          },
+          {
+            "name": "Wonji",
+            "slug": "wonji-author"
+          }
+        ],
+        "Format": [
+          {
+            "name": "Manhwa",
+            "slug": "manhwa"
+          }
+        ],
+        "Genre": [
+          {
+            "name": "Action",
+            "slug": "action"
+          },
+          {
+            "name": "Fantasy",
+            "slug": "fantasy"
+          },
+          {
+            "name": "Shounen",
+            "slug": "shounen"
+          }
+        ],
+        "Type": [
+          {
+            "name": "Mirror",
+            "slug": "mirror"
+          }
+        ]
+      },
+      "title": "Unlimited Bacteria Magician",
+      "updated_at": "2026-11-19T12:15:34.152332Z",
+      "user_rate": 7,
+      "view_count": 245326
+    },
+    {
+      "_rankingScore": 1,
+      "alternative_title": "여주가 다 해 먹음 | The Female Lead Cooked and Ate Everything | The Female Lead Dominates the Story | The Female Lead Takes Care of Everything | The Heroine Ate Everything | The Heroine Takes Everything",
+      "badge_text": null,
+      "bookmark_count": 614,
+      "country_id": "KR",
+      "cover_image_url": "https://cdn.shinigami.gg/assets/cover/banner_1789725463289_pi0xi0.jpg",
+      "cover_portrait_url": "",
+      "created_at": "2026-09-18T09:57:45Z",
+      "deleted_at": null,
+      "description": "Nivelia Deamor. Usianya 4 tahun. Di kehidupan sebelumnya, dia adalah kucing milik sang santa. Di kehidupan ini, dia adalah cucu perempuan sang santa.  “Nini akan jadi wanita yang menghasilkan banyak uang!”  Tujuan masa depannya adalah mengumpulkan banyak uang untuk memberi makan dan membesarkan “serigala” yang akan ditemuinya lagi! Karena serigala itu adalah teman sekaligus bawahan Nini!  Jadi, Nini bekerja keras mencari uang dengan jerih payahnya sendiri sejak usia dua tahun. Meski dua tahun pertama hidupnya penuh kegagalan, kali ini segalanya akan berbeda!  Dia berhasil melakukan investasi untuk pertama kalinya. Dia menjalin kerja sama dengan teman-teman neneknya. Dia membentuk aliansi dengan para pengacara. Dia bahkan merintis bisnis atas namanya sendiri! Dia pikir dia akan meraih kesuksesan dengan mudah, tapi… Kau benar-benar menipuku. Kau seorang ‘transmigrator’, kan?  ……………………………..?  Jangan berpura-pura tidak tahu. Kau mengambil kisah orang lain dan menjadikan dirimu sendiri sebagai tokoh utamanya. Apa kau suka merebut segalanya dari para pria dan mengambil kekayaan mereka?  Transmigrator? Apa itu?",
+      "is_recommended": false,
+      "latest_chapter_id": "2bc238c3-2b04-4fb6-aac3-957235ff8e66",
+      "latest_chapter_number": 29,
+      "latest_chapter_time": "2026-11-19T12:15:21Z",
+      "manga_id": "301d8ee1-fd62-4fb5-9963-af7368c7a752",
+      "rank": 1353,
+      "release_year": "2026",
+      "status": 1,
+      "taxonomy": {
+        "Artist": [
+          {
+            "name": "Munmyeongin",
+            "slug": "munmyeongin-artist"
+          }
+        ],
+        "Author": [
+          {
+            "name": "Latine",
+            "slug": "latine-author"
+          },
+          {
+            "name": "ZQ",
+            "slug": "zq-author"
+          }
+        ],
+        "Format": [
+          {
+            "name": "Manhwa",
+            "slug": "manhwa"
+          }
+        ],
+        "Genre": [
+          {
+            "name": "Fantasy",
+            "slug": "fantasy"
+          },
+          {
+            "name": "Shoujo",
+            "slug": "shoujo"
+          }
+        ],
+        "Type": [
+          {
+            "name": "Mirror",
+            "slug": "mirror"
+          }
+        ]
+      },
+      "title": "The Female Lead Does It All",
+      "updated_at": "2026-11-19T12:15:24.764904Z",
+      "user_rate": 7,
+      "view_count": 21979
+    }
+  ],
+  "facet": {
+    "release_year": {
+      "1997": 1,
+      "2006": 1,
+      "2011": 1,
+      "2012": 1,
+      "2014": 5
+    },
+    "taxonomy.Artist.name": {
+      "038": 1,
+      "0g": 1,
+      "17K Anime": 1,
+      "219": 1,
+      "2396 Studio": 2
+    },
+    "taxonomy.Artist.slug": {
+      "01736cf4-55cf-4471-8c68-4535d4063770": 1,
+      "038": 1,
+      "0ac8f267-3cd5-4db8-9199-6ce1c918d7a6": 1,
+      "0b286788-2337-4370-ae9c-6409fb9be9af": 3,
+      "0g-artist": 1
+    },
+    "taxonomy.Author.name": {
+      "0g": 1,
+      "10000LAB": 1,
+      "128": 1,
+      "13 Wolsaeng": 2,
+      "14 strokes": 1
+    },
+    "taxonomy.Author.slug": {
+      "01a46e29-a862-4925-85a6-301164cd8590": 2,
+      "029ca5ae-aae0-4be3-a42b-70dcccf2ba1d": 1,
+      "057c1b20-db54-42b3-a391-b3041fdcc246": 1,
+      "0b6e2c7d-863c-42ba-9a6e-a4182a245e68": 2,
+      "0g-author": 1
+    },
+    "taxonomy.Format.name": {
+      "Manga": 177,
+      "Manhua": 265,
+      "Manhwa": 1140
+    },
+    "taxonomy.Format.slug": {
+      "manga": 177,
+      "manhua": 265,
+      "manhwa": 1140
+    },
+    "taxonomy.Genre.name": {
+      "Action": 1200,
+      "Adult": 4,
+      "Adventure": 824,
+      "Boys' Love": 1,
+      "Comedy": 502
+    },
+    "taxonomy.Genre.slug": {
+      "action": 1200,
+      "adult": 4,
+      "adventure": 824,
+      "boys-love": 1,
+      "comedy": 502
+    },
+    "taxonomy.Type.name": {
+      "Mirror": 1400,
+      "Project": 179
+    },
+    "taxonomy.Type.slug": {
+      "mirror": 1400,
+      "project": 179
+    }
+  }
+}

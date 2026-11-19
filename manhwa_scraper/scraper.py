@@ -1,6 +1,6 @@
 """Orkestrasi pengambilan data dari JSON API Shinigami.
 
-Version: 1.0.0
+Version: 1.1.0
 
 Tugas utama modul ini:
 1. Mengambil halaman manga (list/top) dari API JSON Shinigami.
@@ -8,13 +8,10 @@ Tugas utama modul ini:
 3. Me-merge item yang sama yang muncul di beberapa section (dedup):
    karena `manga/top` mengabaikan taxonomy dan field tambahan, item yang
    berdampingan diisi dari `manga/detail` bila diperlukan.
-4. Mengambil komentar (Waline) secara opsional untuk chapter terbaru.
+4. Mengambil komentar API v2 secara opsional untuk chapter terbaru.
 
-Catatan konfigurasi (hasil verifikasi struktur, lihat README bagian
-"Struktur API"):
-- `manga/top` mengabaikan parameter sort/type dan mengembalikan 10 item
-  teratas yang sama.
-- Hanya `sort` = latest / rating / bookmark yang valid.
+API saat ini memakai offset/limit untuk daftar dan limit/cursor untuk top.
+Scraper mengikuti meta.has_next untuk daftar dan mengambil 10 ranking pertama.
 """
 
 from __future__ import annotations
@@ -24,13 +21,14 @@ from typing import Any, Protocol
 
 from .config import (
     API_BASE,
+    COMMENTS_URL,
     ENDPOINT_MANGA_DETAIL,
     ENDPOINT_MANGA_LIST,
     ENDPOINT_MANGA_TOP,
     LIST_PAGES,
     MAX_PAGE_SIZE,
 )
-from .http import ApiClient
+from .http import ApiClient, ApiClientError
 from .normalize import normalize_detail, normalize_manga_item
 from .parser import parse_comments_payload
 
@@ -45,8 +43,8 @@ class RequestClient(Protocol):
     def polite_delay(self) -> None: ...
 
 
-# URL tempat waline komentar user disimpan.
-WALINE_BASE = "https://commento.shngm.io/comment"
+# Alias endpoint komentar untuk kompatibilitas pemanggil lama.
+WALINE_BASE = COMMENTS_URL  # Alias kompatibilitas untuk pemanggil lama.
 
 # Section title default bila fungsi dipakai tanpa argumen section.
 SECTION_DEFAULT = "Manhwa Terbaru"
@@ -59,11 +57,21 @@ class ShinigamiScraper:
     # ---------------------------------------------------------------- helper
     def _get_data(self, path: str, params: dict[str, Any] | None = None) -> list[dict]:
         """GET endpoint API, kembalikan `data` list (atan [] bila kosong)."""
+        return self._get_page(path, params)["data"]
+
+    def _get_page(self, path: str, params: dict[str, Any] | None = None) -> dict:
         payload = self.client.get_json(API_BASE + path, params=params)
-        if not isinstance(payload, dict):
-            return []
+        if not isinstance(payload, dict) or payload.get("retcode", 0) != 0:
+            raise ApiClientError(f"Respons API gagal untuk {path}: {payload}")
         data = payload.get("data")
-        return data if isinstance(data, list) else []
+        if not isinstance(data, list) or any(not isinstance(row, dict) for row in data):
+            raise ApiClientError(f"Format data API berubah untuk {path}")
+        if any(
+            not (row.get("manga_id") or row.get("id")) or not row.get("title")
+            for row in data
+        ):
+            raise ApiClientError(f"Identitas manga tidak lengkap untuk {path}")
+        return payload
 
     def _detail_map(self, manga_ids: list[str]) -> dict[str, dict]:
         """Ambil taxonomy dari manga/detail untuk id yang belum punya genre."""
@@ -85,39 +93,61 @@ class ShinigamiScraper:
     # --------------------------------------------------------------- fixtures
     def fetch_top(self) -> list[dict]:
         """Ranking teratas (manga/top). Item dari sini tidak membawa taxonomy."""
-        raw = self._get_data(ENDPOINT_MANGA_TOP, {"page": 1, "page_size": 10})
+        raw = self._get_data(ENDPOINT_MANGA_TOP, {"limit": 10})
         items = [normalize_manga_item(r) for r in raw if isinstance(r, dict)]
         # Lenkapi genre/author via detail (top tidak punya taxonomy).
         detail = self._detail_map([it["id"] for it in items])
         for it in items:
             it.update(detail.get(it["id"], {}))
-        return items
+        return deduplicate_items(items)[0]
 
     def _fetch_list_pages(
-        self, sort: str, pages: int = LIST_PAGES, page_size: int = MAX_PAGE_SIZE
+        self, sort: str, pages: int | None = LIST_PAGES, page_size: int = MAX_PAGE_SIZE
     ) -> list[dict]:
         """Gabung beberapa halaman manga/list untuk satu sort."""
+        if pages is not None and pages < 1:
+            raise ValueError("pages harus positif atau None")
+        if not 1 <= page_size <= MAX_PAGE_SIZE:
+            raise ValueError(f"page_size harus antara 1 dan {MAX_PAGE_SIZE}")
         raw: list[dict] = []
-        for page in range(1, pages + 1):
-            items = self._get_data(
+        seen: set[str] = set()
+        offset = 0
+        page = 0
+        while pages is None or page < pages:
+            payload = self._get_page(
                 ENDPOINT_MANGA_LIST,
                 {
-                    "page": page,
-                    "page_size": page_size,
+                    "offset": offset,
+                    "limit": page_size,
                     "sort": sort,
                     "sort_order": "desc",
                 },
             )
+            items = payload["data"]
+            meta = payload.get("meta") or {}
+            has_next = meta.get("has_next")
+            ids = {str(row.get("manga_id") or row.get("id")) for row in items}
+            if (not items and has_next is True) or (items and not ids - seen):
+                raise ApiClientError("Paginasi API tidak maju; hasil tidak disimpan")
+            seen.update(ids)
             raw.extend(items)
-            if len(items) < page_size:
-                break  # halaman terakhir
+            page += 1
+            if has_next is False or (has_next is not True and len(items) < page_size):
+                break
+            offset += len(items)
+            if pages is None or page < pages:
+                self.client.polite_delay()
         return raw
 
-    def fetch_latest(self, pages: int = 1, page_size: int = MAX_PAGE_SIZE) -> list[dict]:
+    def fetch_latest(
+        self, pages: int | None = LIST_PAGES, page_size: int = MAX_PAGE_SIZE
+    ) -> list[dict]:
         raw = self._fetch_list_pages("latest", pages=pages, page_size=page_size)
         return [normalize_manga_item(r) for r in raw if isinstance(r, dict)]
 
-    def fetch_rating(self, pages: int = 1, page_size: int = MAX_PAGE_SIZE) -> list[dict]:
+    def fetch_rating(
+        self, pages: int | None = LIST_PAGES, page_size: int = MAX_PAGE_SIZE
+    ) -> list[dict]:
         raw = self._fetch_list_pages("rating", pages=pages, page_size=page_size)
         return [normalize_manga_item(r) for r in raw if isinstance(r, dict)]
 
@@ -125,16 +155,19 @@ class ShinigamiScraper:
     def fetch_comments(self, manga: dict[str, Any], limit: int = 10) -> list[dict]:
         """Komentar user untuk chapter terbaru manga.
 
-        Waline mengelompokkan komentar per chapter ('chapter/<id>'). Kita
+        API mengelompokkan komentar dengan page_key manga:<id>:chapter:<id>. Kita
         ambil untuk chapter terbaru saja supaya request minimal; jika tidak
         ada path atau gagal, kembalikan [].
         """
-        path = manga.get("_waline_path") or manga.get("_raw_manga_id")
+        path = manga.get("_comment_page_key")
+        if not path and manga.get("_waline_path") and manga.get("id"):
+            chapter_id = manga["_waline_path"].removeprefix("chapter/")
+            path = f"manga:{manga['id']}:chapter:{chapter_id}"
         if not path:
             return []
         try:
             payload = self.client.get_json(
-                WALINE_BASE, params={"path": path, "page": 1, "pageSize": limit}
+                COMMENTS_URL, params={"page_key": path, "offset": 0, "limit": limit}
             )
         except Exception as error:  # noqa: BLE001
             LOGGER.warning("Komentar gagal untuk %s: %s", manga.get("id"), error)
@@ -143,7 +176,7 @@ class ShinigamiScraper:
 
     # ----------------------------------------------------------- fitur utama
     def scrape_section(
-        self, kind: str = "latest", pages: int = LIST_PAGES
+        self, kind: str = "latest", pages: int | None = LIST_PAGES
     ) -> list[dict]:
         """Ambil satu section (latest/rating/top) dengan dedup + enrich.
 
@@ -214,13 +247,13 @@ def attach_comments(
     Hasil komentar di-cache per `id` dalam satu run: bila item yang sama
     muncul di beberapa section (`--kinds top,latest,rating`), komentarnya
     hanya diambil sekali, lalu disalin ke kemunculan lain. Ini menghindari
-    duplicate request ke Waline.
+    duplicate request ke layanan komentar.
     """
     cache: dict[str, list[dict]] = {}
     touched = 0
     for section in sections:
         for item in section.get("items", []):
-            if item.get("_waline_path") or item.get("_raw_manga_id"):
+            if item.get("_comment_page_key") or item.get("_waline_path"):
                 item_id = item.get("id")
                 if item_id in cache:
                     if cache[item_id]:

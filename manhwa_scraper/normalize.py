@@ -162,6 +162,7 @@ def normalize_manga_item(raw: Mapping[str, Any]) -> dict:
     # Path waline komentar (internal, tidak diekspor ke skema)
     chapter_uuid = clean_text(raw.get("latest_chapter_id"))
     if chapter_uuid:
+        item["_comment_page_key"] = f"manga:{manga_id}:chapter:{chapter_uuid}"
         item["_waline_path"] = f"chapter/{chapter_uuid}"
         item["_raw_manga_id"] = manga_id
 

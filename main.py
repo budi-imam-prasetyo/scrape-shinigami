@@ -1,8 +1,8 @@
 """CLI entry point scraper metadata manga Shinigami.
 
-Version: 1.0.0
+Version: 1.1.0
 
-Sumber: JSON API publik Shinigami (https://api.shngm.io). Tidak ada
+Sumber: JSON API publik Shinigami (https://api.shinigami.io). Tidak ada
 parsing HTML situs; semua data adalah metadata (judul, sinopsis, rating,
 genre, author, artist, dst) — bukan isi/chapter komik.
 """
@@ -106,7 +106,7 @@ def main(argv=None) -> int:
     parser.add_argument(
         "--with-comments",
         action="store_true",
-        help="Ambil 10 komentar user (Waline) untuk chapter terbaru tiap item. "
+        help="Ambil 10 komentar user untuk chapter terbaru tiap item. "
         "Menambah request per item; gunakan bijak.",
     )
     parser.add_argument("--min-delay", type=float, default=1.0)
