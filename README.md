@@ -132,6 +132,8 @@ komentar baru/Waline, dedup, cache, validasi schema, dan penyimpanan atomic.
 
 Workflow `.github/workflows/refresh.yml` menjalankan tes, scraper, validasi,
 dan commit hasil setiap 18:00 UTC (01:00 WIB), atau lewat `workflow_dispatch`.
+Runner memakai `ubuntu-24.04-arm` untuk menggunakan pool berbeda dari runner
+x64 AWS us-west-2 yang mendapat 403 Cloudflare pada run yang diperiksa.
 Log scraper tersedia pada artifact `scraper-diagnostics` selama tujuh hari,
 termasuk saat gagal. Dispatch pada branch selain `main` menjalankan tes dan
 scrape tanpa menerbitkan hasil branch ke `main`.

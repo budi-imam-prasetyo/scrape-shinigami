@@ -15,7 +15,9 @@ concurrency:
 
 jobs:
   refresh:
-    runs-on: ubuntu-24.04
+    # x64 runs in AWS us-west-2 consistently received Cloudflare 403.
+    # Use the standard ARM pool; the scraper and dependencies support arm64.
+    runs-on: ubuntu-24.04-arm
     timeout-minutes: 15
     steps:
       - name: Checkout
