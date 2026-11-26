@@ -9,6 +9,7 @@ permanen (404 dst).
 
 import sys
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 
 import requests
@@ -88,6 +89,60 @@ class TestApiClient(unittest.TestCase):
         data = client.get_json("https://x/api")
         self.assertEqual(data, {"data": [1]})
         self.assertEqual(session.calls, 2)
+
+    def test_forbidden_is_fatal_by_default(self):
+        session = StubSession()
+        session.responses = [JsonResponse({}, status_code=403)]
+        with self.assertRaises(ApiClientError):
+            ApiClient(session=session).get_json("https://x/api")
+        self.assertEqual(session.calls, 1)
+
+    @patch("manhwa_scraper.http.time.sleep")
+    def test_ci_forbidden_retries_then_succeeds(self, sleep):
+        for method in ("get_json", "get_text"):
+            with self.subTest(method=method):
+                session = StubSession()
+                session.responses = [JsonResponse({}, 403), JsonResponse({"data": []})]
+                client = ApiClient(session=session, retry_forbidden=True)
+                getattr(client, method)("https://x/api")
+                self.assertEqual(session.calls, 2)
+
+    @patch("manhwa_scraper.http.time.sleep")
+    def test_permanent_forbidden_still_fails_after_limit(self, sleep):
+        session = StubSession()
+        session.responses = [JsonResponse({}, 403) for _ in range(3)]
+        client = ApiClient(session=session, retry_forbidden=True, max_retries=3)
+        with self.assertRaisesRegex(ApiClientError, "403"):
+            client.get_json("https://x/api")
+        self.assertEqual(session.calls, 3)
+        self.assertEqual(sleep.call_count, 2)
+
+    @patch("manhwa_scraper.http.time.sleep")
+    def test_ci_does_not_retry_other_permanent_errors(self, sleep):
+        for status in (400, 401, 404):
+            with self.subTest(status=status):
+                session = StubSession()
+                session.responses = [JsonResponse({}, status)]
+                with self.assertRaises(ApiClientError):
+                    ApiClient(session=session, retry_forbidden=True).get_json("https://x/api")
+                self.assertEqual(session.calls, 1)
+        sleep.assert_not_called()
+
+    def test_failure_logs_only_allowlisted_headers(self):
+        session = StubSession()
+        response = JsonResponse({"secret": "private-body"}, 403)
+        response.headers = requests.structures.CaseInsensitiveDict({
+            "Server": "cloudflare", "CF-Ray": "test-ray", "CF-Mitigated": "challenge",
+            "Set-Cookie": "private-cookie", "Authorization": "private-token",
+        })
+        session.responses = [response]
+        with self.assertLogs("manhwa_scraper.http", level="WARNING") as logs:
+            with self.assertRaises(ApiClientError):
+                ApiClient(session=session).get_json("https://x/api")
+        message = " ".join(logs.output)
+        self.assertIn("cf-ray=test-ray", message)
+        self.assertIn("cf-mitigated=challenge", message)
+        self.assertNotIn("private-", message)
 
 
 if __name__ == "__main__":

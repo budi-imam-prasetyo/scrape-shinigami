@@ -40,6 +40,7 @@ def run(args) -> int:
         max_retries=args.max_retries,
         backoff_base=args.backoff_base,
         delays=(args.min_delay, args.max_delay),
+        retry_forbidden=args.retry_forbidden,
     )
     scraper = ShinigamiScraper(client=client)
 
@@ -113,6 +114,11 @@ def main(argv=None) -> int:
     parser.add_argument("--max-delay", type=float, default=2.0)
     parser.add_argument("--max-retries", type=int, default=3)
     parser.add_argument("--backoff-base", type=float, default=2.0)
+    parser.add_argument(
+        "--retry-forbidden",
+        action="store_true",
+        help="Coba ulang HTTP 403 dengan batas --max-retries (untuk blokir sementara CI).",
+    )
     args = parser.parse_args(argv)
     return run(args)
 

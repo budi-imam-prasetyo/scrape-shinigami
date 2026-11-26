@@ -57,6 +57,13 @@ class _FatalStatus(Exception):
         self.status = status
 
 
+def _response_diagnostic(resp: Any) -> str:
+    """Hanya header diagnostik publik; jangan log cookie/token/body respons."""
+    headers = getattr(resp, "headers", {})
+    names = ("server", "content-type", "cf-ray", "cf-mitigated", "retry-after")
+    return ", ".join(f"{name}={headers[name]}" for name in names if headers.get(name))
+
+
 def _backoff_sleep(attempt, last_error, url, max_retries, backoff_base) -> None:
     sleep = backoff_base**attempt + random.uniform(0, 1)
     LOGGER.warning(
@@ -77,11 +84,26 @@ class ApiClient:
         max_retries: int = 3,
         backoff_base: float = 2.0,
         delays: tuple[float, float] = (1.0, 2.0),
+        retry_forbidden: bool = False,
     ) -> None:
         self.session = session or new_session()
         self.max_retries = max_retries
         self.backoff_base = backoff_base
         self.delays = delays
+        # API publik kadang memberi 403 sementara pada runner GitHub.
+        # Opt-in: 403 otorisasi biasa tetap langsung gagal secara default.
+        self.retry_forbidden = retry_forbidden
+
+    def _check_status(self, resp: Any, url: str) -> None:
+        status = resp.status_code
+        if status < 400:
+            return
+        diagnostic = _response_diagnostic(resp)
+        if diagnostic:
+            LOGGER.warning("HTTP %s untuk %s (%s)", status, url, diagnostic)
+        if status in RETRYABLE_STATUS or (status == 403 and self.retry_forbidden):
+            raise _RetryableStatus(url, status)
+        raise _FatalStatus(url, status)
 
     def get_json(self, url: str, params: dict[str, Any] | None = None) -> Any:
         """GET dan kembalikan body JSON terurai.
@@ -93,11 +115,7 @@ class ApiClient:
         for attempt in range(1, self.max_retries + 1):
             try:
                 resp = self.session.get(url, params=params, timeout=(10, 30))
-                if resp.status_code in RETRYABLE_STATUS:
-                    raise _RetryableStatus(url, resp.status_code)
-                # 4xx non-retryable: jangan coba ulang.
-                if resp.status_code >= 400:
-                    raise _FatalStatus(url, resp.status_code)
+                self._check_status(resp, url)
                 return resp.json()
             except _RetryableStatus as error:
                 last_error = error
@@ -126,10 +144,7 @@ class ApiClient:
         for attempt in range(1, self.max_retries + 1):
             try:
                 resp = self.session.get(url, params=params, timeout=(10, 30))
-                if resp.status_code in RETRYABLE_STATUS:
-                    raise _RetryableStatus(url, resp.status_code)
-                if resp.status_code >= 400:
-                    raise _FatalStatus(url, resp.status_code)
+                self._check_status(resp, url)
                 return resp.text
             except _RetryableStatus as error:
                 last_error = error

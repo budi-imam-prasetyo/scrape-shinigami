@@ -38,12 +38,27 @@ jobs:
         run: python -m unittest discover -s tests -v
 
       - name: Run scraper
-        run: python main.py --output manhwa.json --max-retries 5 --backoff-base 3.0
+        timeout-minutes: 10
+        shell: bash
+        run: |
+          set -o pipefail
+          python main.py --output manhwa.json --max-retries 5 --backoff-base 3.0 --retry-forbidden 2>&1 | tee "$RUNNER_TEMP/scraper.log"
+
+      - name: Upload scraper diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: scraper-diagnostics
+          path: ${{ runner.temp }}/scraper.log
+          if-no-files-found: ignore
+          retention-days: 7
 
       - name: Validate JSON
         run: python -m json.tool manhwa.json > /dev/null
 
       - name: Commit and push if changed
+        # Dispatch branch digunakan untuk uji; jangan terbitkan kode branch ke main.
+        if: github.ref == 'refs/heads/main'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"

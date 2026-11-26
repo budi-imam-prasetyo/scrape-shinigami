@@ -44,6 +44,7 @@ python3 main.py --output manhwa.json --with-comments
 | `--min-delay`, `--max-delay` | `1.0`, `2.0` | Jeda acak dalam detik |
 | `--max-retries` | `3` | Jumlah percobaan request |
 | `--backoff-base` | `2.0` | Basis exponential backoff |
+| `--retry-forbidden` | off | Retry 403 sementara sampai batas `--max-retries` (dipakai CI) |
 | `--version` | — | Tampilkan versi |
 
 Request serial; jeda diterapkan antar halaman katalog, pengambilan detail,
@@ -108,6 +109,10 @@ boleh muncul di section berbeda. Komentar di-cache per ID selama satu run.
 
 - HTTP 429/500/502/503/504 dan kegagalan jaringan dicoba ulang dengan backoff.
   Error 4xx permanen langsung gagal.
+- CI mengaktifkan `--retry-forbidden`: respons 403 sementara dicoba ulang
+  dengan backoff, maksimal lima percobaan. Jika tetap diblokir, job gagal
+  dan katalog lama tidak diganti. Header diagnostik publik (server,
+  content-type, cf-ray, cf-mitigated, retry-after) dicatat tanpa body/cookie.
 - `retcode` gagal, struktur daftar berubah, identitas manga kosong, atau
   paginasi berulang menyebabkan proses gagal agar hasil parsial tidak
   menggantikan katalog lama.
@@ -127,6 +132,9 @@ komentar baru/Waline, dedup, cache, validasi schema, dan penyimpanan atomic.
 
 Workflow `.github/workflows/refresh.yml` menjalankan tes, scraper, validasi,
 dan commit hasil setiap 18:00 UTC (01:00 WIB), atau lewat `workflow_dispatch`.
+Log scraper tersedia pada artifact `scraper-diagnostics` selama tujuh hari,
+termasuk saat gagal. Dispatch pada branch selain `main` menjalankan tes dan
+scrape tanpa menerbitkan hasil branch ke `main`.
 
 ## Modul
 
